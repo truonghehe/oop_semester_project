@@ -9,5 +9,8 @@
         <module name="my-app" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="httpclient-maven-plugin" target="20" />
+    </bytecodeTargetLevel>
   </component>
 </project>
