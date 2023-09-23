@@ -3,21 +3,22 @@ package com.mycompany.app;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DictionaryCommandline {
-    private static Scanner sc = new Scanner(System.in);
+public class DictionaryCommandline extends Dictionary {
+    private static final Scanner sc = new Scanner(System.in);
     public static void showAllWords() {
             System.out.println("No | English    | Vietnamese");
             System.out.println("____________________________");
-        for (int i = 0; i < DictionaryManagement.Dictionary.size(); i++) {
+        for (int i = 0; i < dictionary.size(); i++) {
             int number = i + 1;
-            String english = DictionaryManagement.Dictionary.get(i).getWord_target();
-            String vietnamese = DictionaryManagement.Dictionary.get(i).getWord_explain();
+            String english = dictionary.get(i).getWord_target();
+            String vietnamese = dictionary.get(i).getWord_explain();
 
             System.out.printf("%-2d | %-10s | %s%n", number, english, vietnamese);
         }
     }
-    public static void dictionaryBasic() {
-        DictionaryManagement.insertFromCommandline();
+    public static void dictionaryBasic() throws IOException {
+        DictionaryManagement.insertFromFile();
+        //DictionaryManagement.insertFromCommandline();
         showAllWords();
     }
     public static void dictionarySearcher() {
@@ -39,6 +40,11 @@ public class DictionaryCommandline {
         switch (sc.nextInt()){
             case 0 -> System.exit(0);
             case 1 -> DictionaryManagement.add_word();
+            case 2 -> DictionaryManagement.delete_word();
+            case 3 -> DictionaryManagement.update_word();
+            case 4 -> DictionaryCommandline.showAllWords();
+            case 5 -> DictionaryManagement.dictionaryLookup();
+
         }
 
     }
