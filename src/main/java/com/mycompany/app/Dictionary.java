@@ -7,4 +7,5 @@ public class Dictionary {
         dictionary = new ArrayList<Word>() ;
     }
     public static ArrayList<Word> dictionary ;
+
 }

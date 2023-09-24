@@ -1,2 +1,2 @@
-Hello	Xin chao
-Morning	Buoi sang
+apple    qua tao
+yellow    mau xanh
