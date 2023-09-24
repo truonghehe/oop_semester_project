@@ -17,35 +17,45 @@ public class DictionaryCommandline extends Dictionary {
         }
     }
     public static void dictionaryBasic() throws IOException {
-        DictionaryManagement.insertFromFile();
-        //DictionaryManagement.insertFromCommandline();
+//        DictionaryManagement.insertFromFile();
+        DictionaryManagement.insertFromCommandline();
         showAllWords();
     }
     public static void dictionarySearcher() {
 
     }
     public static void dictionaryAdvanced() throws IOException {
-        System.out.println("Welcome to my application! " +
-                "\n [0] Exit appication " +
-                "\n [1] Add word " +
-                "\n [2] Remove word " +
-                "\n [3] Update word " +
-                "\n [4] Display the whole dictionary " +
-                "\n [5] lookup word" +
-                "\n [6] Search word " +
-                "\n [7] Game " +
-                "\n [8] Import from file" +
-                "\n [9] Export from file" +
-                "\n Your action: ");
-        switch (sc.nextInt()){
-            case 0 -> System.exit(0);
-            case 1 -> DictionaryManagement.add_word();
-            case 2 -> DictionaryManagement.delete_word();
-            case 3 -> DictionaryManagement.update_word();
-            case 4 -> DictionaryCommandline.showAllWords();
-            case 5 -> DictionaryManagement.dictionaryLookup();
+        //insert english and vietnamese words
+        DictionaryManagement.insertFromFile();
+        //main loop
+        System.out.print("Welcome to my application! ");
+        while (true) {
 
+            System.out.println(
+                    "\n [0] Exit appication " +
+                    "\n [1] Add word " +
+                    "\n [2] Remove word " +
+                    "\n [3] Update word " +
+                    "\n [4] Display the whole dictionary " +
+                    "\n [5] lookup word" +
+                    "\n [6] Search word " +
+                    "\n [7] Game " +
+                    "\n [8] Import from file" +
+                    "\n [9] Export to file" +
+                    "\n Your action: ");
+            switch (sc.nextInt()){
+                case 0 -> {
+                    DictionaryManagement.dictionaryExportToFile();
+                    System.exit(0);
+                }
+                case 1 -> DictionaryManagement.add_word();
+                case 2 -> DictionaryManagement.delete_word();
+                case 3 -> DictionaryManagement.update_word();
+                case 4 -> DictionaryManagement.showAllWords();
+                case 5 -> DictionaryManagement.dictionaryLookup();
+                case 8 -> DictionaryManagement.insertFromFile();
+                case 9 -> DictionaryManagement.dictionaryExportToFile();
+            }
         }
-
     }
 }
