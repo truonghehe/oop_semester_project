@@ -1,2 +1,364 @@
-apple    qua tao
-yellow    mau xanh
+apple		quả táo
+banana		quả chuối
+cat		mèo
+dog		chó
+house		nhà
+table		bàn
+chair		ghế
+red		màu đỏ
+blue		màu xanh dương
+green		màu xanh lá cây
+yellow		màu vàng
+orange		màu cam
+book		sách
+pen		bút
+computer	máy tính
+keyboard	bàn phím
+mouse		chuột máy tính
+phone		điện thoại
+window		cửa sổ
+door		cửa
+teacher		giáo viên
+student		học sinh
+university	trường đại học
+restaurant	nhà hàng
+food		đồ ăn
+water		nước
+coffee		cà phê
+flower		hoa
+garden		vườn
+car		xe hơi
+bike		xe đạp
+airplane	máy bay
+train		xe lửa
+bus		xe buýt
+tree		cây
+mountain	núi
+river		sông
+beach		bãi biển
+cloud		mây
+sun		mặt trời
+moon		mặt trăng
+star		ngôi sao
+music		nhạc
+movie		phim
+television	điện thoại
+school		trường học
+hospital	bệnh viện
+park		công viên
+family		gia đình
+friend		bạn
+birthday	sinh nhật
+holiday		kỳ nghỉ
+city		thành phố
+country		đất nước
+language	ngôn ngữ
+computer	máy tính
+internet	mạng internet
+shirt		áo sơ mi
+pants		quần
+shoes		giày
+hat		mũ
+jacket		áo khoác
+socks		tất
+dress		đầm
+guitar		gi-ta
+violin		vi-ô-lông
+piano		dương cầm
+horse		ngựa
+cow		bò
+sheep		cừu
+elephant	voi
+lion		sư tử
+tiger		hổ
+zebra		ngựa vằn
+giraffe		hươu cao cổ
+snake		rắn
+fish		cá
+whale		cá voi
+dolphin		cá heo
+butterfly	bướm
+bee		ong
+ant		kiến
+spider		người máy
+bird		chim
+eagle		đại bàng
+ocean		đại dương
+mountain	núi
+forest		rừng
+desert		sa mạc
+lake		hồ
+river		sông
+waterfall	thác nước
+volcano		núi lửa
+flower		cây hoa
+grass		cỏ
+sky		bầu trời
+earth		trái đất
+moon		mặt trăng
+sun		mặt trời
+wind		gió
+rain		mưa
+snow		tuyết
+ice		băng
+fire		lửa
+beach		bãi biển
+island		hòn đảo
+city		thành phố
+town		thị trấn
+village	ngôi làng
+road		con đường
+street		đường phố
+bridge		cây cầu
+river		sông
+lake		hồ
+ocean		đại dương
+mountain	núi
+hill		núi đồi
+valley		thung lũng
+forest		rừng
+jungle		rừng nhiệt đới
+desert		sa mạc
+canyon		hẻm núi
+waterfall	thác nước
+cave		hàng động
+beach		bãi biển
+sand		cát
+rock		đá
+stone		hòn đá
+cliff		vách đá
+flower		cây hoa
+rose		hoa hồng
+tulip		hoa tulip
+daisy		cúc dại
+lily		hoa ly
+sunflower	hoa hướng dương
+orchid		hoa lan
+palm		cây cọ
+pine		cây thông
+oak		cây sồi
+maple		cây phong
+willow		cây liễu
+birch		cây bạch đàn
+fir		cây thông tuyết
+cedar		cây tuya
+cypress		cây sồi
+olive		cây ôliu
+acacia		cây keo
+lotus		hoa sen
+peony		hoa mẫu đơn
+magnolia	hoa mộc lan
+violet		cây tử đinh hương
+lavender	cây oải hương
+iris		cây iris
+lilac		cây tử đinh hương
+jasmine		hoa nhài
+daffodil	hoa thủy tiên
+sun		mặt trời
+moon		mặt trăng
+star		ngôi sao
+comet		sao băng
+planet		hành tinh
+galaxy		galaxy
+universe	vũ trụ
+asteroid		hành tinh nhỏ
+meteor		meteor
+meteorite		tiểu hành tinh
+satellite		vệ tinh
+astronaut		phi hành gia
+rocket		tên lửa
+space		không gian
+atmosphere	khí quyển
+gravity		trọng lực
+vacuum		hàng không
+asteroid		ngôi sao biển đông
+constellation	chòm sao
+eclipse		nhật thực
+solar system	hệ mặt trời
+telescope	kính thiên văn
+observatory	trạm quan sát
+nebula		xa quang
+black hole	lỗ đen
+wormhole		rừng lỗ
+space station	trạm không gian
+astronaut		phi hành gia
+rocket		tên lửa
+alien		những người ngoài hành tinh
+spaceship		tàu vũ trụ
+science		khoa học
+chemistry		hóa học
+biology		sinh học
+physics		vật lý học
+mathematics		toán học
+astronomy		thiên văn học
+geology		địa chất học
+ecology		sinh thái học
+genetics		sinh học phân tử
+medicine		y học
+psychology		tâm lý học
+sociology		xã hội học
+anthropology	nhân loại học
+history		lịch sử
+archaeology	khảo cổ học
+philosophy	triết học
+literature		văn học
+art		nghệ thuật
+music		nhạc
+dance		vũ điệu
+theater		kịch nghệ
+film		phim
+painting		hội họa
+sculpture		tượng điêu khắc
+photography		nhiếp ảnh
+architecture	kiến trúc
+poetry		thơ
+novel		tiểu thuyết
+drama		kịch
+comedy		hài kịch
+tragedy		kịch bi kịch
+opera		óp ra
+ballet		ba lê
+symphony		symphony
+concert		hòa nhạc
+orchestra		đoàn nhạc
+choir		hợp xướng
+musician		nhạc sĩ
+composer		nhà soạn nhạc
+conductor		dirigent
+actor		diễn viên
+actress		nữ diễn viên
+director		đạo diễn
+producer		người sản xuất
+script		kịch bản
+stage		sân khấu
+set		bộ đồ nền
+costume		trang phục
+makeup		phấn trang điểm
+camera		máy quay phim
+audience		người xem
+ticket		ve
+applause		tiếng vỗ tay
+theater		rạp chiếu bóng
+screen		màn hình
+film		phim
+actor		diễn viên
+actress		nữ diễn viên
+director		đạo diễn
+producer		người sản xuất
+script		kịch bản
+stage		sân khấu
+set		bộ đồ nền
+costume		trang phục
+makeup		phấn trang điểm
+camera		máy quay phim
+audience		người xem
+ticket		ve
+applause		tiếng vỗ tay
+theater		rạp chiếu bóng
+screen		màn hình
+music		nhạc
+dance		vũ điệu
+theater		kịch nghệ
+film		phim
+painting		hội họa
+sculpture		tượng điêu khắc
+photography		nhiếp ảnh
+architecture	kiến trúc
+poetry		thơ
+novel		tiểu thuyết
+drama		kịch
+comedy		hài kịch
+tragedy		kịch bi kịch
+opera		óp ra
+ballet		ba lê
+symphony		symphony
+concert		hòa nhạc
+orchestra		đoàn nhạc
+choir		hợp xướng
+musician		nhạc sĩ
+composer		nhà soạn nhạc
+conductor		dirigent
+athlete		vận động viên
+sports		thể thao
+soccer		bóng đá
+basketball		bóng rổ
+tennis		quần vợt
+golf		gôn
+swimming		bơi lội
+running		chạy
+cycling		đi xe đạp
+boxing		quyền anh
+wrestling		vật
+gymnastics		điệu nghệ
+skiing		trượt tuyết
+snowboarding	trượt tuyết
+skating		patin
+surfing		lướt sóng
+horseback riding	đi xe ngựa
+sailing		du thuyền
+fishing		câu cá
+hiking		đi bộ đường dài
+camping		cắm trại
+mountaineering	leo núi
+canoeing		đi cayak
+kayaking		đi thuyền kayak
+rafting		đi bè
+rowing		đi thuyền đẩy
+bungee jumping	đi nhảy dây
+skydiving		nhảy dù
+parachuting		nhảy dù
+scuba diving	lặn biển
+snorkeling		lặn mặt biển
+surfing		lướt sóng
+windsurfing		lướt gió
+kiteboarding	lướt cánh diều
+rock climbing	leo núi đá
+caving		lấn hang
+archery		bắn cung
+fencing		đấu kiếm
+weightlifting	đánh cân
+powerlifting	đấu tạ
+bodybuilding		xây dựng cơ bắp
+yoga		yoga
+pilates		pilates
+meditation		thiền
+relaxation		thư giãn
+massage		mát-xa
+spa		spa
+sauna		xông hơi
+steam room		phòng hơi
+hot tub		bồn tắm nước nóng
+fitness		căng thể
+health		sức khỏe
+wellness		sức khỏe tổng thể
+nutrition		dinh dưỡng
+diet		chế độ ăn
+exercise		tập thể dục
+strength		sức mạnh
+flexibility		linh hoạt
+endurance		sức chịu đựng
+balance		cân bằng
+coordination		phối hợp
+agility		nhanh nhẹn
+speed		tốc độ
+stamina		sức bền
+relaxation		thư giãn
+sleep		giấc ngủ
+rest		nghỉ ngơi
+energy		năng lượng
+vitality		sinh lực
+happiness		hạnh phúc
+laughter		tiếng cười
+joy		vui sướng
+love		tình yêu
+peace		hòa bình
+tranquility		bình yên
+serenity		thanh bình
+contentment		hài lòng
+gratitude		lòng biết ơn
+kindness		tốt lành
+compassion		từ bi
+empathy		sự đồng cảm
+patience		kiên nhẫn
+tolerance		sự khoan dung
+forgiveness		sự tha thứ
