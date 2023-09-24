@@ -15,6 +15,9 @@ public class DictionaryManagement extends Dictionary{
         }
     }
     public static void insertFromFile()  {
+        if ( dictionary == null){
+            dictionary = new ArrayList<>() ;
+        }
         try  {
             FileReader reader = new FileReader("word_list.txt");
             BufferedReader bufferedReader = new BufferedReader(reader);
@@ -52,6 +55,7 @@ public class DictionaryManagement extends Dictionary{
                 word += value.getWord_target() + "    " + value.getWord_explain() + "\n";
             }
             bufferedWriter.write(word);
+            bufferedWriter.close() ;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -68,6 +72,8 @@ public class DictionaryManagement extends Dictionary{
         String english_word = sc.nextLine();
         System.out.println("Enter the word translated to vietnamese: ");
         String vietnamese_word = sc.nextLine();
+        english_word.toLowerCase();
+        vietnamese_word.toLowerCase();
         dictionary.add(new Word(english_word,vietnamese_word));
     }
     public static void update_word() {

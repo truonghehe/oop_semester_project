@@ -17,7 +17,7 @@ public class DictionaryCommandline extends Dictionary {
         }
     }
     public static void dictionaryBasic() throws IOException {
-        DictionaryManagement.insertFromFile();
+        //DictionaryManagement.insertFromFile();
         //DictionaryManagement.insertFromCommandline();
         showAllWords();
     }
@@ -38,14 +38,17 @@ public class DictionaryCommandline extends Dictionary {
                 "\n [9] Export from file" +
                 "\n Your action: ");
         switch (sc.nextInt()){
-            case 0 -> System.exit(0);
+            case 0 -> {
+                DictionaryManagement.dictionaryExportToFile();
+                System.exit(0);
+            }
             case 1 -> DictionaryManagement.add_word();
             case 2 -> DictionaryManagement.delete_word();
             case 3 -> DictionaryManagement.update_word();
-            case 4 -> DictionaryCommandline.showAllWords();
+            case 4 -> DictionaryCommandline.dictionaryBasic();
             case 5 -> DictionaryManagement.dictionaryLookup();
-
         }
+        dictionaryAdvanced();
 
     }
 }

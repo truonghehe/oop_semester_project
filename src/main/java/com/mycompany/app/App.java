@@ -9,9 +9,9 @@ public class App
 {
     public static void main( String[] args ) throws IOException
     {
+
         DictionaryManagement.insertFromFile();
         DictionaryCommandline.dictionaryAdvanced();
-        DictionaryManagement.dictionaryExportToFile();
         try {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             String url = "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x9477460179f0a481c9d30d1af177ee865d54ca49";
