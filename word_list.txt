@@ -1,3 +1,4 @@
 Play    Choi
 Hello    Xin chao
 Morning    Buoi sang
+answer    tra loi

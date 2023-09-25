@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class DictionaryCommandline extends Dictionary {
     private static final Scanner sc = new Scanner(System.in);
-    public static void showAllWords() {
+    public static void showAllWords() throws IOException {
             System.out.println("No | English    | Vietnamese");
             System.out.println("____________________________");
         for (int i = 0; i < dictionary.size(); i++) {
@@ -15,11 +15,16 @@ public class DictionaryCommandline extends Dictionary {
 
             System.out.printf("%-2d | %-10s | %s%n", number, english, vietnamese);
         }
-    }
-    public static void dictionaryBasic() throws IOException {
-        //DictionaryManagement.insertFromFile();
-        //DictionaryManagement.insertFromCommandline();
-        showAllWords();
+        System.out.println("Back to Menu or Exit:" );
+        Scanner scanner = new Scanner(System.in) ;
+        String ans = scanner.nextLine() ;
+        while (!ans.equals("B") && !ans.equals("b") && !ans.equals("E") && !ans.equals("e")  ){
+            System.out.println("Action not supported" );
+            ans = scanner.nextLine() ;
+        }
+        if ( ans.equals("E") || ans.equals("e")){
+            System.exit(0);
+        }
     }
     public static void dictionarySearcher() {
 
@@ -39,16 +44,18 @@ public class DictionaryCommandline extends Dictionary {
                 "\n Your action: ");
         switch (sc.nextInt()){
             case 0 -> {
-                DictionaryManagement.dictionaryExportToFile();
+                DictionaryManagement.dictionaryExportToFile("word_list.txt");
                 System.exit(0);
             }
             case 1 -> DictionaryManagement.add_word();
             case 2 -> DictionaryManagement.delete_word();
             case 3 -> DictionaryManagement.update_word();
-            case 4 -> DictionaryCommandline.dictionaryBasic();
+            case 4 -> DictionaryCommandline.showAllWords();
             case 5 -> DictionaryManagement.dictionaryLookup();
+            case 6 -> DictionaryCommandline.dictionarySearcher();
+            case 8 -> DictionaryManagement.dictionaryImportFromFile();
+            case 9 -> DictionaryManagement.dictionaryExportToFile();
         }
         dictionaryAdvanced();
-
     }
 }
