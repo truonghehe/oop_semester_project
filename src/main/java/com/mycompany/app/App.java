@@ -17,7 +17,7 @@ public class App
         try {
             String langTo = "en";
             String langFrom = "vi";
-            String text = "con em trường, tau thật là yêu êm";
+            String text = "Xin chào tất cả ae thương mến :)))";
             String urlStr = "https://script.google.com/macros/s/AKfycbxiQVsKyWiGXFDU8LeW-fi9KfS0ZIE01ovCpDUJkbJL0-3R6lw/exec" +
                     "?q=" + URLEncoder.encode(text, "UTF-8") +
                     "&target=" + langTo +
