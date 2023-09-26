@@ -5,16 +5,24 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import java.io.IOException;
+import java.net.URLEncoder;
+
 public class App
 {
     public static void main( String[] args ) throws IOException
     {
-        DictionaryManagement.dictionaryImportFromFile("word_list.txt");
-        DictionaryCommandline.dictionaryAdvanced();
+//        DictionaryManagement.dictionaryImportFromFile("word_list.txt");
+//        DictionaryCommandline.dictionaryAdvanced();
         try {
+            String langTo = "en";
+            String langFrom = "vi";
+            String text = "con em trường, tau thật là yêu êm";
+            String urlStr = "https://script.google.com/macros/s/AKfycbxiQVsKyWiGXFDU8LeW-fi9KfS0ZIE01ovCpDUJkbJL0-3R6lw/exec" +
+                    "?q=" + URLEncoder.encode(text, "UTF-8") +
+                    "&target=" + langTo +
+                    "&source=" + langFrom;
             CloseableHttpClient httpClient = HttpClients.createDefault();
-            String url = "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x9477460179f0a481c9d30d1af177ee865d54ca49";
-            HttpGet httpGet = new HttpGet(url);
+            HttpGet httpGet = new HttpGet(urlStr);
             CloseableHttpResponse response = httpClient.execute(httpGet);
             String responseBody = EntityUtils.toString(response.getEntity());
             System.out.println("\nResponse: " + responseBody);
