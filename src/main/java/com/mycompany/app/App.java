@@ -11,7 +11,6 @@ public class App
     {
         DictionaryManagement.dictionaryImportFromFile("word_list.txt");
         DictionaryCommandline.dictionaryAdvanced();
-        DictionaryManagement.dictionaryExportToFile("word_list.txt");
         try {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             String url = "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x9477460179f0a481c9d30d1af177ee865d54ca49";
