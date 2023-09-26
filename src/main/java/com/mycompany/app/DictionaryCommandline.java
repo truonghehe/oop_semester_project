@@ -17,7 +17,6 @@ public class DictionaryCommandline extends Dictionary {
         }
     }
     public static void dictionaryBasic() throws IOException {
-//        DictionaryManagement.insertFromFile();
         DictionaryManagement.insertFromCommandline();
         showAllWords();
     }
@@ -26,7 +25,7 @@ public class DictionaryCommandline extends Dictionary {
     }
     public static void dictionaryAdvanced() throws IOException {
         //insert english and vietnamese words
-        DictionaryManagement.insertFromFile();
+        DictionaryManagement.dictionaryImportFromFile("word_list.txt");
         //main loop
         System.out.print("Welcome to my application! ");
         while (true) {
@@ -45,7 +44,7 @@ public class DictionaryCommandline extends Dictionary {
                     "\n Your action: ");
             switch (sc.nextInt()){
                 case 0 -> {
-                    DictionaryManagement.dictionaryExportToFile();
+                    DictionaryManagement.dictionaryExportToFile("word_list.txt");
                     System.exit(0);
                 }
                 case 1 -> DictionaryManagement.add_word();
@@ -53,7 +52,7 @@ public class DictionaryCommandline extends Dictionary {
                 case 3 -> DictionaryManagement.update_word();
                 case 4 -> DictionaryManagement.showAllWords();
                 case 5 -> DictionaryManagement.dictionaryLookup();
-                case 8 -> DictionaryManagement.insertFromFile();
+                case 8 -> DictionaryManagement.dictionaryImportFromFile();
                 case 9 -> DictionaryManagement.dictionaryExportToFile();
             }
         }

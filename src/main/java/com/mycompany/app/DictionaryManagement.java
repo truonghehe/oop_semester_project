@@ -130,10 +130,10 @@ public class DictionaryManagement extends Dictionary {
     /**
      * function 8: insert words from file "word_list.tt" to word array
      */
-    public static void insertFromFile () {
+    public static void dictionaryImportFromFile (String path) {
         try {
             dictionary = new ArrayList<>();
-            FileReader reader = new FileReader("word_list.txt");
+            FileReader reader = new FileReader(path);
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -146,20 +146,30 @@ public class DictionaryManagement extends Dictionary {
             throw new RuntimeException(e);
         }
     }
+    public static void dictionaryImportFromFile (){
+        Scanner input = new Scanner(System.in) ;
+        String path = input.nextLine() ;
+        dictionaryImportFromFile(path);
+    }
     /**
      * function 9: export Word array to "word_list.txt" file
      */
-    public static void dictionaryExportToFile () {
-        try (FileWriter writer = new FileWriter("word_list.txt");
+    public static void dictionaryExportToFile (String path) {
+        try (FileWriter writer = new FileWriter(path);
              BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             for (Word value : dictionary) {
                 String word = value.getWord_target() + "    " + value.getWord_explain() + "\n";
                 bufferedWriter.write(word);
             }
-            System.out.println("exported to file \"word_list.txt\"");
+            System.out.println("exported to file \"" + path +"\"");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+    public static void dictionaryExportToFile (){
+        Scanner input = new Scanner(System.in) ;
+        String path = input.nextLine() ;
+        dictionaryExportToFile(path);
     }
 
     /**
