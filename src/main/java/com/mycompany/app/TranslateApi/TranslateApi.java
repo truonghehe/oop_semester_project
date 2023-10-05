@@ -8,36 +8,41 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class TranslateApi {
-    private int num_request = 0;
+    private int numRequests = 0;
+    private static final String TRANSLATE_API_URL = "https://script.google.com/macros/s/AKfycbxiQVsKyWiGXFDU8LeW-fi9KfS0ZIE01ovCpDUJkbJL0-3R6lw/exec";
+
     public static void main(String[] args) throws IOException {
         String text = "Hello world!";
-//        Translated text: Hallo Welt!
-//        System.out.println("Translated text: " + translate("en", "vi", text));
+        // Translated text: Hallo Welt!
+        System.out.println("Translated text: " + translate("en", "vi", text));
     }
 
-    public int getNum_request() {
-        return num_request;
+    public int getNumRequests() {
+        return numRequests;
     }
-    
-    public String translate(String langFrom, String langTo, String text) throws IOException {
-        // INSERT YOU URL HERE
-        num_request += 1;
-        String urlStr = "https://script.google.com/macros/s/AKfycbxiQVsKyWiGXFDU8LeW-fi9KfS0ZIE01ovCpDUJkbJL0-3R6lw/exec" +
-                "?q=" + URLEncoder.encode(text, "UTF-8") +
-                "&target=" + langTo +
-                "&source=" + langFrom;
+
+    public static String translate(String langFrom, String langTo, String text) throws IOException {
+        String urlStr = buildTranslationUrl(langFrom, langTo, text);
         System.out.println(urlStr);
+
         URL url = new URL(urlStr);
         StringBuilder response = new StringBuilder();
+
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
         try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
         }
+
         return response.toString();
     }
 
+    private static String buildTranslationUrl(String langFrom, String langTo, String text) throws IOException {
+        String encodedText = URLEncoder.encode(text, "UTF-8");
+        return TRANSLATE_API_URL + "?q=" + encodedText + "&target=" + langTo + "&source=" + langFrom;
+    }
 }
