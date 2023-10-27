@@ -9,7 +9,7 @@ public class DictionaryManagement extends Dictionary {
     private static final Scanner sc = new Scanner(System.in);
 
     /**
-     * this is for the basic dictionary
+     * this is for the basic dictionary.
      */
     public static void insertFromCommandline() {
         int wordAmount = Integer.parseInt(sc.nextLine());
@@ -21,7 +21,7 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 1: add new word to dictionary
+     * function 1: add new word to dictionary.
      */
     public static void add_word() {
         System.out.println("Enter the english word: ");
@@ -32,7 +32,7 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 2: delete word from dictionary
+     * function 2: delete word from dictionary.
      */
     public static void delete_word() {
         System.out.println("Enter the english word: ");
@@ -49,7 +49,7 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 3: update meaning of word
+     * function 3: update meaning of word.
      */
     public static void update_word() {
         System.out.println("you want to change the vietnamese meaning or english meaning? \n (V/E) : ");
@@ -88,7 +88,7 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 4: show the whole dictionary in table form
+     * function 4: show the whole dictionary in table form.
      */
     public static void showAllWords() {
         System.out.println("No | English    | Vietnamese");
@@ -103,7 +103,7 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 5: look up for the whole word
+     * function 5: look up for the whole word.
      */
     public static void dictionaryLookup () {
         System.out.println("enter the word you are looking for: ");
@@ -128,7 +128,26 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 8: insert words from file "word_list.tt" to word array
+     * function 6: search for word.
+     */
+    public static void search() {
+        System.out.println("what word are you searching: ");
+        while (true) {
+            String word = sc.next();
+            for (int i = 0; i < dictionary.size(); i++) {
+                if (dictionary.get(i).getWord_target().equals(word)) {
+                    System.out.println("word meaning: " + dictionary.get(i).getWord_explain());
+                    return;
+                }
+                if (dictionary.get(i).getWord_target().contains(word)) {
+                    System.out.print(dictionary.get(i).getWord_target() + " ");
+                }
+            }
+        }
+    }
+
+    /**
+     * function 8: insert words from file "word_list.tt" to word array.
      */
     public static void dictionaryImportFromFile (String path) {
         try {
@@ -152,7 +171,7 @@ public class DictionaryManagement extends Dictionary {
         dictionaryImportFromFile(path);
     }
     /**
-     * function 9: export Word array to "word_list.txt" file
+     * function 9: export Word array to "word_list.txt" file.
      */
     public static void dictionaryExportToFile (String path) {
         try (FileWriter writer = new FileWriter(path);
@@ -173,7 +192,7 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * assisting functions: checking if the english/vietnamese word exist in the word array
+     * assisting functions: checking if the english/vietnamese word exist in the word array.
      * @param word_checking the word being checked
      * @return true if the word exist,  false otherwise
      */private static boolean english_word_exist (String word_checking ){
