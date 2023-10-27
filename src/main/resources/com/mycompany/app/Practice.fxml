@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PracticeController">
+   <children>
+      <ListView fx:id="listView" layoutX="14.0" layoutY="89.0" prefHeight="311.0" prefWidth="248.0" />
+      <Button layoutX="36.0" layoutY="26.0" mnemonicParsing="false" onAction="#changeScene" text="Home" />
+      <Button layoutX="125.0" layoutY="26.0" mnemonicParsing="false" onAction="#delete" text="Remove" />
+      <Button layoutX="216.0" layoutY="27.0" mnemonicParsing="false" onAction="#add" text="Add" />
+      <TextField fx:id="addWord" layoutX="271.0" layoutY="27.0" />
+      <WebView fx:id="webView" layoutX="262.0" layoutY="87.0" prefHeight="311.0" prefWidth="336.0" />
+      <TextField fx:id="findWord" layoutX="60.0" layoutY="62.0" />
+   </children>
+</AnchorPane>

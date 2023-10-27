@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package CommandLine;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -51,7 +51,7 @@ public class DictionaryCommandline extends Dictionary {
                 case 2 -> DictionaryManagement.delete_word();
                 case 3 -> DictionaryManagement.update_word();
                 case 4 -> DictionaryManagement.showAllWords();
-                case 5 -> DictionaryManagement.dictionaryLookup();
+                //case 5 -> DictionaryManagement.dictionaryLookup();
                 case 8 -> DictionaryManagement.dictionaryImportFromFile();
                 case 9 -> DictionaryManagement.dictionaryExportToFile();
             }

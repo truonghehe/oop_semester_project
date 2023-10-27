@@ -32,6 +32,11 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.16</version>
     </dependency>
+      <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-web</artifactId>
+          <version>20.0.2</version>
+      </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -59,7 +64,7 @@
             <id>default-cli</id>
             <configuration>
               <mainClass>
-                com.mycompany.app/com.mycompany.app.App
+                  com.mycompany.app/CommandLine.App
               </mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
