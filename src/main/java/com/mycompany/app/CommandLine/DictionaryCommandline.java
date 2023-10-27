@@ -55,6 +55,8 @@ public class DictionaryCommandline {
                 case 3 -> DictionaryManagement.update_word();
                 case 4 -> DictionaryManagement.showAllWords();
                 //case 5 -> DictionaryManagement.dictionaryLookup();
+                //case 5 -> DictionaryManagement.dictionaryLookup();
+                ///case 6 -> DictionaryManagement.search();
                 case 8 -> DictionaryManagement.dictionaryImportFromFile();
                 case 9 -> DictionaryManagement.dictionaryExportToFile();
             }
