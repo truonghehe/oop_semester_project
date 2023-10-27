@@ -1,9 +1,12 @@
-package CommandLine;
+package com.mycompany.app.CommandLine;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DictionaryCommandline extends Dictionary {
+import static com.mycompany.app.CommandLine.Dictionary.dictionary;
+
+
+public class DictionaryCommandline {
     private static final Scanner sc = new Scanner(System.in);
     public static void showAllWords() throws IOException {
             System.out.println("No | English    | Vietnamese");

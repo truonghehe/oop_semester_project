@@ -1,27 +1,13 @@
-package CommandLine;
+package com.mycompany.app.CommandLine;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.web.WebView;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.*;
-import java.net.URL;
-import java.util.*;
-
-import static CommandLine.Dictionary.dictionary;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 
-public class DictionaryManagement {
+public class DictionaryManagement extends Dictionary {
     private static final Scanner sc = new Scanner(System.in);
 
     /**

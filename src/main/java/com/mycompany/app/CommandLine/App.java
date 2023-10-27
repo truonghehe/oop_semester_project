@@ -1,4 +1,4 @@
-package CommandLine;
+package com.mycompany.app.CommandLine;
 import java.io.IOException;
 
 import com.mycompany.app.TranslateApi.TranslateApi;

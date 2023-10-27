@@ -1,4 +1,4 @@
-package CommandLine;
+package com.mycompany.app.CommandLine;
 
 public class Word {
 
