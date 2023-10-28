@@ -4,6 +4,7 @@ module com.mycompany.app {
     requires org.apache.httpcomponents.httpclient;
     requires mysql.connector.java;
     requires java.sql;
+    requires javafx.web;
     opens com.mycompany.app to javafx.fxml;
     exports com.mycompany.app;
 }
