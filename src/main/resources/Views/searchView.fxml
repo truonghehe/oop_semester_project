@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,11 +12,14 @@
 <AnchorPane prefHeight="498.0" prefWidth="675.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.searchController">
    <children>
       <ListView fx:id="listView" layoutX="57.0" layoutY="76.0" prefHeight="388.0" prefWidth="321.0" style="-fx-background-color: #c4d8e8;" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="297.0" AnchorPane.topAnchor="76.0" />
-      <TextField fx:id="searchField" layoutX="80.0" layoutY="23.0" prefHeight="25.0" prefWidth="342.0" style="-fx-background-color: #c4d8e8;" AnchorPane.bottomAnchor="449.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="23.0" />
+      <TextField fx:id="searchField" layoutX="80.0" layoutY="23.0" prefHeight="25.0" prefWidth="342.0" style="-fx-background-color: #c4d8e8;" AnchorPane.bottomAnchor="449.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="253.0" AnchorPane.topAnchor="23.0">
+         <tooltip>
+            <Tooltip fx:id="tooltip3" text="Nhập từ tiếng anh." />
+         </tooltip></TextField>
       <WebView fx:id="webView" layoutX="389.0" layoutY="142.0" prefHeight="321.0" prefWidth="267.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="389.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="142.0" />
-      <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="44.0" layoutY="23.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="40.0" layoutY="20.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/search-magnifier-interface-symbol.png" />
+            <Image url="@../images/search.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="18.0" layoutY="86.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
@@ -83,14 +87,28 @@
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <Button fx:id="btDelete" layoutX="562.0" layoutY="103.0" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="Delete" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="42.5" AnchorPane.topAnchor="103.0">
+      <Button fx:id="btDelete" contentDisplay="GRAPHIC_ONLY" layoutX="550.0" layoutY="92.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="48.0" style="-fx-background-color: #F0F8FF;" text="Delete" AnchorPane.bottomAnchor="365.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="92.0">
          <graphic>
-            <ImageView fitHeight="14.0" fitWidth="17.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/delete.png" />
+                  <Image url="@../images/trashBin.png" />
                </image>
             </ImageView>
          </graphic>
+         <tooltip>
+            <Tooltip fx:id="tooltip1" text="Nhấn để xoá từ đang chọn." />
+         </tooltip></Button>
+      <Button fx:id="btChange" contentDisplay="GRAPHIC_ONLY" layoutX="450.0" layoutY="91.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="48.0" style="-fx-background-color: #F0F8FF;" text="Change">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/writing.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip fx:id="tooltip2" text="Nhấn để sửa định nghĩa từ đang chọn" />
+         </tooltip>
       </Button>
    </children>
 </AnchorPane>

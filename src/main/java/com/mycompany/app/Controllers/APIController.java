@@ -8,35 +8,63 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class APIController implements Initializable {
+
     @FXML
     private TextArea firstLang;
+
     @FXML
     private TextArea secondLang;
+
     @FXML
     private Button translate;
-    private String langFrom = "vi" ;
-    private String langTo = "en" ;
-    @FXML
-    private Label To ;
-    @FXML
-    private Label From;
+
     @FXML
     private Button swap;
+
+    @FXML
+    private Label To;
+
+    @FXML
+    private Label From;
+
+    String langFrom;
+
+    String langTo;
+
+    @FXML
+    private Tooltip tooltip1;
+
+    @FXML
+    private Tooltip tooltip2;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        langFrom = From.getText();
+        langTo = To.getText();
+
         setLabel();
         firstLang.setOnKeyTyped(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                if (firstLang.getText() == null) translate.setDisable(true);
-                else translate.setDisable(false);
+                if (firstLang.getText() == null) {
+                    translate.setDisable(true);
+                    translate.setVisible(false);
+                }
+                else {
+                    translate.setDisable(false);
+                    translate.setVisible(true);
+                }
             }
         });
         translate.setOnAction(new EventHandler<ActionEvent>() {
@@ -59,12 +87,18 @@ public class APIController implements Initializable {
             }
         });
         translate.setDisable(true);
+        translate.setVisible(false);
+
+        tooltip1.setShowDelay(Duration.seconds(0.5));
+        tooltip2.setShowDelay(Duration.seconds(0.5));
     }
+
     @FXML
     public void handleTranslate() throws IOException {
         String TextFrom = firstLang.getText();
         secondLang.setText(TranslateApi.translate( langFrom, langTo , TextFrom)) ;
     }
+
     @FXML
     public void setLabel(){
         From.setText(langFrom);

@@ -8,15 +8,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class dictionaryController implements Initializable {
+
+    @FXML
+    private Tooltip tooltip1;
+
+    @FXML
+    private Tooltip tooltip2;
+
+    @FXML
+    private Tooltip tooltip3;
+
+    @FXML
+    private Tooltip tooltip4;
 
     @FXML
     void exit(MouseEvent event) {
@@ -69,6 +83,9 @@ public class dictionaryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        showComponent("/Views/searchView.fxml");
+        tooltip1.setShowDelay(Duration.seconds(0.5));
+        tooltip2.setShowDelay(Duration.seconds(0.5));
+        tooltip3.setShowDelay(Duration.seconds(0.5));
+        tooltip4.setShowDelay(Duration.seconds(0.5));
     }
 }

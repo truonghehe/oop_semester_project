@@ -43,14 +43,25 @@ public class TranslateApi {
 
     /**
      * Base URL for Google API call
-     * @param langFrom
-     * @param langTo
-     * @param text
-     * @return
-     * @throws IOException
+     * @param langFrom language want to translate
+     * @param langTo wanting language
+     * @param text the text want to translate
+     * @return the text in wanting language
+     * @throws IOException throws exception if occur error
      */
     private static String buildTranslationUrl(String langFrom, String langTo, String text) throws IOException {
         String encodedText = URLEncoder.encode(text, "UTF-8");
-        return TRANSLATE_API_URL + "?q=" + encodedText + "&target=" + langTo + "&source=" + langFrom;
+        String from, to;
+        if (langFrom.equals("English")) {
+            from = "en";
+        } else {
+            from = "vi";
+        }
+        if (langTo.equals("English")) {
+            to = "en";
+        } else {
+            to = "vi";
+        }
+        return TRANSLATE_API_URL + "?q=" + encodedText + "&target=" + to + "&source=" + from;
     }
 }

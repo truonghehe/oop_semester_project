@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -15,6 +16,15 @@ public class startingController {
 
     @FXML
     private AnchorPane thisPane;
+
+    @FXML
+    private Tooltip tooltip1;
+
+    @FXML
+    private Tooltip tooltip2;
+
+    @FXML
+    private Tooltip tooltip3;
 
     @FXML
     void exit(MouseEvent event) {
