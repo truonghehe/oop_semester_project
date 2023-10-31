@@ -1,4 +1,5 @@
 package com.mycompany.app;
+import com.mycompany.app.Word
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -187,6 +188,34 @@ public class DictionaryManagement extends Dictionary {
             if (word_checking.equals(word.getWord_explain())) return true;
         }
         return false;
+    }
+
+    public void insertFromFile(Dictionary dictionary, String path) {
+        try {
+            FileReader fileReader = new FileReader(path);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String englishWord = bufferedReader.readLine();
+            englishWord = englishWord.replace("|", "");
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                Word word = new Word();
+                word.setWordTarget(englishWord.trim());
+                String meaning = line + "\n";
+                while ((line = bufferedReader.readLine()) != null)
+                    if (!line.startsWith("|")) meaning += line + "\n";
+                    else {
+                        englishWord = line.replace("|", "");
+                        break;
+                    }
+                word.setWordExplain(meaning.trim());
+                dictionary.add(word);
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
+            System.out.println("An error occur with file: " + e);
+        } catch (Exception e) {
+            System.out.println("Something went wrong: " + e);
+        }
     }
 
 }
