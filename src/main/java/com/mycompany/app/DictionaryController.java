@@ -29,6 +29,7 @@ public class DictionaryController implements Initializable {
             }
         });
         exit.setOnMouseClicked(e -> {
+            DictionaryManagement.dictionaryExportToFile("");
             System.exit(0);
         });
     }
