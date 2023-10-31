@@ -1,13 +1,12 @@
 package com.mycompany.app;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class DictionaryManagement extends Dictionary {
     private static final Scanner sc = new Scanner(System.in);
-
+    private static final String SPLITTING_CHARACTERS = "<html>";
+    public static Map<String,Word> data = new HashMap<>();
     /**
      * this is for the basic dictionary.
      */
@@ -19,7 +18,12 @@ public class DictionaryManagement extends Dictionary {
             dictionary.add(new Word(english_word, vietnamese_word));
         }
     }
-
+    public static void setMap(){
+        for ( int i = 0 ; i < dictionary.size() ; i++){
+            String englishWord = dictionary.get(i).getWord_target();
+            data.put(englishWord,dictionary.get(i));
+        }
+    }
     /**
      * function 1: add new word to dictionary.
      */
@@ -149,23 +153,19 @@ public class DictionaryManagement extends Dictionary {
     /**
      * function 8: insert words from file "word_list.tt" to word array.
      */
-    public static void dictionaryImportFromFile (String path) {
-        try {
-            dictionary = new ArrayList<>();
-            FileReader reader = new FileReader(path);
-            BufferedReader bufferedReader = new BufferedReader(reader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                // split the line into 2 strings, use tab as the boundary
-                String[] arr = line.split("\\s+", 2);
-                Word word = new Word(arr[0], arr[1]);
-                dictionary.add(word);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public static void dictionaryImportFromFile (String path) throws IOException {
+        FileReader fis = new FileReader(path);
+        BufferedReader br = new BufferedReader(fis);
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] parts = line.split(SPLITTING_CHARACTERS);
+            String word = parts[0];
+            String definition = SPLITTING_CHARACTERS + parts[1];
+            Word wordObj = new Word(word, definition);
+            dictionary.add(wordObj);
         }
     }
-    public static void dictionaryImportFromFile (){
+    public static void dictionaryImportFromFile () throws IOException {
         Scanner input = new Scanner(System.in) ;
         String path = input.nextLine() ;
         dictionaryImportFromFile(path);
