@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="498.0" prefWidth="675.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.addWordController">
+   <children>
+      <TextField fx:id="englishWord" layoutX="65.0" layoutY="187.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
+      <Button layoutX="300.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #c4d8e8;" text="ADD" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="425.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/save-file.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Label layoutX="94.0" layoutY="155.0" text="New English word">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="454.0" layoutY="116.0" text="New definition">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="wordType" layoutX="65.0" layoutY="300.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="300.0" />
+      <Label layoutX="139.0" layoutY="263.0" text="Từ loại">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="vietnameseWord" layoutX="411.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
+      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="22.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="582.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="185.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="454.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="295.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cloud.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="119.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dog.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="559.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dog.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="328.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dog.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="28.0" layoutX="461.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dog.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="98.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dog.png" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="SRC_ATOP" fitHeight="122.0" fitWidth="154.0" layoutX="314.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/sun.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="572.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dog.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="180.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dog.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
