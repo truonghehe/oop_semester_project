@@ -177,10 +177,9 @@ public class DictionaryManagement extends Dictionary {
         try (FileWriter writer = new FileWriter(path);
              BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             for (Word value : dictionary) {
-                String word = value.getWord_target() + "    " + value.getWord_explain() + "\n";
+                String word = value.getWord_target() + value.getWord_explain() + "\n";
                 bufferedWriter.write(word);
             }
-            System.out.println("exported to file \"" + path +"\"");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
