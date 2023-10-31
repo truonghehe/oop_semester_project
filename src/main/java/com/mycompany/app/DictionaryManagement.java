@@ -185,11 +185,6 @@ public class DictionaryManagement extends Dictionary {
             throw new RuntimeException(e);
         }
     }
-    public static void dictionaryExportToFile (){
-        Scanner input = new Scanner(System.in) ;
-        String path = input.nextLine() ;
-        dictionaryExportToFile(path);
-    }
 
     /**
      * assisting functions: checking if the english/vietnamese word exist in the word array.
