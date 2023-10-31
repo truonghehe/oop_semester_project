@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="498.0" prefWidth="675.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.APIController">
    <children>
-      <Button layoutX="274.0" layoutY="402.0" mnemonicParsing="false" onMouseClicked="#translate" prefHeight="43.0" prefWidth="140.0" style="-fx-background-color: #c4d8e8;" text="Translate" AnchorPane.bottomAnchor="53.0">
+      <Button fx:id="translate" layoutX="274.0" layoutY="402.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="140.0" style="-fx-background-color: #c4d8e8;" text="Translate" AnchorPane.bottomAnchor="53.0">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -21,7 +21,7 @@
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Label layoutX="482.0" layoutY="118.0" text="Vietnamese">
+      <Label fx:id="To" layoutX="482.0" layoutY="118.0" text="Vietnamese">
          <font>
             <Font size="19.0" />
          </font>
@@ -56,13 +56,13 @@
             <Image url="@../images/sun.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="english" layoutX="13.0" layoutY="148.0" prefHeight="200.0" prefWidth="280.0" style="-fx-background-color: #c4d8e8;" />
-      <Label layoutX="124.0" layoutY="118.0" text="English">
+      <TextArea fx:id="firstLang" layoutX="13.0" layoutY="148.0" prefHeight="200.0" prefWidth="280.0" style="-fx-background-color: #c4d8e8;" />
+      <Label fx:id="From" layoutX="124.0" layoutY="118.0" text="English">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextArea fx:id="vietnamese" layoutX="389.0" layoutY="149.0" prefHeight="200.0" prefWidth="280.0" style="-fx-background-color: #c4d8e8;" />
+      <TextArea fx:id="secondLang" layoutX="389.0" layoutY="149.0" prefHeight="200.0" prefWidth="280.0" style="-fx-background-color: #c4d8e8;" />
       <ImageView fitHeight="24.0" fitWidth="20.0" layoutX="627.0" layoutY="392.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dog.png" />
@@ -88,7 +88,7 @@
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
-      <Button layoutX="301.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#swap" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #c4d8e8;" text="Swap">
+      <Button fx:id="swap" layoutX="301.0" layoutY="97.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #c4d8e8;" text="Swap">
          <graphic>
             <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

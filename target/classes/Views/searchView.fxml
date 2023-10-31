@@ -83,7 +83,7 @@
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <Button layoutX="562.0" layoutY="103.0" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="Delete" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="42.5" AnchorPane.topAnchor="103.0">
+      <Button fx:id="btDelete" layoutX="562.0" layoutY="103.0" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="Delete" AnchorPane.bottomAnchor="369.0" AnchorPane.leftAnchor="562.0" AnchorPane.rightAnchor="42.5" AnchorPane.topAnchor="103.0">
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="17.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>

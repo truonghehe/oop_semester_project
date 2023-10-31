@@ -4,10 +4,7 @@ package com.mycompany.app.Controllers;
 import com.mycompany.app.Word;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 
 import java.io.BufferedWriter;
@@ -25,7 +22,7 @@ public class addWordController {
     private TextField englishWord;
 
     @FXML
-    private TextField vietnameseWord;
+    private TextArea vietnameseWord;
 
     @FXML
     private TextField wordType;

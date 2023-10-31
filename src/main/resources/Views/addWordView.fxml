@@ -39,7 +39,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <TextArea layoutX="411.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
+      <TextArea fx:id="vietnameseWord" layoutX="411.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
       <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="22.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />

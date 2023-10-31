@@ -21,8 +21,6 @@ public class TranslateApi {
      */
     public static String translate(String langFrom, String langTo, String text) throws IOException {
         String urlStr = buildTranslationUrl(langFrom, langTo, text);
-        System.out.println(urlStr);
-
         try {
             URL url = new URL(urlStr);
             StringBuilder response = new StringBuilder();

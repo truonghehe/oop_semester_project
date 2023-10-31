@@ -40,7 +40,7 @@ public class searchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            DictionaryManagement.dictionaryImportFromFile("src\\main\\resources\\E_V.txt");
+            DictionaryManagement.dictionaryImportFromFile("src/main/resources/E_V.txt");
             DictionaryManagement.setMap();
         } catch (IOException e) {
             throw new RuntimeException(e);
