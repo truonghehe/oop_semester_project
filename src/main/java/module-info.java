@@ -7,4 +7,6 @@ module com.mycompany.app {
     requires javafx.web;
     opens com.mycompany.app to javafx.fxml;
     exports com.mycompany.app;
+    exports com.mycompany.app.Controllers;
+    opens com.mycompany.app.Controllers to javafx.fxml;
 }
