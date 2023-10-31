@@ -10,17 +10,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.web.WebView;
-import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 public class searchController implements Initializable {
     @FXML
     private ListView<String> listView;
