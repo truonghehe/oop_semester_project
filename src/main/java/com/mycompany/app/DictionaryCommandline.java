@@ -25,7 +25,7 @@ public class DictionaryCommandline extends Dictionary {
     }
     public static void dictionaryAdvanced() throws IOException {
         //insert english and vietnamese words
-        DictionaryManagement.dictionaryImportFromFile("word_list.txt");
+        //DictionaryManagement.dictionaryImportFromFile("word_list.txt");
         //main loop
         System.out.print("Welcome to my application! ");
         while (true) {

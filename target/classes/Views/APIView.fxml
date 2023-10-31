@@ -31,7 +31,7 @@
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="237.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="182.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />
          </image>
@@ -41,7 +41,7 @@
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="362.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="74.0" layoutX="332.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />
          </image>
@@ -88,5 +88,17 @@
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
+      <Button layoutX="301.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#swap" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #c4d8e8;" text="Swap">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/swap.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

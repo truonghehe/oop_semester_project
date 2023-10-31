@@ -2,6 +2,7 @@ package com.mycompany.app.Controllers;
 
 import com.mycompany.app.Alert.Alerts;
 import com.mycompany.app.DictionaryManagement;
+import com.mycompany.app.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,7 +40,7 @@ public class searchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            DictionaryManagement.dictionaryImportFromFile("/Users/chuongdz/Desktop/oop/oop_semester_project/src/main/resources/E_V.txt");
+            DictionaryManagement.dictionaryImportFromFile("src\\main\\resources\\E_V.txt");
             DictionaryManagement.setMap();
         } catch (IOException e) {
             throw new RuntimeException(e);
