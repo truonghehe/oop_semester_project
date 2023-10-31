@@ -3,18 +3,22 @@ package com.mycompany.app.Controllers;
 
 import com.mycompany.app.Word;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import static com.mycompany.app.Dictionary.dictionary;
 
-public class addWordController {
+public class addWordController implements Initializable {
 
     private static final String SEPARATOR = "<html>";
 
@@ -26,6 +30,12 @@ public class addWordController {
 
     @FXML
     private TextField wordType;
+
+    @FXML
+    private TextField spelling;
+
+    @FXML
+    private Tooltip tooltip1;
 
     private final Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
     private final Alert error = new Alert(Alert.AlertType.ERROR);
@@ -47,12 +57,12 @@ public class addWordController {
                 Word word = new Word();
                 word.setWord_target(englishWord.getText());
                 if (!wordType.getText().isEmpty()) {
-                    String withWordType = SEPARATOR + "<i>etude</i><br/><ul><li><b><i> "
+                    String withWordType = SEPARATOR + "<i>" + englishWord.getText() + " " + spelling.getText() + "</i><br/><ul><li><b><i> "
                             + wordType.getText() + "</i></b><ul><li><font color='#cc0000'><b> "
                             + vietnameseWord.getText() + "</b></font></li></ul></li></ul>" + SEPARATOR;
                     word.setWord_explain(withWordType);
                 }  else {
-                    String withoutWordType = SEPARATOR + "</i><br/><ul><li><font color='#cc0000'><b> "
+                    String withoutWordType = SEPARATOR + "<i>" + englishWord.getText() + " " + spelling.getText() + "</i><br/><ul><li><font color='#cc0000'><b> "
                             + vietnameseWord.getText() + "</b></font></li></ul>" + SEPARATOR;
                     word.setWord_explain(withoutWordType);
                 }
@@ -61,4 +71,8 @@ public class addWordController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tooltip1.setShowDelay(Duration.seconds(0.5));
+    }
 }

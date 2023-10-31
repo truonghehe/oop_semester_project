@@ -34,7 +34,7 @@ public class dictionaryController implements Initializable {
 
     @FXML
     void exit(MouseEvent event) {
-        DictionaryManagement.dictionaryExportToFile("/E_V.txt");
+//        DictionaryManagement.dictionaryExportToFile("src/main/resources/E_V.txt");
         Platform.exit();
     }
 

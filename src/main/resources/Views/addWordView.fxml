@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,36 +12,39 @@
 
 <AnchorPane prefHeight="498.0" prefWidth="675.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.addWordController">
    <children>
-      <TextField fx:id="englishWord" layoutX="65.0" layoutY="187.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
-      <Button layoutX="300.0" layoutY="425.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #c4d8e8;" text="ADD" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="425.0">
+      <TextField fx:id="englishWord" layoutX="66.0" layoutY="128.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
+      <Button contentDisplay="GRAPHIC_ONLY" layoutX="302.0" layoutY="349.0" mnemonicParsing="false" onMouseClicked="#add" prefHeight="57.0" prefWidth="68.0" style="-fx-background-color: #F0F8FF;" text="ADD" textAlignment="CENTER" AnchorPane.bottomAnchor="88.0" AnchorPane.leftAnchor="302.0">
+         <font>
+            <Font size="16.0" />
+         </font>
          <graphic>
-            <ImageView fitHeight="24.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/save-file.png" />
+                  <Image url="@../images/save.png" />
                </image>
             </ImageView>
          </graphic>
-         <font>
-            <Font size="16.0" />
-         </font></Button>
-      <Label layoutX="94.0" layoutY="155.0" text="New English word">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="454.0" layoutY="116.0" text="New definition">
+         <tooltip>
+            <Tooltip fx:id="tooltip1" text="Nhấn để tạo từ mới." />
+         </tooltip></Button>
+      <Label layoutX="94.0" layoutY="101.0" text="New English word">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="wordType" layoutX="65.0" layoutY="300.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="300.0" />
-      <Label layoutX="139.0" layoutY="263.0" text="Từ loại">
+      <Label layoutX="454.0" layoutY="125.0" text="New definition">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="wordType" layoutX="65.0" layoutY="320.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="320.0" />
+      <Label layoutX="138.0" layoutY="292.0" text="Từ loại">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
       <TextArea fx:id="vietnameseWord" layoutX="411.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
-      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="22.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="22.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />
          </image>
@@ -75,7 +79,7 @@
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="328.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="153.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dog.png" />
          </image>
@@ -100,10 +104,16 @@
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="180.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="24.0" fitWidth="26.0" layoutX="326.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
+      <TextField fx:id="spelling" layoutX="64.0" layoutY="229.0" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" />
+      <Label layoutX="126.0" layoutY="201.0" text="Phiên âm">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
