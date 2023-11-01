@@ -29,6 +29,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class searchController implements Initializable {
+    public static String selectedItem;
     @FXML
     private ListView<String> listView;
 

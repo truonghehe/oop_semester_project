@@ -5,6 +5,8 @@ module com.mycompany.app {
     requires mysql.connector.java;
     requires java.sql;
     requires javafx.web;
+    requires freetts;
+    requires java.desktop;
     opens com.mycompany.app to javafx.fxml;
     exports com.mycompany.app;
     exports com.mycompany.app.Controllers;
