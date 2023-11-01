@@ -8,13 +8,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
 import org.w3c.dom.events.MouseEvent;
+import javafx.scene.web.HTMLEditor;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -117,7 +123,22 @@ public class searchController implements Initializable {
         }
         else alerts.showAlertInfo("Information" , "Xoá thất bại");
     }
+    @FXML
+    public void update(MouseEvent event) throws IOException {
+        selectedItem = listView.getSelectionModel().getSelectedItem();
+        Stage secondaryStage = new Stage();
+        FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("/Views/updateWord.fxml"));
+        Scene secondaryScene = new Scene(secondaryLoader.load());
+        secondaryStage.setScene(secondaryScene);
+        secondaryStage.setTitle("Update " + selectedItem);
+        secondaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
 
+            }
+        });
+        secondaryStage.show();
+    }
     private void addToObservableList() {
         observableList.clear();
         for (int i = 0; i < DictionaryManagement.dictionary.size(); i++) {

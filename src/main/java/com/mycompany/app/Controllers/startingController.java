@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
 import java.io.IOException;
 
