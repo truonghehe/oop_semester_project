@@ -34,7 +34,7 @@ public class dictionaryController implements Initializable {
 
     @FXML
     void exit(MouseEvent event) {
-//        DictionaryManagement.dictionaryExportToFile("src/main/resources/E_V.txt");
+        DictionaryManagement.dictionaryExportToFile("src/main/resources/E_V.txt");
         Platform.exit();
     }
 
@@ -87,5 +87,11 @@ public class dictionaryController implements Initializable {
         tooltip2.setShowDelay(Duration.seconds(0.5));
         tooltip3.setShowDelay(Duration.seconds(0.5));
         tooltip4.setShowDelay(Duration.seconds(0.5));
+        try {
+            DictionaryManagement.dictionaryImportFromFile("src/main/resources/E_V.txt");
+            DictionaryManagement.setMap();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

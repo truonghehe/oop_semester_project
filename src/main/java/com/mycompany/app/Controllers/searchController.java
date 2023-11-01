@@ -8,13 +8,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
 import org.w3c.dom.events.MouseEvent;
+import javafx.scene.web.HTMLEditor;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +29,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class searchController implements Initializable {
+    public static String selectedItem;
     @FXML
     private ListView<String> listView;
 
@@ -43,7 +50,6 @@ public class searchController implements Initializable {
 
     @FXML
     private Button btChange;
-
     @FXML
     private Alerts alerts = new Alerts();
 
@@ -58,12 +64,6 @@ public class searchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            DictionaryManagement.dictionaryImportFromFile("src/main/resources/E_V.txt");
-            DictionaryManagement.setMap();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         addToObservableList();
         observableList.sort(String::compareTo);
         listView.setItems(observableList);
@@ -92,12 +92,14 @@ public class searchController implements Initializable {
                 listView.refresh();
             }
         });
-
-        // sua vao day nha Tung oi!!!!
         btChange.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                try {
+                    update();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }
@@ -117,7 +119,19 @@ public class searchController implements Initializable {
         }
         else alerts.showAlertInfo("Information" , "Xoá thất bại");
     }
-
+    @FXML
+    public void update() throws IOException {
+        selectedItem = listView.getSelectionModel().getSelectedItem();
+        Stage secondaryStage = new Stage();
+        FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("/Views/updateWord.fxml"));
+        Scene secondaryScene = new Scene(secondaryLoader.load());
+        secondaryStage.setScene(secondaryScene);
+        secondaryStage.setTitle("Update " + selectedItem);
+        secondaryStage.setOnCloseRequest(windowEvent -> {
+            webView.getEngine().loadContent(DictionaryManagement.data.get(selectedItem).getWord_explain());
+        });
+        secondaryStage.show();
+    }
     private void addToObservableList() {
         observableList.clear();
         for (int i = 0; i < DictionaryManagement.dictionary.size(); i++) {
