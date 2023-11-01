@@ -110,6 +110,5 @@
             <Tooltip fx:id="tooltip2" text="Nhấn để sửa định nghĩa từ đang chọn" />
          </tooltip>
       </Button>
-      <Button layoutX="473.0" layoutY="104.0" mnemonicParsing="false" onMouseClicked="#update" text="Update" />
    </children>
 </AnchorPane>

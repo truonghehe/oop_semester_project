@@ -20,21 +20,31 @@ public class updateController implements Initializable {
 
     @FXML
     private HTMLEditor htmlEditor = new HTMLEditor();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String INITIAL_TEXT = DictionaryManagement.data.get(searchController.selectedItem).getWord_explain();
         htmlEditor.setHtmlText(INITIAL_TEXT);
     }
+
     @FXML
-    void SaveOnClick(MouseEvent event){
-        Word selected = DictionaryManagement.data.get(searchController.selectedItem) ;
+    void SaveOnClick(MouseEvent event) {
+        Word selected = DictionaryManagement.data.get(searchController.selectedItem);
         DictionaryManagement.dictionary.remove(selected);
         DictionaryManagement.data.remove(searchController.selectedItem);
         selected.setWord_explain(htmlEditor.getHtmlText());
-        DictionaryManagement.data.put(searchController.selectedItem , selected);
+        DictionaryManagement.dictionary.add(selected);
+        DictionaryManagement.data.put(searchController.selectedItem, selected);
+        exit();
     }
+
     @FXML
-    void ReturnOnClick(MouseEvent event){
+    void ReturnOnClick(MouseEvent event) {
+        exit();
+    }
+
+    @FXML
+    void exit() {
         Stage stage = (Stage) htmlEditor.getScene().getWindow();
         stage.close();
     }

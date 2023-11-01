@@ -50,7 +50,6 @@ public class searchController implements Initializable {
 
     @FXML
     private Button btChange;
-
     @FXML
     private Alerts alerts = new Alerts();
 
@@ -65,12 +64,6 @@ public class searchController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            DictionaryManagement.dictionaryImportFromFile("src/main/resources/E_V.txt");
-            DictionaryManagement.setMap();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         addToObservableList();
         observableList.sort(String::compareTo);
         listView.setItems(observableList);
@@ -99,12 +92,14 @@ public class searchController implements Initializable {
                 listView.refresh();
             }
         });
-
-        // sua vao day nha Tung oi!!!!
         btChange.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                try {
+                    update();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }
@@ -125,20 +120,15 @@ public class searchController implements Initializable {
         else alerts.showAlertInfo("Information" , "Xoá thất bại");
     }
     @FXML
-    public void update(MouseEvent event) throws IOException {
+    public void update() throws IOException {
         selectedItem = listView.getSelectionModel().getSelectedItem();
         Stage secondaryStage = new Stage();
         FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("/Views/updateWord.fxml"));
         Scene secondaryScene = new Scene(secondaryLoader.load());
         secondaryStage.setScene(secondaryScene);
         secondaryStage.setTitle("Update " + selectedItem);
-        secondaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
-
-            }
-        });
         secondaryStage.show();
+
     }
     private void addToObservableList() {
         observableList.clear();

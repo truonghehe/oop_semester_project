@@ -1,6 +1,7 @@
 package com.mycompany.app.Controllers;
 
 
+import com.mycompany.app.DictionaryManagement;
 import com.mycompany.app.Word;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +17,6 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static com.mycompany.app.Dictionary.dictionary;
 
 public class addWordController implements Initializable {
 
@@ -66,7 +66,8 @@ public class addWordController implements Initializable {
                             + vietnameseWord.getText() + "</b></font></li></ul>" + SEPARATOR;
                     word.setWord_explain(withoutWordType);
                 }
-                dictionary.add(word);
+                DictionaryManagement.dictionary.add(word);
+                DictionaryManagement.data.put(word.getWord_target() , word) ;
             }
         }
     }
