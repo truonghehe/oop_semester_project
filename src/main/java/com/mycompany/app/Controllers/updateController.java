@@ -1,5 +1,6 @@
 package com.mycompany.app.Controllers;
 
+import com.mycompany.app.Alert.Alerts;
 import com.mycompany.app.DictionaryManagement;
 import com.mycompany.app.Word;
 import javafx.application.Platform;
@@ -7,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +26,7 @@ public class updateController implements Initializable {
     private HTMLEditor htmlEditor = new HTMLEditor();
     @FXML
     private Button btSave;
+    private Alerts alerts = new Alerts();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String INITIAL_TEXT = DictionaryManagement.data.get(searchController.selectedItem).getWord_explain();
@@ -32,6 +35,7 @@ public class updateController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 SaveOnClick();
+                alerts.showAlertInfo("Information!" , "Sửa từ thành công!");
                 btSave.setDisable(true);
             }
         });

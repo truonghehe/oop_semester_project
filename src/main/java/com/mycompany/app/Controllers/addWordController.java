@@ -44,14 +44,13 @@ public class addWordController implements Initializable {
     @FXML
     void add(MouseEvent event) {
         if (englishWord.getText().isEmpty()|| vietnameseWord.getText().isEmpty()) {
-            error.setTitle("Error!");
-            error.setContentText("không thể để trống \"New English word\"" +
-                                 "hoặc \"New Vietnamese word\"");
-            Optional<ButtonType> result = error.showAndWait();
+            Alert alertWaring = alerts.alertWarning("Error!" , "không thể để trống \"New English word\"" +
+                    "hoặc \"New Vietnamese word\"");
+            Optional<ButtonType> result = alertWaring.showAndWait();
         } else if (DictionaryManagement.data.containsKey(englishWord.getText())) {
-            confirm2.setTitle("Confirmation!");
-            confirm2.setContentText("Từ \"" + englishWord.getText() + "\" đã tồn tại, bạn có muốn thay đổi nghĩa của nó không?");
-            Optional<ButtonType> result = confirm2.showAndWait();
+            Alert alertConfirmation = alerts.alertConfirmation("Confirmation!" , "Từ \"" + englishWord.getText() + "\" đã tồn tại, " +
+                    "bạn có muốn thay đổi nghĩa của nó không?") ;
+            Optional<ButtonType> result = alertConfirmation.showAndWait();
             if (result.isEmpty() || result.get() == ButtonType.CANCEL) {
                 return;
             } else {
@@ -61,10 +60,9 @@ public class addWordController implements Initializable {
                 addWord();
             }
         } else {
-            confirm1.setTitle("Confirmation!");
-            confirm1.setContentText("Bạn có muốn thêm từ \"" + englishWord.getText()
-                    + "\" với nghĩa \"" + vietnameseWord.getText() + "\" hay không?");
-            Optional<ButtonType> result = confirm1.showAndWait();
+            Alert alertConfirmation = alerts.alertConfirmation("Confirmation!" , "Bạn có muốn thêm từ \"" + englishWord.getText()
+                    + "\" với nghĩa \"" + vietnameseWord.getText() + "\" hay không?") ;
+            Optional<ButtonType> result = alertConfirmation.showAndWait();
             if (result.isEmpty() || result.get() == ButtonType.CANCEL) {
                 return;
             } else {

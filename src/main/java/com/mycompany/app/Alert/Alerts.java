@@ -1,5 +1,7 @@
 package com.mycompany.app.Alert;
 
+import javafx.scene.control.Alert;
+
 public class Alerts {
     public void showAlertInfo(String title, String content){
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
@@ -16,14 +18,14 @@ public class Alerts {
         alert.showAndWait();
     }
 
-    public javafx.scene.control.Alert alertConfirmation(String title, String content) {
+    public Alert alertConfirmation(String title, String content) {
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(content);
         return alert;
     }
-    public javafx.scene.control.Alert alertWarning(String title, String content) {
+    public Alert alertWarning(String title, String content) {
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.WARNING);
         alert.setTitle(title);
         alert.setHeaderText(null);
