@@ -1,5 +1,6 @@
 package com.mycompany.app.Controllers;
 
+import com.mycompany.app.DictionaryManagement;
 import com.mycompany.app.myApplication;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -29,6 +30,7 @@ public class startingController {
 
     @FXML
     void exit(MouseEvent event) {
+        DictionaryManagement.dictionaryExportToFile("src/main/resources/E_V.txt");
         Platform.exit();
     }
 

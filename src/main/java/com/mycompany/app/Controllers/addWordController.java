@@ -1,6 +1,7 @@
 package com.mycompany.app.Controllers;
 
 
+import com.mycompany.app.Alert.Alerts;
 import com.mycompany.app.DictionaryManagement;
 import com.mycompany.app.Word;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Dictionary;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -37,8 +39,8 @@ public class addWordController implements Initializable {
     @FXML
     private Tooltip tooltip1;
 
-    private final Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-    private final Alert error = new Alert(Alert.AlertType.ERROR);
+    private Alerts alerts = new Alerts();
+
     @FXML
     void add(MouseEvent event) {
         if (englishWord.getText().isEmpty()|| vietnameseWord.getText().isEmpty()) {
@@ -46,30 +48,46 @@ public class addWordController implements Initializable {
             error.setContentText("không thể để trống \"New English word\"" +
                                  "hoặc \"New Vietnamese word\"");
             Optional<ButtonType> result = error.showAndWait();
-        } else {
-            confirm.setTitle("Confirmation!");
-            confirm.setContentText("Bạn có muốn thêm từ \"" + englishWord.getText()
-                    + "\" với nghĩa \"" + vietnameseWord.getText() + "\" hay không?");
-            Optional<ButtonType> result = confirm.showAndWait();
+        } else if (DictionaryManagement.data.containsKey(englishWord.getText())) {
+            confirm2.setTitle("Confirmation!");
+            confirm2.setContentText("Từ \"" + englishWord.getText() + "\" đã tồn tại, bạn có muốn thay đổi nghĩa của nó không?");
+            Optional<ButtonType> result = confirm2.showAndWait();
             if (result.isEmpty() || result.get() == ButtonType.CANCEL) {
                 return;
             } else {
-                Word word = new Word();
-                word.setWord_target(englishWord.getText());
-                if (!wordType.getText().isEmpty()) {
-                    String withWordType = SEPARATOR + "<i>" + englishWord.getText() + " " + spelling.getText() + "</i><br/><ul><li><b><i> "
-                            + wordType.getText() + "</i></b><ul><li><font color='#cc0000'><b> "
-                            + vietnameseWord.getText() + "</b></font></li></ul></li></ul>" + SEPARATOR;
-                    word.setWord_explain(withWordType);
-                }  else {
-                    String withoutWordType = SEPARATOR + "<i>" + englishWord.getText() + " " + spelling.getText() + "</i><br/><ul><li><font color='#cc0000'><b> "
-                            + vietnameseWord.getText() + "</b></font></li></ul>" + SEPARATOR;
-                    word.setWord_explain(withoutWordType);
-                }
-                DictionaryManagement.dictionary.add(word);
-                DictionaryManagement.data.put(word.getWord_target() , word) ;
+                Word word = DictionaryManagement.data.get(englishWord.getText());
+                DictionaryManagement.data.remove(englishWord.getText());
+                DictionaryManagement.dictionary.remove(word);
+                addWord();
+            }
+        } else {
+            confirm1.setTitle("Confirmation!");
+            confirm1.setContentText("Bạn có muốn thêm từ \"" + englishWord.getText()
+                    + "\" với nghĩa \"" + vietnameseWord.getText() + "\" hay không?");
+            Optional<ButtonType> result = confirm1.showAndWait();
+            if (result.isEmpty() || result.get() == ButtonType.CANCEL) {
+                return;
+            } else {
+                addWord();
             }
         }
+    }
+
+    private void addWord() {
+        Word word = new Word();
+        word.setWord_target(englishWord.getText());
+        if (!wordType.getText().isEmpty()) {
+            String withWordType = SEPARATOR + "<i>" + englishWord.getText() + " " + spelling.getText() + "</i><br/><ul><li><b><i> "
+                    + wordType.getText() + "</i></b><ul><li><font color='#cc0000'><b> "
+                    + vietnameseWord.getText() + "</b></font></li></ul></li></ul>" + SEPARATOR;
+            word.setWord_explain(withWordType);
+        }  else {
+            String withoutWordType = SEPARATOR + "<i>" + englishWord.getText() + " " + spelling.getText() + "</i><br/><ul><li><font color='#cc0000'><b> "
+                    + vietnameseWord.getText() + "</b></font></li></ul>" + SEPARATOR;
+            word.setWord_explain(withoutWordType);
+        }
+        DictionaryManagement.dictionary.add(word);
+        DictionaryManagement.data.put(word.getWord_target() , word) ;
     }
 
     @Override
