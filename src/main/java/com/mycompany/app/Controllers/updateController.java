@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebView;
@@ -20,32 +22,32 @@ public class updateController implements Initializable {
 
     @FXML
     private HTMLEditor htmlEditor = new HTMLEditor();
-
+    @FXML
+    private Button btSave;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String INITIAL_TEXT = DictionaryManagement.data.get(searchController.selectedItem).getWord_explain();
         htmlEditor.setHtmlText(INITIAL_TEXT);
+        btSave.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                SaveOnClick();
+                btSave.setDisable(true);
+            }
+        });
+        btSave.setDisable(true);
     }
-
     @FXML
-    void SaveOnClick(MouseEvent event) {
+    public void SaveOnClick() {
         Word selected = DictionaryManagement.data.get(searchController.selectedItem);
         DictionaryManagement.dictionary.remove(selected);
         DictionaryManagement.data.remove(searchController.selectedItem);
         selected.setWord_explain(htmlEditor.getHtmlText());
         DictionaryManagement.dictionary.add(selected);
         DictionaryManagement.data.put(searchController.selectedItem, selected);
-        exit();
     }
-
     @FXML
-    void ReturnOnClick(MouseEvent event) {
-        exit();
-    }
-
-    @FXML
-    void exit() {
-        Stage stage = (Stage) htmlEditor.getScene().getWindow();
-        stage.close();
+    public void htmlEditorMouseClick(MouseEvent event){
+        btSave.setDisable(false);
     }
 }

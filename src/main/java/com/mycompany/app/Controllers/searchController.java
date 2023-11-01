@@ -127,8 +127,10 @@ public class searchController implements Initializable {
         Scene secondaryScene = new Scene(secondaryLoader.load());
         secondaryStage.setScene(secondaryScene);
         secondaryStage.setTitle("Update " + selectedItem);
+        secondaryStage.setOnCloseRequest(windowEvent -> {
+            webView.getEngine().loadContent(DictionaryManagement.data.get(selectedItem).getWord_explain());
+        });
         secondaryStage.show();
-
     }
     private void addToObservableList() {
         observableList.clear();

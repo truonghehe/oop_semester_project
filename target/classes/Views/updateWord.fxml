@@ -6,8 +6,7 @@
 
 <AnchorPane prefHeight="518.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.updateController">
    <children>
-      <Button layoutX="92.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#SaveOnClick" text="Save" />
-      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="113.0" prefHeight="372.0" prefWidth="740.0" />
-      <Button layoutX="372.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#ReturnOnClick" text="Close" />
+      <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="13.0" layoutY="15.0" onMouseClicked="#htmlEditorMouseClick" prefHeight="489.0" prefWidth="748.0" />
+      <Button fx:id="btSave" layoutX="595.0" layoutY="20.0" mnemonicParsing="false" text="Save" />
    </children>
 </AnchorPane>
