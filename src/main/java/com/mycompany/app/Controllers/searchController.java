@@ -85,13 +85,6 @@ public class searchController implements Initializable {
         tooltip1.setShowDelay(Duration.seconds(0.5));
         tooltip2.setShowDelay(Duration.seconds(0.5));
         tooltip3.setShowDelay(Duration.seconds(0.5));
-        btDelete.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                deleteWord();
-                listView.refresh();
-            }
-        });
         btChange.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

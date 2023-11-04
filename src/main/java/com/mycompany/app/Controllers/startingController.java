@@ -47,8 +47,8 @@ public class startingController {
     @FXML
     void goToGame(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("Views/searchView.fxml"));
-        stage.setTitle("Game");
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
+        stage.setTitle("Learning");
         stage.setScene(new Scene(root));
     }
 
