@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
@@ -39,7 +40,19 @@ public class myGameController implements Initializable {
     private Label answer;
 
     @FXML
+    private Label percentage;
+
+    @FXML
     private ProgressBar progressBar;
+
+    @FXML
+    private Tooltip tooltip1;
+
+    @FXML
+    private Tooltip tooltip2;
+
+    @FXML
+    private Tooltip tooltip3;
 
     @FXML
     private AnchorPane thisPane;
@@ -83,6 +96,12 @@ public class myGameController implements Initializable {
         buttons[14] = button14;
         buttons[15] = button15;
 
+        tooltip1.setShowDelay(Duration.seconds(0.5));
+        tooltip2.setShowDelay(Duration.seconds(0.5));
+        tooltip3.setShowDelay(Duration.seconds(0.5));
+
+        percentage.setText((int) (progress * 100) + "%");
+
         nextQuestion();
 
         for  (Button element : buttons) {
@@ -106,6 +125,7 @@ public class myGameController implements Initializable {
                 if (answer.getText().equals(correctAnswer)) {
                     progress += 0.1;
                     progressBar.setProgress(progress);
+                    percentage.setText((int) (progress * 100) + "%");
                     if (progress == 1) {
                         Alert continueConfirmation = alerts.alertConfirmation("Chúc mừng!", "Bạn đã hoàn thành bài tập hôm nay" +
                                                                             "\n bạn có muốn tiếp tục không?");
