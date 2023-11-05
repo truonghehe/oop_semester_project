@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class learnController {
 
@@ -18,8 +19,15 @@ public class learnController {
     @FXML
     void goToMyGame(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/Views/myGameView.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/myGameView.fxml")));
         stage.setTitle("Game");
+        stage.setScene(new Scene(root));
+    }
+    @FXML
+    void goToVocab(MouseEvent event) throws IOException {
+        Stage stage = (Stage) thisPane.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/vocabularyView.fxml")));
+        stage.setTitle("Vocabulary");
         stage.setScene(new Scene(root));
     }
 

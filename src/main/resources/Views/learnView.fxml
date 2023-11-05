@@ -19,10 +19,6 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="526.0" layoutY="102.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="124.0" style="-fx-background-color: #c4d8e8;" text="game" AnchorPane.leftAnchor="526.0" AnchorPane.topAnchor="102.0">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
       <ImageView fitHeight="82.0" fitWidth="140.0" layoutX="115.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />
@@ -33,7 +29,7 @@
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="82.0" fitWidth="140.0" layoutX="550.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="82.0" fitWidth="140.0" layoutX="550.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />
          </image>
@@ -72,6 +68,18 @@
          <font>
             <Font size="20.0" />
          </font>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="515.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#goToVocab" prefHeight="99.0" prefWidth="124.0" style="-fx-background-color: #c4d8e8;" text="Vocabulary">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="82.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/cloud.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
    </children>
 </AnchorPane>
