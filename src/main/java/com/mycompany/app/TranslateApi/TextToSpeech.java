@@ -71,12 +71,4 @@ public class TextToSpeech {
     public void terminate() throws EngineException, EngineStateError {
         synthesizer.deallocate();
     }
-
-    public static void main(String[] args) throws Exception {
-        TextToSpeech textToSpeech = new TextToSpeech();
-        textToSpeech.initialize("kevin16");
-
-        textToSpeech.speak("ahihi đồ ngốc.");
-        textToSpeech.terminate();
-    }
 }

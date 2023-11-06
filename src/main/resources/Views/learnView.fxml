@@ -59,17 +59,24 @@
             <Image url="@../images/bird.png" />
          </image>
       </ImageView>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="149.0" layoutY="315.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="124.0" style="-fx-background-color: #c4d8e8;" text="Dictionary">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
       <Button contentDisplay="GRAPHIC_ONLY" layoutX="528.0" layoutY="316.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="124.0" style="-fx-background-color: #c4d8e8;" text="Dictionary">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
       <Button contentDisplay="TOP" layoutX="515.0" layoutY="102.0" mnemonicParsing="false" onMouseClicked="#goToVocab" prefHeight="99.0" prefWidth="124.0" style="-fx-background-color: #c4d8e8;" text="Vocabulary">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="82.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/cloud.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button contentDisplay="TOP" layoutX="149.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#goToListen" prefHeight="99.0" prefWidth="124.0" style="-fx-background-color: #c4d8e8;" text="Listening">
          <font>
             <Font size="20.0" />
          </font>

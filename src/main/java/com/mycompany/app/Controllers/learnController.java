@@ -30,5 +30,11 @@ public class learnController {
         stage.setTitle("Vocabulary");
         stage.setScene(new Scene(root));
     }
-
+    @FXML
+    void goToListen(MouseEvent event) throws IOException {
+        Stage stage = (Stage) thisPane.getScene().getWindow();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/listeningView.fxml")));
+        stage.setTitle("Vocabulary");
+        stage.setScene(new Scene(root));
+    }
 }

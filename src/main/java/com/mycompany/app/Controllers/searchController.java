@@ -2,6 +2,7 @@ package com.mycompany.app.Controllers;
 
 import com.mycompany.app.Alert.Alerts;
 import com.mycompany.app.DictionaryManagement;
+import com.mycompany.app.TranslateApi.TextToSpeech;
 import com.mycompany.app.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,17 +17,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
-import org.w3c.dom.events.MouseEvent;
-import javafx.scene.web.HTMLEditor;
-import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
+import javafx.stage.Stage;
+
+
+import javax.speech.AudioException;
+import javax.speech.EngineException;
+import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collection;
+
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static com.mycompany.app.myApplication.textToSpeech;
+
 
 public class searchController implements Initializable {
     public static String selectedItem;
@@ -47,6 +52,8 @@ public class searchController implements Initializable {
 
     @FXML
     private Button btDelete;
+    @FXML
+    private Button btVoice;
 
     @FXML
     private Button btChange;
@@ -61,7 +68,6 @@ public class searchController implements Initializable {
 
     @FXML
     private Tooltip tooltip3;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addToObservableList();
@@ -95,11 +101,31 @@ public class searchController implements Initializable {
                 }
             }
         });
+        btDelete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                deleteWord();
+            }
+        });
+        btVoice.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    voice();
+                } catch (PropertyVetoException e) {
+                    throw new RuntimeException(e);
+                } catch (AudioException e) {
+                    throw new RuntimeException(e);
+                } catch (EngineException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
-
-    @FXML
     public void deleteWord() {
-        String selectedItem = listView.getSelectionModel().getSelectedItem();
+        selectedItem = listView.getSelectionModel().getSelectedItem();
         Alert alertWarning = alerts.alertWarning("Delete", "Bạn chắc chắn muốn xoá từ này?");
         alertWarning.getButtonTypes().add(ButtonType.CANCEL);
         Optional<ButtonType> optional = alertWarning.showAndWait();
@@ -112,7 +138,6 @@ public class searchController implements Initializable {
         }
         else alerts.showAlertInfo("Information" , "Xoá thất bại");
     }
-    @FXML
     public void update() throws IOException {
         selectedItem = listView.getSelectionModel().getSelectedItem();
         Stage secondaryStage = new Stage();
@@ -130,5 +155,9 @@ public class searchController implements Initializable {
         for (int i = 0; i < DictionaryManagement.dictionary.size(); i++) {
             observableList.add(DictionaryManagement.dictionary.get(i).getWord_target());
         }
+    }
+    private void voice() throws PropertyVetoException, AudioException, EngineException, InterruptedException {
+        selectedItem = listView.getSelectionModel().getSelectedItem();
+        textToSpeech.speak(selectedItem);
     }
 }

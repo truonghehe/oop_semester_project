@@ -87,7 +87,7 @@
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <Button fx:id="btDelete" contentDisplay="GRAPHIC_ONLY" layoutX="550.0" layoutY="92.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="48.0" style="-fx-background-color: #F0F8FF;" text="Delete" AnchorPane.bottomAnchor="365.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="92.0">
+      <Button fx:id="btDelete" contentDisplay="GRAPHIC_ONLY" layoutX="574.0" layoutY="91.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="48.0" style="-fx-background-color: #F0F8FF;" text="Delete" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="574.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="91.0">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -98,7 +98,10 @@
          <tooltip>
             <Tooltip fx:id="tooltip1" text="Nhấn để xoá từ đang chọn." />
          </tooltip></Button>
-      <Button fx:id="btChange" contentDisplay="GRAPHIC_ONLY" layoutX="450.0" layoutY="91.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="48.0" style="-fx-background-color: #F0F8FF;" text="Change">
+      <Button fx:id="btChange" contentDisplay="GRAPHIC_ONLY" layoutX="499.0" layoutY="91.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="48.0" style="-fx-background-color: #F0F8FF;" text="Change">
+         <tooltip>
+            <Tooltip fx:id="tooltip2" text="Nhấn để sửa định nghĩa từ đang chọn" />
+         </tooltip>
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="38.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -106,9 +109,7 @@
                </image>
             </ImageView>
          </graphic>
-         <tooltip>
-            <Tooltip fx:id="tooltip2" text="Nhấn để sửa định nghĩa từ đang chọn" />
-         </tooltip>
       </Button>
+      <Button fx:id="btVoice" layoutX="422.0" layoutY="99.0" mnemonicParsing="false" text="Voice" />
    </children>
 </AnchorPane>

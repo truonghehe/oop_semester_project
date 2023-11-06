@@ -14,9 +14,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.speech.EngineException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.mycompany.app.myApplication.textToSpeech;
 
 public class dictionaryController implements Initializable {
 
@@ -35,6 +38,11 @@ public class dictionaryController implements Initializable {
     @FXML
     void exit(MouseEvent event) {
         DictionaryManagement.dictionaryExportToFile("src/main/resources/E_V.txt");
+        try {
+            textToSpeech.terminate();
+        } catch (EngineException e) {
+            throw new RuntimeException(e);
+        }
         Platform.exit();
     }
 
