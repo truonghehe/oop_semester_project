@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.HTMLEditor;
@@ -21,8 +22,13 @@ import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.util.Duration;
 
-public class startingController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class startingController implements Initializable {
 
     @FXML
     private AnchorPane thisPane;
@@ -58,5 +64,12 @@ public class startingController {
         Parent root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
         stage.setTitle("Learning");
         stage.setScene(new Scene(root));
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tooltip1.setShowDelay(Duration.seconds(0.5));
+        tooltip2.setShowDelay(Duration.seconds(0.5));
+        tooltip3.setShowDelay(Duration.seconds(0.5));
     }
 }

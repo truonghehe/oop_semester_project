@@ -16,7 +16,7 @@ public class myApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, PropertyVetoException, AudioException, EngineException {
         FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("firstView");
         stage.setScene(scene);
         textToSpeech.initialize("kevin16");
