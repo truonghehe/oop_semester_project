@@ -15,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;

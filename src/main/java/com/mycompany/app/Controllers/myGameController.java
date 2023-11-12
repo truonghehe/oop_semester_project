@@ -12,11 +12,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.util.Pair;
 
 import java.io.*;
 import java.net.URL;
 import java.util.*;
 
+import static com.mycompany.app.myApplication.*;
 public class myGameController implements Initializable {
     @FXML
     private Button[] buttons = new Button[16];
@@ -67,8 +69,8 @@ public class myGameController implements Initializable {
 
     private List<String> pairsList = new ArrayList<>();
 
-    private double progress = 0;
-
+    private int progress = 0;
+    private int index = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -78,7 +80,6 @@ public class myGameController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         buttons[0] = button0;
         buttons[1] = button1;
         buttons[2] = button2;
@@ -100,7 +101,7 @@ public class myGameController implements Initializable {
         tooltip2.setShowDelay(Duration.seconds(0.5));
         tooltip3.setShowDelay(Duration.seconds(0.5));
 
-        percentage.setText((int) (progress * 100) + "%");
+        percentage.setText((int) (progress * 10) + "%");
 
         nextQuestion();
 
@@ -123,10 +124,10 @@ public class myGameController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (answer.getText().equals(correctAnswer)) {
-                    progress += 0.1;
-                    progressBar.setProgress(progress);
-                    percentage.setText((int) (progress * 100) + "%");
-                    if (progress == 1) {
+                    progress += 1;
+                    progressBar.setProgress(progress/10.0);
+                    percentage.setText((int) (progress * 10) + "%");
+                    if (progress == 10) {
                         Alert continueConfirmation = alerts.alertConfirmation("Chúc mừng!", "Bạn đã hoàn thành bài tập hôm nay" +
                                                                             "\n bạn có muốn tiếp tục không?");
                         Optional<ButtonType> respond = continueConfirmation.showAndWait();
@@ -157,9 +158,7 @@ public class myGameController implements Initializable {
                     root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
                     stage.setTitle("Learning");
                     stage.setScene(new Scene(root));
-
                     saveProgress();
-
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -167,28 +166,32 @@ public class myGameController implements Initializable {
         });
     }
 
-    private void getProgressBarInfo() throws IOException {
-        FileReader fr = new FileReader("src/main/resources/textFiles/progressBarInfo");
-        BufferedReader br = new BufferedReader(fr);
-        String temp = br.readLine();
-        progress = Double.parseDouble(temp);
-        progressBar.setProgress(progress);
+    private void getProgressBarInfo(){
+        String line = personList.get(personIndex).getMyGame();
+        String[] a = line.split(" ");
+        index = Integer.parseInt(a[0]);
+        if (index == 0){
+            index = random.nextInt(pairsList.size());
+        }
+        progress = Integer.parseInt(a[1]);
+        progressBar.setProgress(progress/10.0);
     }
 
     private void saveProgress() throws IOException {
-        FileWriter fw = new FileWriter("src/main/resources/textFiles/progressBarInfo");
-        BufferedWriter br = new BufferedWriter(fw);
-        br.write(String.valueOf(progress));
-        br.close();
-        fw.close();
+        personList.get(personIndex).setMyGame(index + " " + progress);
     }
-
     private void respond(Optional<ButtonType> respond) {
+        progress = 0;
+        int newIndex = random.nextInt(pairsList.size()) ;
+        while (Math.abs(index - newIndex) <= 10){
+            newIndex = random.nextInt(pairsList.size());
+        }
+        index = newIndex ;
         if (respond.get() == ButtonType.CANCEL || respond.isEmpty()) {
             Stage stage = (Stage) thisPane.getScene().getWindow();
             Parent root = null;
             try {
-                root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/learnView.fxml")));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -196,8 +199,8 @@ public class myGameController implements Initializable {
             stage.setScene(new Scene(root));
         }
         else if (respond.get() == ButtonType.OK) {
-            progress = 0;
-            progressBar.setProgress(progress);
+            progressBar.setProgress(progress/10.0);
+            percentage.setText((progress) * 10 + "%");
             nextQuestion();
         }
     }
@@ -233,12 +236,10 @@ public class myGameController implements Initializable {
     }
 
     private void getNextQuestion() {
-        int rand = random.nextInt(pairsList.size());
-        String[] temp = pairsList.get(rand).split("\\|");
+        String[] temp = pairsList.get(index + progress - 1).split("\\|");
         question.setText(temp[0]);
         correctAnswer = temp[1];
     }
-
     private void setNextQuestion() {
         String[] words = correctAnswer.split(" ");
         for (int i = 0; i < buttons.length; i++) {

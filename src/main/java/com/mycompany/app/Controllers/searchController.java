@@ -2,7 +2,7 @@ package com.mycompany.app.Controllers;
 
 import com.mycompany.app.Alert.Alerts;
 import com.mycompany.app.DictionaryManagement;
-import com.mycompany.app.TranslateApi.TextToSpeech;
+
 import com.mycompany.app.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

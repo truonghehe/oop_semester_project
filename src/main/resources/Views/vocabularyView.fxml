@@ -14,12 +14,12 @@
 
 <AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="794.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.vocabularyController">
     <children>
-        <Label fx:id="question" alignment="CENTER" layoutX="46.0" layoutY="80.0" prefHeight="9.0" prefWidth="313.0" style="-fx-background-color: #c4d8e8;" text="english">
+        <Label fx:id="question" alignment="CENTER" layoutX="104.0" layoutY="81.0" prefHeight="9.0" prefWidth="313.0" style="-fx-background-color: #c4d8e8;" text="english" visible="false">
             <font>
                 <Font size="23.0" />
             </font>
         </Label>
-        <GridPane alignment="CENTER" layoutX="74.0" layoutY="191.0" prefHeight="203.0" prefWidth="369.0">
+        <GridPane fx:id="gridPane" alignment="CENTER" layoutX="74.0" layoutY="191.0" prefHeight="203.0" prefWidth="369.0" visible="false">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,7 +35,7 @@
                 <Button fx:id="button3" minWidth="0.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="276.0" style="-fx-background-color: #c4d8e8;" text="3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             </children>
         </GridPane>
-        <ProgressBar fx:id="progressBar" layoutX="93.0" layoutY="30.0" prefHeight="25.0" prefWidth="393.0" progress="0.0" />
+        <ProgressBar fx:id="progressBar" layoutX="93.0" layoutY="30.0" prefHeight="25.0" prefWidth="393.0" progress="0.0" visible="false" />
         <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: #c4d8e8;" text="Back">
             <graphic>
                 <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
@@ -47,7 +47,7 @@
             <tooltip>
                 <Tooltip fx:id="tooltip1" text="Nhấn để trở lại." />
             </tooltip></Button>
-        <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" layoutX="217.0" layoutY="409.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="57.0" style="-fx-background-color: #c4d8e8;" text="check">
+        <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" layoutX="217.0" layoutY="409.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="57.0" style="-fx-background-color: #c4d8e8;" text="check" visible="false">
             <tooltip>
                 <Tooltip fx:id="tooltip2" text="nhấn để kiểm tra." />
             </tooltip>
@@ -59,7 +59,7 @@
                 </ImageView>
          </graphic>
         </Button>
-        <Label fx:id="percentage" contentDisplay="CENTER" layoutX="124.0" layoutY="29.0" prefHeight="20.0" prefWidth="43.0">
+        <Label fx:id="percentage" contentDisplay="CENTER" layoutX="124.0" layoutY="29.0" prefHeight="20.0" prefWidth="43.0" visible="false">
             <font>
                 <Font size="16.0" />
             </font>
@@ -104,5 +104,14 @@
                 <Image url="@../images/dog.png" />
             </image>
         </ImageView>
+      <AnchorPane fx:id="subjectPane" layoutX="69.0" layoutY="98.0" prefHeight="326.0" prefWidth="369.0">
+         <children>
+            <Button fx:id="bt0" layoutX="71.0" layoutY="70.0" mnemonicParsing="false" text="Subject 1" />
+            <Button fx:id="bt1" layoutX="229.0" layoutY="70.0" mnemonicParsing="false" text="Subject 2" />
+            <Button fx:id="bt2" layoutX="71.0" layoutY="197.0" mnemonicParsing="false" text="Subject 3" />
+            <Button fx:id="bt3" layoutX="229.0" layoutY="197.0" mnemonicParsing="false" text="Subject 4" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btVoice" layoutX="43.0" layoutY="86.0" mnemonicParsing="false" text="Speak" visible="false" />
     </children>
 </AnchorPane>

@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -23,15 +24,13 @@ import java.net.URL;
 import java.util.*;
 import java.util.List;
 
-import static com.mycompany.app.myApplication.textToSpeech;
+import static com.mycompany.app.myApplication.*;
 
 public class listeningController implements Initializable {
     @FXML
     private Button[] buttons = new Button[4];
-
     @FXML
     private Button button0, button1, button2, button3;
-
     @FXML
     private Button check;
     @FXML
@@ -47,12 +46,13 @@ public class listeningController implements Initializable {
     @FXML
     private AnchorPane thisPane;
     private Alerts alerts = new Alerts();
-    private double progress = 0;
+    private int progress = 0;
     private String correctAnswer;
-    private String clickAns ;
+    private String clickAns;
     @FXML
-    private Button btVoice ;
+    private Button btVoice;
     private Random random = new Random();
+    private int index = 0 ;
     private List<String> pairsList = new ArrayList<>();
 
     @Override
@@ -121,10 +121,10 @@ public class listeningController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (clickAns.equals(correctAnswer)) {
-                    progress += 10;
-                    progressBar.setProgress(progress/100);
-                    percentage.setText((int) (progress) + "%");
-                    if (progress == 100) {
+                    progress += 1;
+                    progressBar.setProgress(progress / 10.0);
+                    percentage.setText((progress) * 10+ "%");
+                    if (progress == 10) {
                         Alert continueConfirmation = alerts.alertConfirmation("Chúc mừng!", "Bạn đã hoàn thành bài tập hôm nay" +
                                 "\n bạn có muốn tiếp tục không?");
                         Optional<ButtonType> respond = continueConfirmation.showAndWait();
@@ -140,12 +140,8 @@ public class listeningController implements Initializable {
         });
     }
 
-    private void saveProgress() throws IOException {
-        FileWriter fw = new FileWriter("src/main/resources/textFiles/progressListen");
-        BufferedWriter br = new BufferedWriter(fw);
-        br.write(String.valueOf(progress));
-        br.close();
-        fw.close();
+    private void saveProgress() {
+        personList.get(personIndex).setListen(index + " " + progress);
     }
 
     private void loadPairsList() throws IOException {
@@ -156,20 +152,24 @@ public class listeningController implements Initializable {
             pairsList.add(line);
         }
     }
-    private void getProgressBarInfo() throws IOException {
-        FileReader fr = new FileReader("src/main/resources/textFiles/progressListen");
-        BufferedReader br = new BufferedReader(fr);
-        String temp = br.readLine();
-        progress = Double.parseDouble(temp);
-        progressBar.setProgress(progress/100);
+
+    private void getProgressBarInfo(){
+        String line = personList.get(personIndex).getMyGame();
+        String[] a = line.split(" ");
+        index = Integer.parseInt(a[0]);
+        if (index == 0){
+            index = random.nextInt(pairsList.size());
+        }
+        progress = Integer.parseInt(a[1]);
+        progressBar.setProgress(progress/10.0);
     }
+
     private void nextQuestion() {
-        int rand = random.nextInt(pairsList.size());
-        correctAnswer = pairsList.get(rand).trim();
+        correctAnswer = pairsList.get(index + progress - 1).trim();
         buttons[0].setText(correctAnswer);
-        for (int i = 1 ; i < buttons.length ; i++ ){
-            int index = (rand + 2 * i) % 100 ;
-            buttons[i].setText(pairsList.get(index).trim());
+        for (int i = 1; i < buttons.length; i++) {
+            int newIndex = (index + progress + 2 * i) % 100;
+            buttons[i].setText(pairsList.get(newIndex).trim());
         }
         randomize();
     }
@@ -182,12 +182,20 @@ public class listeningController implements Initializable {
             button.setStyle("-fx-background-color: #c4d8e8;");
         }
     }
+
     private void swap(int i, int rand) {
         String temp = buttons[i].getText();
         buttons[i].setText(buttons[rand].getText());
         buttons[rand].setText(temp);
     }
+
     private void respond(Optional<ButtonType> respond) {
+        progress = 0;
+        int newIndex = random.nextInt(pairsList.size()) ;
+        while (Math.abs(index - newIndex) <= 10){
+            newIndex = random.nextInt(pairsList.size());
+        }
+        index = newIndex ;
         if (respond.get() == ButtonType.CANCEL || respond.isEmpty()) {
             Stage stage = (Stage) thisPane.getScene().getWindow();
             Parent root = null;
@@ -198,10 +206,9 @@ public class listeningController implements Initializable {
             }
             stage.setTitle("Learn");
             stage.setScene(new Scene(root));
-        }
-        else if (respond.get() == ButtonType.OK) {
-            progress = 0;
-            progressBar.setProgress(progress);
+        } else if (respond.get() == ButtonType.OK) {
+            progressBar.setProgress(progress / 10.0);
+            percentage.setText((progress) * 10 + "%");
             nextQuestion();
         }
     }
