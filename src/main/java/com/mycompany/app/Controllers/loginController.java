@@ -136,7 +136,7 @@ public class loginController implements Initializable {
                         signUp_selectQuestion.getSelectionModel().getSelectedItem(), signUp_answer.getText() , "0 0" , "0 0" , "0 0" ,
                         "0 0" , "0 0" , "0 0"));
                 try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/textFiles/Account", true));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("src\\main\\resources\\textFiles\\Account", true));
                     String person = signUp_username.getText() + "|" + signUp_password.getText() + "|" +
                             signUp_selectQuestion.getSelectionModel().getSelectedItem() + "|" + signUp_answer.getText();
                     writer.write(person);

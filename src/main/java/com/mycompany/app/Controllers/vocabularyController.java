@@ -24,41 +24,45 @@ import java.util.*;
 import java.util.List;
 
 import static com.mycompany.app.myApplication.*;
-public class vocabularyController extends gameUtils implements Initializable {
+public class vocabularyController implements Initializable {
     @FXML
     private Button[] buttons = new Button[4];
 
     @FXML
     private Button button0, button1, button2, button3;
-
     @FXML
     private Button bt0 , bt1 , bt2 , bt3 ;
-
     @FXML
     private Button check;
-
+    @FXML
+    private Label question;
     @FXML
     private Button back;
-
     @FXML
     private Label percentage;
-
+    @FXML
+    private ProgressBar progressBar;
     @FXML
     private Tooltip tooltip1;
-
     @FXML
     private Tooltip tooltip2;
-
+    @FXML
+    private AnchorPane thisPane;
     @FXML
     private GridPane gridPane;
-
     @FXML
     private AnchorPane subjectPane ;
-
+    private Alerts alerts = new Alerts();
+    private int progress = 0;
     @FXML
-    private Button btVoice;
-    private int indexSubject;
+    private Button btVoice ;
+    private String correctAnswer;
 
+    private String clickAns ;
+    private int index = 0 ;
+    private int indexSubject ;
+    private Random random = new Random();
+    private List<String> pairsList = new ArrayList<>();
     public void mySubject(){
         subjectPane.setVisible(false);
         progressBar.setVisible(true);
@@ -68,7 +72,7 @@ public class vocabularyController extends gameUtils implements Initializable {
         percentage.setVisible(true);
         btVoice.setVisible(true);
         try {
-            loadPairsList("src/main/resources/textFiles/vocabulary");
+            loadPairsList();
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -92,14 +96,29 @@ public class vocabularyController extends gameUtils implements Initializable {
                         value.setStyle("-fx-background-color: #c4d8e8;");
                     }
                     button.setStyle("-fx-background-color: #931DA3;");
-                    answer.setText(button.getText());
+                    clickAns = button.getText();
                 }
             });
         }
         check.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                checkAnswer();
+                if (clickAns.equals(correctAnswer)) {
+                    progress += 1;
+                    progressBar.setProgress(progress/10.0);
+                    percentage.setText( (progress) * 10 + "%");
+                    if (progress == 10) {
+                        Alert continueConfirmation = alerts.alertConfirmation("Chúc mừng!", "Bạn đã hoàn thành bài tập hôm nay" +
+                                "\n bạn có muốn tiếp tục không?");
+                        Optional<ButtonType> respond = continueConfirmation.showAndWait();
+                        respond(respond);
+                    } else {
+                        nextQuestion();
+                    }
+                } else {
+                    alerts.showAlertInfo("Đáp án sai!", "Bạn đã làm sai rồi.");
+                    randomize();
+                }
             }
         });
         btVoice.setOnAction(new EventHandler<ActionEvent>() {
@@ -143,13 +162,21 @@ public class vocabularyController extends gameUtils implements Initializable {
         back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                backToLearn();
+                Stage stage = (Stage) thisPane.getScene().getWindow();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
+                    stage.setTitle("Learning");
+                    stage.setScene(new Scene(root));
+                    saveProgress();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }
 
-    @Override
-    protected void saveProgress() {
+    private void saveProgress() {
         String line = index + " " + progress ;
         switch (indexSubject){
             case 0 : personList.get(personIndex).setVocab1(line); break ;
@@ -159,8 +186,15 @@ public class vocabularyController extends gameUtils implements Initializable {
         }
     }
 
-    @Override
-    protected void getProgressBarInfo() {
+    private void loadPairsList() throws IOException {
+        FileReader fr = new FileReader("src/main/resources/textFiles/vocabulary");
+        BufferedReader bf = new BufferedReader(fr);
+        String line;
+        while ((line = bf.readLine()) != null) {
+            pairsList.add(line);
+        }
+    }
+    private void getProgressBarInfo() {
         String line = "" ;
         switch (indexSubject){
             case 0 : line = personList.get(personIndex).getVocab1(); break ;
@@ -176,22 +210,54 @@ public class vocabularyController extends gameUtils implements Initializable {
         progress = Integer.parseInt(a[1]) ;
         progressBar.setProgress(progress/10.0);
     }
-
-    @Override
-    protected void setNextQuestion() {
+    private void nextQuestion() {
+        String[] temp = pairsList.get(index + progress - 1).split("\\|");
+        question.setText(temp[0].trim());
+        correctAnswer = temp[1].trim();
         buttons[0].setText(correctAnswer);
         for (int i = 1 ; i < buttons.length ; i++ ){
             int newIndex = (index + progress + 2 * i) % 50 ;
             String[] tmp = pairsList.get(newIndex).split("\\|") ;
             buttons[i].setText(tmp[1].trim());
         }
-        randomize(buttons);
+        randomize();
     }
-
-    @Override
-    protected void reset() {
+    private void randomize() {
+        for (int i = 0; i < buttons.length; i++) {
+            int rand = random.nextInt(buttons.length - i) + i;
+            swap(i, rand);
+        }
         for (Button button : buttons) {
             button.setStyle("-fx-background-color: #c4d8e8;");
+        }
+    }
+    private void swap(int i, int rand) {
+        String temp = buttons[i].getText();
+        buttons[i].setText(buttons[rand].getText());
+        buttons[rand].setText(temp);
+    }
+    private void respond(Optional<ButtonType> respond) {
+        progress = 0;
+        int newIndex = random.nextInt(pairsList.size()) ;
+        while (Math.abs(index - newIndex) <= 10){
+            newIndex = random.nextInt(pairsList.size());
+        }
+        index = newIndex ;
+        if (respond.get() == ButtonType.CANCEL || respond.isEmpty()) {
+            Stage stage = (Stage) thisPane.getScene().getWindow();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage.setTitle("Learn");
+            stage.setScene(new Scene(root));
+        }
+        else if (respond.get() == ButtonType.OK) {
+            progressBar.setProgress(progress/10.0);
+            percentage.setText(progress * 10 + "%");
+            nextQuestion();
         }
     }
 }

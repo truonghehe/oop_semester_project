@@ -19,12 +19,15 @@ import java.net.URL;
 import java.util.*;
 
 import static com.mycompany.app.myApplication.*;
-public class myGameController extends gameUtils implements Initializable {
+public class myGameController implements Initializable {
     @FXML
     private Button[] buttons = new Button[16];
 
     @FXML
     private Button button0, button1,  button2,  button3,  button4,  button5,  button6,  button7,  button8,  button9,  button10,  button11,  button12,  button13,  button14, button15 ;
+
+    @FXML
+    private Button check;
 
     @FXML
     private Button back;
@@ -33,7 +36,13 @@ public class myGameController extends gameUtils implements Initializable {
     private Button reset;
 
     @FXML
-    private Button check;
+    private Label question;
+
+    @FXML
+    private Label answer;
+
+    @FXML
+    private Label percentage;
 
     @FXML
     private ProgressBar progressBar;
@@ -46,13 +55,27 @@ public class myGameController extends gameUtils implements Initializable {
 
     @FXML
     private Tooltip tooltip3;
+
+    @FXML
+    private AnchorPane thisPane;
+
+    private Alerts alerts = new Alerts();
+
+    private String correctAnswer;
+
     private List<String> randomWords = new ArrayList<>();
 
+    private Random random = new Random();
+
+    private List<String> pairsList = new ArrayList<>();
+
+    private int progress = 0;
+    private int index = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             loadRandomWords();
-            loadPairsList("src/main/resources/textFiles/pairs");
+            loadPairsList();
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -78,7 +101,7 @@ public class myGameController extends gameUtils implements Initializable {
         tooltip2.setShowDelay(Duration.seconds(0.5));
         tooltip3.setShowDelay(Duration.seconds(0.5));
 
-        percentage.setText((progress * 10) + "%");
+        percentage.setText((int) (progress * 10) + "%");
 
         nextQuestion();
 
@@ -100,7 +123,22 @@ public class myGameController extends gameUtils implements Initializable {
         check.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                checkAnswer();
+                if (answer.getText().equals(correctAnswer)) {
+                    progress += 1;
+                    progressBar.setProgress(progress/10.0);
+                    percentage.setText((int) (progress * 10) + "%");
+                    if (progress == 10) {
+                        Alert continueConfirmation = alerts.alertConfirmation("Chúc mừng!", "Bạn đã hoàn thành bài tập hôm nay" +
+                                                                            "\n bạn có muốn tiếp tục không?");
+                        Optional<ButtonType> respond = continueConfirmation.showAndWait();
+                        respond(respond);
+                    } else {
+                        nextQuestion();
+                    }
+                } else {
+                    alerts.showAlertInfo("Đáp án sai!", "Bạn đã làm sai rồi.");
+                    reset();
+                }
             }
         });
 
@@ -114,13 +152,21 @@ public class myGameController extends gameUtils implements Initializable {
         back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                backToLearn();
+                Stage stage = (Stage) thisPane.getScene().getWindow();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
+                    stage.setTitle("Learning");
+                    stage.setScene(new Scene(root));
+                    saveProgress();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
     }
 
-    @Override
-    protected void getProgressBarInfo(){
+    private void getProgressBarInfo(){
         String line = personList.get(personIndex).getMyGame();
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
@@ -131,11 +177,10 @@ public class myGameController extends gameUtils implements Initializable {
         progressBar.setProgress(progress/10.0);
     }
 
-    @Override
-    protected void saveProgress() {
+    private void saveProgress() throws IOException {
         personList.get(personIndex).setMyGame(index + " " + progress);
     }
-    protected void respond(Optional<ButtonType> respond) {
+    private void respond(Optional<ButtonType> respond) {
         progress = 0;
         int newIndex = random.nextInt(pairsList.size()) ;
         while (Math.abs(index - newIndex) <= 10){
@@ -160,6 +205,15 @@ public class myGameController extends gameUtils implements Initializable {
         }
     }
 
+    private void loadPairsList() throws IOException {
+        FileReader fr = new FileReader("src/main/resources/textFiles/pairs");
+        BufferedReader bf = new BufferedReader(fr);
+        String line;
+        while ((line = bf.readLine()) != null) {
+            pairsList.add(line);
+        }
+    }
+
     private void loadRandomWords() throws IOException {
         FileReader fr = new FileReader("src/main/resources/textFiles/randomWords");
         BufferedReader bf = new BufferedReader(fr);
@@ -169,17 +223,24 @@ public class myGameController extends gameUtils implements Initializable {
         }
     }
 
-    @Override
-    protected void reset() {
+    private void reset() {
         for  (Button element : buttons) {
             element.setVisible(true);
             element.setDisable(false);
         }
         answer.setText("");
     }
+    private void nextQuestion() {
+        getNextQuestion();
+        setNextQuestion();
+    }
 
-    @Override
-    protected void setNextQuestion() {
+    private void getNextQuestion() {
+        String[] temp = pairsList.get(index + progress - 1).split("\\|");
+        question.setText(temp[0]);
+        correctAnswer = temp[1];
+    }
+    private void setNextQuestion() {
         String[] words = correctAnswer.split(" ");
         for (int i = 0; i < buttons.length; i++) {
             if (i < words.length) {
@@ -189,7 +250,20 @@ public class myGameController extends gameUtils implements Initializable {
                 buttons[i].setText(randomWords.get(index));
             }
         }
-        randomize(buttons);
+        randomize();
         reset();
+    }
+
+    private void randomize() {
+        for (int i = 0; i < buttons.length; i++) {
+            int rand = random.nextInt(buttons.length);
+            swap(i, rand);
+        }
+    }
+
+    private void swap(int i, int rand) {
+        String temp = buttons[i].getText();
+        buttons[i].setText(buttons[rand].getText());
+        buttons[rand].setText(temp);
     }
 }
