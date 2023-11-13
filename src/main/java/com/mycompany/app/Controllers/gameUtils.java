@@ -40,8 +40,6 @@ abstract public class gameUtils {
     protected ProgressBar progressBar;
     @FXML
     protected Label answer = new Label();
-    @FXML
-    protected Button check;
 
     protected abstract void saveProgress();
 
@@ -50,8 +48,8 @@ abstract public class gameUtils {
     abstract protected void getProgressBarInfo();
 
     protected void randomize(Button[] buttons) {
-        for (int i = 0; i < buttons.length; i++) {
-            int rand = random.nextInt(buttons.length);
+        for (int i = 0; i < 4; i++) {
+            int rand = random.nextInt(buttons.length)%4 ;
             swap(buttons, i, rand);
         }
     }
@@ -105,8 +103,8 @@ abstract public class gameUtils {
          setNextQuestion();
     }
 
-    private void getNextQuestion() {
-        String[] temp = pairsList.get(random.nextInt(pairsList.size())).split("\\|");
+    protected void getNextQuestion() {
+        String[] temp = pairsList.get(index + progress - 1).split("\\|");
         question.setText(temp[0].trim());
         correctAnswer = temp[1].trim();
     }

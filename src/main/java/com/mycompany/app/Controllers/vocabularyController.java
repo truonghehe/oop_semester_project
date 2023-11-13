@@ -26,13 +26,12 @@ import java.util.List;
 import static com.mycompany.app.myApplication.*;
 public class vocabularyController extends gameUtils implements Initializable {
     @FXML
-    private Button[] buttons = new Button[4];
-
+    private Button[] buttons = new Button[15];
     @FXML
     private Button button0, button1, button2, button3;
 
     @FXML
-    private Button bt0 , bt1 , bt2 , bt3 ;
+    private Button bt1 , bt2 , bt3 , bt4 , bt5 , bt6 , bt7 , bt8 , bt9 , bt10;
 
     @FXML
     private Button check;
@@ -68,7 +67,7 @@ public class vocabularyController extends gameUtils implements Initializable {
         percentage.setVisible(true);
         btVoice.setVisible(true);
         try {
-            loadPairsList("src/main/resources/textFiles/vocabulary");
+            loadPairsList("src/main/resources/textFiles/Vocabulary/" + indexSubject );
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -84,15 +83,16 @@ public class vocabularyController extends gameUtils implements Initializable {
         percentage.setText((progress) * 10 + "%");
 
         nextQuestion();
-        for (Button button : buttons) {
-            button.setOnAction(new EventHandler<ActionEvent>() {
+        for (int i = 0 ; i < 4 ; i++) {
+            int tmp = i ;
+            buttons[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    for (Button value : buttons) {
-                        value.setStyle("-fx-background-color: #c4d8e8;");
+                    for (int j = 0 ; j < 4 ; j++) {
+                        buttons[j].setStyle("-fx-background-color: #c4d8e8;");
                     }
-                    button.setStyle("-fx-background-color: #931DA3;");
-                    answer.setText(button.getText());
+                    buttons[tmp].setStyle("-fx-background-color: #931DA3;");
+                    answer.setText(buttons[tmp].getText());
                 }
             });
         }
@@ -107,11 +107,7 @@ public class vocabularyController extends gameUtils implements Initializable {
             public void handle(ActionEvent event) {
                 try {
                     textToSpeech.speak(question.getText());
-                } catch (EngineException e) {
-                    throw new RuntimeException(e);
-                } catch (AudioException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
+                } catch (EngineException | AudioException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -126,11 +122,18 @@ public class vocabularyController extends gameUtils implements Initializable {
         percentage.setVisible(false);
         subjectPane.setVisible(true);
         btVoice.setVisible(false);
-        buttons[0] = bt0;
-        buttons[1] = bt1;
-        buttons[2] = bt2;
-        buttons[3] = bt3;
-        for (int i = 0 ; i < buttons.length ; i++) {
+
+        buttons[1] = bt1 ;
+        buttons[2] = bt2 ;
+        buttons[3] = bt3 ;
+        buttons[4] = bt4 ;
+        buttons[5] = bt5 ;
+        buttons[6] = bt6 ;
+        buttons[7] = bt7;
+        buttons[8] = bt8;
+        buttons[9] = bt9;
+        buttons[10] = bt10;
+        for (int i = 1 ; i <= 10 ; i++) {
             int tmp = i ;
             buttons[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
@@ -151,26 +154,16 @@ public class vocabularyController extends gameUtils implements Initializable {
     @Override
     protected void saveProgress() {
         String line = index + " " + progress ;
-        switch (indexSubject){
-            case 0 : personList.get(personIndex).setVocab1(line); break ;
-            case 1 : personList.get(personIndex).setVocab2(line); break ;
-            case 2 : personList.get(personIndex).setVocab3(line); break ;
-            case 3 : personList.get(personIndex).setVocab4(line); break ;
-        }
+        personList.get(personIndex).getVocab().set(indexSubject, line);
     }
 
     @Override
     protected void getProgressBarInfo() {
         String line = "" ;
-        switch (indexSubject){
-            case 0 : line = personList.get(personIndex).getVocab1(); break ;
-            case 1 : line = personList.get(personIndex).getVocab2(); break ;
-            case 2 : line = personList.get(personIndex).getVocab3(); break ;
-            case 3 : line = personList.get(personIndex).getVocab4(); break ;
-        }
+        line = personList.get(personIndex).getVocab().get(indexSubject);
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
-        if ( index == 0 ){
+        while ( index == 0 ){
             index = random.nextInt(pairsList.size());
         }
         progress = Integer.parseInt(a[1]) ;
@@ -180,8 +173,8 @@ public class vocabularyController extends gameUtils implements Initializable {
     @Override
     protected void setNextQuestion() {
         buttons[0].setText(correctAnswer);
-        for (int i = 1 ; i < buttons.length ; i++ ){
-            int newIndex = (index + progress + 2 * i) % 50 ;
+        for (int i = 1 ; i < 4 ; i++ ){
+            int newIndex = (index + progress + 2 * i) % pairsList.size() ;
             String[] tmp = pairsList.get(newIndex).split("\\|") ;
             buttons[i].setText(tmp[1].trim());
         }
@@ -190,8 +183,8 @@ public class vocabularyController extends gameUtils implements Initializable {
 
     @Override
     protected void reset() {
-        for (Button button : buttons) {
-            button.setStyle("-fx-background-color: #c4d8e8;");
+        for (int i = 0 ; i < 4 ; i++) {
+            buttons[i].setStyle("-fx-background-color: #c4d8e8;");
         }
     }
 }

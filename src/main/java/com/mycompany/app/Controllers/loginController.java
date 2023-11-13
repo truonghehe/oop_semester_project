@@ -132,19 +132,12 @@ public class loginController implements Initializable {
             if (index >= 0) {
                 alerts.showAlertWarning("Error message","User already exists");
             } else {
-                personList.add(new Person(signUp_username.getText(), signUp_password.getText(),
-                        signUp_selectQuestion.getSelectionModel().getSelectedItem(), signUp_answer.getText() , "0 0" , "0 0" , "0 0" ,
-                        "0 0" , "0 0" , "0 0"));
-                try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/textFiles/Account", true));
-                    String person = signUp_username.getText() + "|" + signUp_password.getText() + "|" +
-                            signUp_selectQuestion.getSelectionModel().getSelectedItem() + "|" + signUp_answer.getText();
-                    writer.write(person);
-                    writer.newLine();
-                    writer.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+                List<String> tmp = new ArrayList<>() ;
+                for ( int i = 0 ; i < 10 ; i++){
+                    tmp.add("0 0");
                 }
+                personList.add(new Person(signUp_username.getText(), signUp_password.getText(),
+                        signUp_selectQuestion.getSelectionModel().getSelectedItem(), signUp_answer.getText() ,"0 0" , "0 0",tmp));
                 alerts.showAlertInfo("Information message","Registration successful");
                 registerClear();
                 signUp_form.setVisible(false);

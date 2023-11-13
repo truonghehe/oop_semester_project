@@ -19,7 +19,7 @@ public class myApplication extends Application {
     public static int personIndex ;
     @Override
     public void start(Stage stage) throws IOException, PropertyVetoException, AudioException, EngineException {
-        FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("firstView");
         stage.setScene(scene);
@@ -44,7 +44,11 @@ public class myApplication extends Application {
         String line;
         while ((line = reader.readLine()) != null) {
             String[] a = line.split("\\|");
-            personList.add(new Person(a[0], a[1], a[2], a[3] , a[4] , a[5] , a[6] , a[7] , a[8] , a[9]));
+            List<String> vocab = new ArrayList<>();
+            for ( int i = 6 ; i < a.length ; i++){
+                vocab.add(a[i]);
+            }
+            personList.add(new Person(a[0], a[1], a[2], a[3] , a[4] , a[5] , vocab));
         }
         reader.close();
     }
@@ -52,11 +56,13 @@ public class myApplication extends Application {
     private void exportAccount() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/textFiles/Account"));
         for (Person person : personList) {
-            String personData = person.getUsername() + "|" + person.getPassword() + "|"
-                    + person.getQuestion() + "|" + person.getAnswer()  +"|"+ person.getMyGame() + "|" +
-                    person.getVocab1() + "|" + person.getVocab2() + "|" + person.getVocab3() + "|"+
-                    person.getVocab4() + "|" + person.getListen() ;
-            writer.write(personData);
+            StringBuilder personData = new StringBuilder(person.getUsername() + "|" + person.getPassword() + "|"
+                    + person.getQuestion() + "|" + person.getAnswer() + "|" + person.getMyGame() + "|" +
+                    person.getListen());
+            for (int i = 0 ; i < person.getVocab().size() ; i++){
+                personData.append("|").append(person.getVocab().get(i));
+            }
+            writer.write(personData.toString());
             writer.newLine();
         }
         writer.close();

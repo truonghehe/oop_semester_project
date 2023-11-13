@@ -124,13 +124,12 @@ public class myGameController extends gameUtils implements Initializable {
         String line = personList.get(personIndex).getMyGame();
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
-        if (index == 0){
+        while (index == 0){
             index = random.nextInt(pairsList.size());
         }
         progress = Integer.parseInt(a[1]);
         progressBar.setProgress(progress/10.0);
     }
-
     @Override
     protected void saveProgress() {
         personList.get(personIndex).setMyGame(index + " " + progress);

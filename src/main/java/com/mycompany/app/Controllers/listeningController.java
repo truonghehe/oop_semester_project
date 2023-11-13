@@ -65,7 +65,7 @@ public class listeningController extends gameUtils implements Initializable {
         tooltip1.setShowDelay(Duration.seconds(0.5));
         tooltip2.setShowDelay(Duration.seconds(0.5));
 
-        percentage.setText((progress) + "%");
+        percentage.setText((progress) * 10 + "%");
 
         nextQuestion();
         for (Button button : buttons) {
@@ -92,11 +92,7 @@ public class listeningController extends gameUtils implements Initializable {
             public void handle(ActionEvent event) {
                 try {
                     textToSpeech.speak(correctAnswer);
-                } catch (EngineException e) {
-                    throw new RuntimeException(e);
-                } catch (AudioException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
+                } catch (EngineException | AudioException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -113,29 +109,33 @@ public class listeningController extends gameUtils implements Initializable {
     protected void saveProgress() {
         personList.get(personIndex).setListen(index + " " + progress);
     }
-
+    @Override
+    protected void setNextQuestion() {
+        buttons[0].setText(correctAnswer);
+        for (int i = 1 ; i < buttons.length ; i++ ){
+            int newIndex = (index + progress + 2 * i) % pairsList.size() ;
+            String tmp = pairsList.get(newIndex) ;
+            buttons[i].setText(tmp.trim());
+        }
+        randomize(buttons);
+        reset();
+    }
+    @Override
+    protected void getNextQuestion() {
+        String temp = pairsList.get(index + progress - 1);
+        correctAnswer = temp.trim();
+    }
     @Override
     protected void getProgressBarInfo(){
-        String line = personList.get(personIndex).getMyGame();
+        String line = personList.get(personIndex).getListen();
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
-        if (index == 0){
+        while (index == 0){
             index = random.nextInt(pairsList.size());
         }
         progress = Integer.parseInt(a[1]);
         progressBar.setProgress(progress/10.0);
     }
-
-    private void nextQuestion() {
-        correctAnswer = pairsList.get(index + progress - 1).trim();
-        buttons[0].setText(correctAnswer);
-        for (int i = 1; i < buttons.length; i++) {
-            int newIndex = (index + progress + 2 * i) % 100;
-            buttons[i].setText(pairsList.get(newIndex).trim());
-        }
-        randomize(buttons);
-    }
-
     @Override
     protected void reset() {
         for (Button button : buttons) {
