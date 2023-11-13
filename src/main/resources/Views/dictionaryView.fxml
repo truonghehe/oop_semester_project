@@ -12,7 +12,7 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #F0F8FF;">
          <children>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goToSearch" prefHeight="56.0" prefWidth="65.0" style="-fx-background-color: #c4d8e8;" text="Search" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="14.0">
+            <Button fx:id="searchButton" contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goToSearch" prefHeight="56.0" prefWidth="65.0" style="-fx-background-color: #c4d8e8;" text="Search" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="14.0">
                <graphic>
                   <ImageView fitHeight="42.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,7 +27,7 @@
                   <Tooltip fx:id="tooltip1" text="Nhấn để tra cứu." />
                </tooltip>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#goToAPI" prefHeight="56.0" prefWidth="67.0" style="-fx-background-color: #c4d8e8;" text="API" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="193.0">
+            <Button fx:id="APIButton" contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="193.0" mnemonicParsing="false" onMouseClicked="#goToAPI" prefHeight="56.0" prefWidth="67.0" style="-fx-background-color: #c4d8e8;" text="API" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="193.0">
                <graphic>
                   <ImageView fitHeight="43.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -42,7 +42,7 @@
                   <Tooltip fx:id="tooltip3" text="Nhấn để dùng Google Translate." />
                </tooltip>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="56.0" prefWidth="68.0" style="-fx-background-color: #c4d8e8;" text="Exit" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="26.0">
+            <Button fx:id="exitButton" contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="56.0" prefWidth="68.0" style="-fx-background-color: #c4d8e8;" text="Exit" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="26.0">
                <graphic>
                   <ImageView fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,7 +57,7 @@
                   <Tooltip fx:id="tooltip4" text="Nhấn để thoát ứng dụng." />
                </tooltip>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#goToAdd" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #c4d8e8;" text="Add" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="105.0">
+            <Button fx:id="addButton" contentDisplay="GRAPHIC_ONLY" layoutX="26.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#goToAdd" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #c4d8e8;" text="Add" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="105.0">
                <graphic>
                   <ImageView fitHeight="43.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -72,7 +72,7 @@
                   <Tooltip fx:id="tooltip2" text="Nhấn để thêm từ." />
                </tooltip>
             </Button>
-            <Button contentDisplay="GRAPHIC_ONLY" layoutX="25.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="56.0" prefWidth="67.0" style="-fx-background-color: #c4d8e8;" text="Return" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="25.0">
+            <Button fx:id="returnButton" contentDisplay="GRAPHIC_ONLY" layoutX="25.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="56.0" prefWidth="67.0" style="-fx-background-color: #c4d8e8;" text="Return" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="25.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -84,7 +84,7 @@
                   </ImageView>
                </graphic>
                <tooltip>
-                  <Tooltip fx:id="tooltip4" text="Nhấn để trở về màn hình chính." />
+                  <Tooltip fx:id="tooltip5" text="Nhấn để trở về màn hình chính." />
                </tooltip>
             </Button>
          </children></AnchorPane>

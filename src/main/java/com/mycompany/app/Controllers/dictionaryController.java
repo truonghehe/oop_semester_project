@@ -22,6 +22,8 @@ import java.util.ResourceBundle;
 import static com.mycompany.app.myApplication.textToSpeech;
 
 public class dictionaryController implements Initializable {
+    @FXML
+    private AnchorPane container;
 
     @FXML
     private Tooltip tooltip1;
@@ -34,6 +36,9 @@ public class dictionaryController implements Initializable {
 
     @FXML
     private Tooltip tooltip4;
+
+    @FXML
+    private Tooltip tooltip5;
 
     @FXML
     void exit(MouseEvent event) {
@@ -71,9 +76,6 @@ public class dictionaryController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    private AnchorPane container;
-
     private void setNode(Node node) {
         container.getChildren().clear();
         container.getChildren().add(node);
@@ -95,6 +97,7 @@ public class dictionaryController implements Initializable {
         tooltip2.setShowDelay(Duration.seconds(0.5));
         tooltip3.setShowDelay(Duration.seconds(0.5));
         tooltip4.setShowDelay(Duration.seconds(0.5));
+        tooltip5.setShowDelay(Duration.seconds(0.5));
         try {
             DictionaryManagement.dictionaryImportFromFile("src/main/resources/textFiles/E_V.txt");
             DictionaryManagement.setMap();
