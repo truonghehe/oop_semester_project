@@ -138,8 +138,8 @@ public class vocabularyController extends gameUtils implements Initializable {
             buttons[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    mySubject();
                     indexSubject = tmp ;
+                    mySubject();
                 }
             });
         }
