@@ -19,7 +19,7 @@ public class myApplication extends Application {
     public static int personIndex ;
     @Override
     public void start(Stage stage) throws IOException, PropertyVetoException, AudioException, EngineException {
-        FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/loginView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("firstView");
         stage.setScene(scene);
@@ -40,7 +40,7 @@ public class myApplication extends Application {
         launch();
     }
     private void importAccount() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src\\main\\resources\\textFiles\\Account"));
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/textFiles/Account"));
         String line;
         while ((line = reader.readLine()) != null) {
             String[] a = line.split("\\|");
@@ -50,7 +50,7 @@ public class myApplication extends Application {
     }
 
     private void exportAccount() throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src\\main\\resources\\textFiles\\Account"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/textFiles/Account"));
         for (Person person : personList) {
             String personData = person.getUsername() + "|" + person.getPassword() + "|"
                     + person.getQuestion() + "|" + person.getAnswer()  +"|"+ person.getMyGame() + "|" +
