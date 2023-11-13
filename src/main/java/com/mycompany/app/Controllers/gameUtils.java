@@ -106,7 +106,7 @@ abstract public class gameUtils {
     }
 
     private void getNextQuestion() {
-        String[] temp = pairsList.get(random.nextInt(50)).split("\\|");
+        String[] temp = pairsList.get(random.nextInt(pairsList.size())).split("\\|");
         question.setText(temp[0].trim());
         correctAnswer = temp[1].trim();
     }

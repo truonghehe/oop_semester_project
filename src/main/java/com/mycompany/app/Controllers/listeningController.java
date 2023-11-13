@@ -19,6 +19,7 @@ import javafx.util.Duration;
 import javax.speech.AudioException;
 import javax.speech.EngineException;
 import java.awt.*;
+import java.beans.Expression;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
@@ -26,39 +27,32 @@ import java.util.List;
 
 import static com.mycompany.app.myApplication.*;
 
-public class listeningController implements Initializable {
+public class listeningController extends gameUtils implements Initializable {
     @FXML
     private Button[] buttons = new Button[4];
+
     @FXML
     private Button button0, button1, button2, button3;
+
     @FXML
     private Button check;
+
     @FXML
     private Button back;
-    @FXML
-    private Label percentage;
-    @FXML
-    private ProgressBar progressBar;
+
     @FXML
     private Tooltip tooltip1;
+
     @FXML
     private Tooltip tooltip2;
-    @FXML
-    private AnchorPane thisPane;
-    private Alerts alerts = new Alerts();
-    private int progress = 0;
-    private String correctAnswer;
-    private String clickAns;
+
     @FXML
     private Button btVoice;
-    private Random random = new Random();
-    private int index = 0 ;
-    private List<String> pairsList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            loadPairsList();
+            loadPairsList("src/main/resources/textFiles/listening");
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -71,7 +65,7 @@ public class listeningController implements Initializable {
         tooltip1.setShowDelay(Duration.seconds(0.5));
         tooltip2.setShowDelay(Duration.seconds(0.5));
 
-        percentage.setText((int) (progress) + "%");
+        percentage.setText((progress) + "%");
 
         nextQuestion();
         for (Button button : buttons) {
@@ -82,7 +76,7 @@ public class listeningController implements Initializable {
                         value.setStyle("-fx-background-color: #c4d8e8;");
                     }
                     button.setStyle("-fx-background-color: #931DA3;");
-                    clickAns = button.getText();
+                    answer.setText(button.getText());
                 }
 
             });
@@ -90,17 +84,7 @@ public class listeningController implements Initializable {
         back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                Stage stage = (Stage) thisPane.getScene().getWindow();
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
-                    stage.setTitle("Learning");
-                    stage.setScene(new Scene(root));
-                    saveProgress();
-
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                backToLearn();
             }
         });
         btVoice.setOnAction(new EventHandler<ActionEvent>() {
@@ -120,40 +104,18 @@ public class listeningController implements Initializable {
         check.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if (clickAns.equals(correctAnswer)) {
-                    progress += 1;
-                    progressBar.setProgress(progress / 10.0);
-                    percentage.setText((progress) * 10+ "%");
-                    if (progress == 10) {
-                        Alert continueConfirmation = alerts.alertConfirmation("Chúc mừng!", "Bạn đã hoàn thành bài tập hôm nay" +
-                                "\n bạn có muốn tiếp tục không?");
-                        Optional<ButtonType> respond = continueConfirmation.showAndWait();
-                        respond(respond);
-                    } else {
-                        nextQuestion();
-                    }
-                } else {
-                    alerts.showAlertInfo("Đáp án sai!", "Bạn đã làm sai rồi.");
-                    randomize();
-                }
+                checkAnswer();
             }
         });
     }
 
-    private void saveProgress() {
+    @Override
+    protected void saveProgress() {
         personList.get(personIndex).setListen(index + " " + progress);
     }
 
-    private void loadPairsList() throws IOException {
-        FileReader fr = new FileReader("src/main/resources/textFiles/listening");
-        BufferedReader bf = new BufferedReader(fr);
-        String line;
-        while ((line = bf.readLine()) != null) {
-            pairsList.add(line);
-        }
-    }
-
-    private void getProgressBarInfo(){
+    @Override
+    protected void getProgressBarInfo(){
         String line = personList.get(personIndex).getMyGame();
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
@@ -171,45 +133,13 @@ public class listeningController implements Initializable {
             int newIndex = (index + progress + 2 * i) % 100;
             buttons[i].setText(pairsList.get(newIndex).trim());
         }
-        randomize();
+        randomize(buttons);
     }
-    private void randomize() {
-        for (int i = 0; i < buttons.length; i++) {
-            int rand = random.nextInt(buttons.length - i) + i;
-            swap(i, rand);
-        }
+
+    @Override
+    protected void reset() {
         for (Button button : buttons) {
             button.setStyle("-fx-background-color: #c4d8e8;");
-        }
-    }
-
-    private void swap(int i, int rand) {
-        String temp = buttons[i].getText();
-        buttons[i].setText(buttons[rand].getText());
-        buttons[rand].setText(temp);
-    }
-
-    private void respond(Optional<ButtonType> respond) {
-        progress = 0;
-        int newIndex = random.nextInt(pairsList.size()) ;
-        while (Math.abs(index - newIndex) <= 10){
-            newIndex = random.nextInt(pairsList.size());
-        }
-        index = newIndex ;
-        if (respond.get() == ButtonType.CANCEL || respond.isEmpty()) {
-            Stage stage = (Stage) thisPane.getScene().getWindow();
-            Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            stage.setTitle("Learn");
-            stage.setScene(new Scene(root));
-        } else if (respond.get() == ButtonType.OK) {
-            progressBar.setProgress(progress / 10.0);
-            percentage.setText((progress) * 10 + "%");
-            nextQuestion();
         }
     }
 }
