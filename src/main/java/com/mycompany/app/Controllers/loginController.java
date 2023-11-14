@@ -6,11 +6,14 @@ import com.mycompany.app.myApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -262,7 +265,12 @@ public class loginController implements Initializable {
         }
         return -1;
     }
-
+    @FXML
+    private void login_enter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            login();
+        }
+    }
     private void switchForms(boolean signUpForm, boolean loginForm, boolean forgotForm, boolean passForm) {
         signUp_form.setVisible(signUpForm);
         login_form.setVisible(loginForm);

@@ -104,7 +104,7 @@ abstract public class gameUtils {
     }
 
     protected void getNextQuestion() {
-        String[] temp = pairsList.get(index + progress - 1).split("\\|");
+        String[] temp = pairsList.get((index + progress - 1)%pairsList.size()).split("\\|");
         question.setText(temp[0].trim());
         correctAnswer = temp[1].trim();
     }
@@ -121,6 +121,7 @@ abstract public class gameUtils {
                 respond(respond);
             } else {
                 nextQuestion();
+                reset();
             }
         } else {
             alerts.showAlertInfo("Đáp án sai!", "Bạn đã làm sai rồi.");

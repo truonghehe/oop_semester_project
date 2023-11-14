@@ -67,7 +67,7 @@ public class vocabularyController extends gameUtils implements Initializable {
         percentage.setVisible(true);
         btVoice.setVisible(true);
         try {
-            loadPairsList("src/main/resources/textFiles/Vocabulary/" + indexSubject );
+            loadPairsList("src/main/resources/textFiles/Vocabulary/" + buttons[indexSubject].getText() );
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -106,7 +106,8 @@ public class vocabularyController extends gameUtils implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    textToSpeech.speak(question.getText());
+                    String[] arr = question.getText().split("\\[");
+                    textToSpeech.speak(arr[0].trim());
                 } catch (EngineException | AudioException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -123,17 +124,17 @@ public class vocabularyController extends gameUtils implements Initializable {
         subjectPane.setVisible(true);
         btVoice.setVisible(false);
 
-        buttons[1] = bt1 ;
-        buttons[2] = bt2 ;
-        buttons[3] = bt3 ;
-        buttons[4] = bt4 ;
-        buttons[5] = bt5 ;
-        buttons[6] = bt6 ;
-        buttons[7] = bt7;
-        buttons[8] = bt8;
-        buttons[9] = bt9;
-        buttons[10] = bt10;
-        for (int i = 1 ; i <= 10 ; i++) {
+        buttons[0] = bt1 ;
+        buttons[1] = bt2 ;
+        buttons[2] = bt3 ;
+        buttons[3] = bt4 ;
+        buttons[4] = bt5 ;
+        buttons[5] = bt6 ;
+        buttons[6] = bt7;
+        buttons[7] = bt8;
+        buttons[8] = bt9;
+        buttons[9] = bt10;
+        for (int i = 0 ; i < 10 ; i++) {
             int tmp = i ;
             buttons[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override

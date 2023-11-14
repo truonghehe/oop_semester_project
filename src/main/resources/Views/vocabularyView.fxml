@@ -106,16 +106,16 @@
         </ImageView>
       <AnchorPane fx:id="subjectPane" layoutX="83.0" layoutY="100.0" prefHeight="326.0" prefWidth="664.0">
          <children>
-            <Button fx:id="bt1" layoutX="71.0" layoutY="70.0" mnemonicParsing="false" text="Subject 1" />
-            <Button fx:id="bt2" layoutX="183.0" layoutY="70.0" mnemonicParsing="false" text="Subject 2" />
-            <Button fx:id="bt6" layoutX="71.0" layoutY="197.0" mnemonicParsing="false" text="Subject 6" />
-            <Button fx:id="bt7" layoutX="183.0" layoutY="197.0" mnemonicParsing="false" text="Subject 7" />
-            <Button fx:id="bt10" layoutX="549.0" layoutY="197.0" mnemonicParsing="false" text="Subject 10" />
-            <Button fx:id="bt5" layoutX="549.0" layoutY="70.0" mnemonicParsing="false" text="Subject 5" />
-            <Button fx:id="bt9" layoutX="439.0" layoutY="197.0" mnemonicParsing="false" text="Subject 9" />
-            <Button fx:id="bt4" layoutX="439.0" layoutY="70.0" mnemonicParsing="false" text="Subject 4" />
-            <Button fx:id="bt8" layoutX="312.0" layoutY="197.0" mnemonicParsing="false" text="Subject 8" />
-            <Button fx:id="bt3" layoutX="312.0" layoutY="70.0" mnemonicParsing="false" text="Subject 3" />
+            <Button fx:id="bt1" layoutX="71.0" layoutY="70.0" mnemonicParsing="false" text="family" />
+            <Button fx:id="bt2" layoutX="183.0" layoutY="70.0" mnemonicParsing="false" text="career" />
+            <Button fx:id="bt6" layoutX="71.0" layoutY="197.0" mnemonicParsing="false" text="food" />
+            <Button fx:id="bt7" layoutX="183.0" layoutY="197.0" mnemonicParsing="false" text="school" />
+            <Button fx:id="bt10" layoutX="568.0" layoutY="197.0" mnemonicParsing="false" text="travel" />
+            <Button fx:id="bt5" layoutX="549.0" layoutY="70.0" mnemonicParsing="false" text="environment" />
+            <Button fx:id="bt9" layoutX="439.0" layoutY="197.0" mnemonicParsing="false" text="technology" />
+            <Button fx:id="bt4" layoutX="439.0" layoutY="70.0" mnemonicParsing="false" text="culture" />
+            <Button fx:id="bt8" layoutX="322.0" layoutY="197.0" mnemonicParsing="false" text="sport" />
+            <Button fx:id="bt3" layoutX="312.0" layoutY="70.0" mnemonicParsing="false" text="bodyPart" />
          </children>
       </AnchorPane>
       <Button fx:id="btVoice" layoutX="43.0" layoutY="86.0" mnemonicParsing="false" text="Speak" visible="false" />
