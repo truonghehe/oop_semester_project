@@ -29,6 +29,7 @@ public class myApplication extends Application {
             try {
                 textToSpeech.terminate();
                 exportAccount();
+                DictionaryManagement.dictionaryExportToFile("src/main/resources/E_V.txt");
             } catch (EngineException | IOException e) {
                 throw new RuntimeException(e);
             }
@@ -39,7 +40,7 @@ public class myApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
-    private void importAccount() throws IOException {
+    public static void importAccount() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/textFiles/Account"));
         String line;
         while ((line = reader.readLine()) != null) {
@@ -53,7 +54,7 @@ public class myApplication extends Application {
         reader.close();
     }
 
-    private void exportAccount() throws IOException {
+    public static void exportAccount() throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/textFiles/Account"));
         for (Person person : personList) {
             StringBuilder personData = new StringBuilder(person.getUsername() + "|" + person.getPassword() + "|"

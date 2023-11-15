@@ -1,5 +1,6 @@
 package com.mycompany.app.Controllers;
 
+import com.mycompany.app.myApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,5 +37,14 @@ public class learnController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/listeningView.fxml")));
         stage.setTitle("Vocabulary");
         stage.setScene(new Scene(root));
+    }
+    @FXML
+    void back(MouseEvent event) throws IOException {
+        Stage stage = (Stage) thisPane.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Dictionary");
+        stage.setScene(scene);
+        stage.show();
     }
 }

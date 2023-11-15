@@ -58,6 +58,8 @@ public class searchController implements Initializable {
     @FXML
     private Button btChange;
     @FXML
+    private Button btSearch;
+    @FXML
     private Alerts alerts = new Alerts();
 
     @FXML
@@ -75,6 +77,7 @@ public class searchController implements Initializable {
         listView.setItems(observableList);
         listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
+                selectedItem = newValue ;
                 String word_explainExplain = DictionaryManagement.data.get(newValue).getWord_explain();
                 webView.getEngine().loadContent(word_explainExplain, "text/html");
             }
@@ -111,16 +114,16 @@ public class searchController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    voice();
-                } catch (PropertyVetoException e) {
-                    throw new RuntimeException(e);
-                } catch (AudioException e) {
-                    throw new RuntimeException(e);
-                } catch (EngineException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
+                    textToSpeech.speak(selectedItem);
+                } catch (AudioException | EngineException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+            }
+        });
+        btSearch.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                searchWord();
             }
         });
     }
@@ -139,7 +142,6 @@ public class searchController implements Initializable {
         else alerts.showAlertInfo("Information" , "Xoá thất bại");
     }
     public void update() throws IOException {
-        selectedItem = listView.getSelectionModel().getSelectedItem();
         Stage secondaryStage = new Stage();
         FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("/Views/updateWord.fxml"));
         Scene secondaryScene = new Scene(secondaryLoader.load());
@@ -156,8 +158,29 @@ public class searchController implements Initializable {
             observableList.add(DictionaryManagement.dictionary.get(i).getWord_target());
         }
     }
-    private void voice() throws PropertyVetoException, AudioException, EngineException, InterruptedException {
-        selectedItem = listView.getSelectionModel().getSelectedItem();
-        textToSpeech.speak(selectedItem);
+    private void searchWord() {
+        String word = searchField.getText() ;
+        int lo = 0 , hi = observableList.size() ;
+        int ans = search(lo , hi , word);
+        filteredList.clear();
+        if (ans == -1){
+            webView.getEngine().loadContent("<html><body><h1>Word is not exist!</h1></body></html>");
+        }
+        else {
+            filteredList.add(observableList.get(ans));
+            String word_explainExplain = DictionaryManagement.data.get(word).getWord_explain();
+            selectedItem = word ;
+            webView.getEngine().loadContent(word_explainExplain, "text/html");
+        }
+    }
+    private int search(int lo , int hi , String word){
+        int mid = (lo + hi) /2 ;
+        while (lo <= hi){
+            int cmp = observableList.get(mid).compareTo(word)  ;
+            if ( cmp > 0 ) return search(lo , mid - 1 , word);
+            else if ( cmp < 0) return search(mid + 1 , hi , word);
+            else return mid ;
+        }
+        return -1 ;
     }
 }

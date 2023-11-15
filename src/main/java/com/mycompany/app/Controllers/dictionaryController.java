@@ -104,5 +104,6 @@ public class dictionaryController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        showComponent("/Views/searchView.fxml");
     }
 }
