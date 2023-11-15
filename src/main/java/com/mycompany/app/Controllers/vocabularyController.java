@@ -24,14 +24,17 @@ import java.util.*;
 import java.util.List;
 
 import static com.mycompany.app.myApplication.*;
+
 public class vocabularyController extends gameUtils implements Initializable {
     @FXML
-    private Button[] buttons = new Button[15];
+    private Button[] buttons = new Button[4];
+    @FXML
+    private Button[] bts = new Button[10] ;
     @FXML
     private Button button0, button1, button2, button3;
 
     @FXML
-    private Button bt1 , bt2 , bt3 , bt4 , bt5 , bt6 , bt7 , bt8 , bt9 , bt10;
+    private Button bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt10;
 
     @FXML
     private Button check;
@@ -49,29 +52,28 @@ public class vocabularyController extends gameUtils implements Initializable {
     private Tooltip tooltip2;
 
     @FXML
-    private GridPane gridPane;
-
+    private AnchorPane subjectPane;
     @FXML
-    private AnchorPane subjectPane ;
-
+    private AnchorPane pane;
+    @FXML
+    private Button backSubject;
     @FXML
     private Button btVoice;
-    private int indexSubject;
+    @FXML
+    private Label subject;
+    private int indexSubject ;
 
-    public void mySubject(){
+    public void mySubject() {
         subjectPane.setVisible(false);
-        progressBar.setVisible(true);
-        question.setVisible(true);
-        gridPane.setVisible(true);
-        check.setVisible(true);
-        percentage.setVisible(true);
-        btVoice.setVisible(true);
+        pane.setVisible(true);
+        pairsList.clear();
         try {
-            loadPairsList("src/main/resources/textFiles/Vocabulary/" + buttons[indexSubject].getText() );
+            loadPairsList("src/main/resources/textFiles/Vocabulary/" + bts[indexSubject].getText());
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        subject.setText("Chủ đề: " + bts[indexSubject].getText());
         buttons[0] = button0;
         buttons[1] = button1;
         buttons[2] = button2;
@@ -83,12 +85,12 @@ public class vocabularyController extends gameUtils implements Initializable {
         percentage.setText((progress) * 10 + "%");
 
         nextQuestion();
-        for (int i = 0 ; i < 4 ; i++) {
-            int tmp = i ;
+        for (int i = 0; i < 4; i++) {
+            int tmp = i;
             buttons[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    for (int j = 0 ; j < 4 ; j++) {
+                    for (int j = 0; j < 4; j++) {
                         buttons[j].setStyle("-fx-background-color: #c4d8e8;");
                     }
                     buttons[tmp].setStyle("-fx-background-color: #931DA3;");
@@ -96,6 +98,14 @@ public class vocabularyController extends gameUtils implements Initializable {
                 }
             });
         }
+        backSubject.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                saveProgress();
+                pane.setVisible(false);
+                subjectPane.setVisible(true);
+            }
+        });
         check.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -114,32 +124,28 @@ public class vocabularyController extends gameUtils implements Initializable {
             }
         });
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        progressBar.setVisible(false);
-        question.setVisible(false);
-        gridPane.setVisible(false);
-        check.setVisible(false);
-        percentage.setVisible(false);
+        pane.setVisible(false);
         subjectPane.setVisible(true);
-        btVoice.setVisible(false);
-
-        buttons[0] = bt1 ;
-        buttons[1] = bt2 ;
-        buttons[2] = bt3 ;
-        buttons[3] = bt4 ;
-        buttons[4] = bt5 ;
-        buttons[5] = bt6 ;
-        buttons[6] = bt7;
-        buttons[7] = bt8;
-        buttons[8] = bt9;
-        buttons[9] = bt10;
-        for (int i = 0 ; i < 10 ; i++) {
-            int tmp = i ;
-            buttons[i].setOnAction(new EventHandler<ActionEvent>() {
+        bts[0] = bt1;
+        bts[1] = bt2;
+        bts[2] = bt3;
+        bts[3] = bt4;
+        bts[4] = bt5;
+        bts[5] = bt6;
+        bts[6] = bt7;
+        bts[7] = bt8;
+        bts[8] = bt9;
+        bts[9] = bt10;
+        for (int i = 0; i < 10; i++) {
+            int tmp = i;
+            bts[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    indexSubject = tmp ;
+                    indexSubject = tmp;
+                    System.out.println(indexSubject);
                     mySubject();
                 }
             });
@@ -154,37 +160,36 @@ public class vocabularyController extends gameUtils implements Initializable {
 
     @Override
     protected void saveProgress() {
-        String line = index + " " + progress ;
+        String line = index + " " + progress;
         personList.get(personIndex).getVocab().set(indexSubject, line);
     }
 
     @Override
     protected void getProgressBarInfo() {
-        String line = "" ;
+        String line = "";
         line = personList.get(personIndex).getVocab().get(indexSubject);
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
-        while ( index == 0 ){
+        while (index == 0) {
             index = random.nextInt(pairsList.size());
         }
-        progress = Integer.parseInt(a[1]) ;
-        progressBar.setProgress(progress/10.0);
+        progress = Integer.parseInt(a[1]);
+        progressBar.setProgress(progress / 10.0);
     }
 
     @Override
     protected void setNextQuestion() {
         buttons[0].setText(correctAnswer);
-        for (int i = 1 ; i < 4 ; i++ ){
-            int newIndex = (index + progress + 2 * i) % pairsList.size() ;
-            String[] tmp = pairsList.get(newIndex).split("\\|") ;
+        for (int i = 1; i < 4 ; i++) {
+            int newIndex = (index + progress + 2 * i) % pairsList.size();
+            String[] tmp = pairsList.get(newIndex).split("\\|");
             buttons[i].setText(tmp[1].trim());
         }
         randomize(buttons);
     }
-
     @Override
     protected void reset() {
-        for (int i = 0 ; i < 4 ; i++) {
+        for (int i = 0; i < 4; i++) {
             buttons[i].setStyle("-fx-background-color: #c4d8e8;");
         }
     }

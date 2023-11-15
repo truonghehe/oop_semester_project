@@ -18,13 +18,13 @@
          <children>
             <AnchorPane fx:id="login_form" layoutX="2.0" onKeyPressed="#login_enter" prefHeight="400.0" prefWidth="273.0">
                <children>
-                  <TextField fx:id="login_username" layoutX="44.0" layoutY="117.0" promptText="Username" />
-                  <PasswordField fx:id="login_password" layoutX="44.0" layoutY="163.0" promptText="Password" />
-                  <CheckBox fx:id="login_showPassword" layoutX="21.0" layoutY="206.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
-                  <Hyperlink fx:id="login_forgotPassword" layoutX="145.0" layoutY="203.0" onAction="#switchForm" text="Forgot password" />
-                  <Button fx:id="login_login" layoutX="92.0" layoutY="241.0" mnemonicParsing="false" onAction="#login" text="Login" />
-                  <Button fx:id="login_signUp" layoutX="86.0" layoutY="319.0" mnemonicParsing="false" onAction="#switchForm" text="Sign Up" />
-                  <TextField fx:id="login_showpass" layoutX="44.0" layoutY="163.0" promptText="Password" visible="false" />
+                  <TextField fx:id="login_username" layoutX="71.0" layoutY="119.0" promptText="Username" />
+                  <PasswordField fx:id="login_password" layoutX="70.0" layoutY="163.0" promptText="Password" />
+                  <CheckBox fx:id="login_showPassword" layoutX="40.0" layoutY="206.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
+                  <Hyperlink fx:id="login_forgotPassword" layoutX="162.0" layoutY="203.0" onAction="#switchForm" text="Forgot password" />
+                  <Button fx:id="login_login" layoutX="114.0" layoutY="241.0" mnemonicParsing="false" onAction="#login" text="Login" />
+                  <Button fx:id="login_signUp" layoutX="108.0" layoutY="319.0" mnemonicParsing="false" onAction="#switchForm" text="Sign Up" />
+                  <TextField fx:id="login_showpass" layoutX="70.0" layoutY="163.0" promptText="Password" visible="false" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="signUp_form" layoutX="3.0" layoutY="1.0" prefHeight="400.0" prefWidth="273.0" visible="false">

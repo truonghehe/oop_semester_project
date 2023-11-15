@@ -81,6 +81,7 @@ abstract public class gameUtils {
          }
          index = newIndex ;
          if (respond.get() == ButtonType.CANCEL || respond.isEmpty()) {
+             saveProgress();
              Stage stage = (Stage) thisPane.getScene().getWindow();
              Parent root = null;
              try {
