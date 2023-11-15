@@ -154,9 +154,9 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="bt9" contentDisplay="TOP" layoutX="36.0" layoutY="83.0" mnemonicParsing="false" text="technology">
+            <Button fx:id="bt9" contentDisplay="TOP" layoutX="36.0" layoutY="83.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="technology">
                <graphic>
-                  <ImageView fitHeight="108.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="55.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/technology.jpg" />
                      </image>
