@@ -223,7 +223,7 @@ public class loginController implements Initializable {
                     Stage stage = (Stage) borderPane.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
-                    stage.setTitle("Dictionary");
+                    stage.setTitle("Welcome to our application!");
                     stage.setScene(scene);
                     stage.show();
                 } else {

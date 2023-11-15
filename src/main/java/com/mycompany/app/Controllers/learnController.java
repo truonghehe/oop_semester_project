@@ -21,7 +21,7 @@ public class learnController {
     void goToMyGame(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/myGameView.fxml")));
-        stage.setTitle("Game");
+        stage.setTitle("Word Graft");
         stage.setHeight(500);
         stage.setWidth(800);
         stage.setScene(new Scene(root));
@@ -39,7 +39,7 @@ public class learnController {
     void goToListen(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/listeningView.fxml")));
-        stage.setTitle("Vocabulary");
+        stage.setTitle("Listening");
         stage.setHeight(500);
         stage.setWidth(800);
         stage.setScene(new Scene(root));
@@ -48,12 +48,10 @@ public class learnController {
     @FXML
     void back(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Dictionary");
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Views/startingView.fxml")));
+        stage.setTitle("Welcome to our application!");
         stage.setHeight(500);
         stage.setWidth(800);
-        stage.setScene(scene);
-        stage.show();
+        stage.setScene(new Scene(root));
     }
 }

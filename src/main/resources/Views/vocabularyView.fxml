@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="794.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.vocabularyController">
@@ -39,14 +41,14 @@
                 <Image url="@../images/cloud.png" />
             </image>
         </ImageView>
+        <ImageView fitHeight="95.0" fitWidth="116.0" layoutX="610.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/sun.png" />
+            </image>
+        </ImageView>
         <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="36.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../images/dog.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="95.0" fitWidth="116.0" layoutX="621.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/sun.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="26.0" fitWidth="29.0" layoutX="443.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
@@ -54,167 +56,74 @@
                 <Image url="@../images/dog.png" />
             </image>
         </ImageView>
-      <AnchorPane fx:id="subjectPane" layoutX="56.0" layoutY="45.0" prefHeight="409.0" prefWidth="664.0">
-         <children>
-              <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: transparent;" text="Back">
-                  <graphic>
-                      <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../images/back.png" />
-                          </image>
-                      </ImageView>
-                  </graphic>
-                  <tooltip>
-                      <Tooltip fx:id="tooltip1" text="Nhấn để trở lại." />
-                  </tooltip>
-            </Button>
-            <Button fx:id="bt1" contentDisplay="TOP" layoutX="136.0" layoutY="200.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="126.0" text="family">
-               <graphic>
-                  <ImageView fitHeight="74.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/family.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt2" contentDisplay="TOP" layoutX="308.0" layoutY="157.0" mnemonicParsing="false" text="career">
-               <graphic>
-                  <ImageView fitHeight="83.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/career.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt6" contentDisplay="TOP" layoutX="75.0" layoutY="330.0" mnemonicParsing="false" text="food">
-               <graphic>
-                  <ImageView fitHeight="78.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/food.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt7" contentDisplay="TOP" layoutX="232.0" layoutY="308.0" mnemonicParsing="false" text="school">
-               <graphic>
-                  <ImageView fitHeight="87.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/school.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt10" contentDisplay="TOP" layoutX="385.0" layoutY="260.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="131.0" text="travel">
-               <graphic>
-                  <ImageView fitHeight="87.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/travel.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt5" contentDisplay="TOP" layoutX="412.0" layoutY="19.0" mnemonicParsing="false" prefHeight="116.0" prefWidth="150.0" text="environment">
-               <graphic>
-                  <ImageView fitHeight="99.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/environment.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt9" contentDisplay="TOP" layoutX="36.0" layoutY="83.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="84.0" text="technology">
-               <graphic>
-                  <ImageView fitHeight="55.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/technology.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt4" contentDisplay="TOP" layoutX="538.0" layoutY="157.0" mnemonicParsing="false" text="culture">
-               <graphic>
-                  <ImageView fitHeight="74.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/culture.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt8" contentDisplay="TOP" layoutX="533.0" layoutY="318.0" mnemonicParsing="false" text="sport">
-               <graphic>
-                  <ImageView fitHeight="83.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/sport.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="bt3" contentDisplay="TOP" layoutX="210.0" layoutY="25.0" mnemonicParsing="false" text="bodyPart">
-               <graphic>
-                  <ImageView fitHeight="88.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/bodyPart.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-         </children>
-      </AnchorPane>
       <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="440.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="pane" layoutX="69.0" layoutY="32.0" prefHeight="437.0" prefWidth="694.0" visible="false">
+      <VBox layoutX="406.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-              <ProgressBar fx:id="progressBar" layoutX="151.0" layoutY="52.0" prefHeight="25.0" prefWidth="393.0" progress="0.0" />
-              <Label fx:id="percentage" contentDisplay="CENTER" layoutX="179.0" layoutY="52.0" prefHeight="20.0" prefWidth="43.0">
-                  <font>
-                      <Font size="16.0" />
-                  </font>
-              </Label>
-              <Label fx:id="question" alignment="CENTER" layoutX="128.0" layoutY="100.0" prefHeight="34.0" prefWidth="440.0" style="-fx-background-color: #c4d8e8;" text="english">
-                  <font>
-                      <Font size="23.0" />
-                  </font>
-              </Label>
-              <GridPane fx:id="gridPane" alignment="CENTER" hgap="100.0" layoutX="163.0" layoutY="161.0" prefHeight="203.0" prefWidth="369.0" vgap="50.0">
-                  <columnConstraints>
+            <HBox alignment="BASELINE_LEFT" prefHeight="78.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+               <children>
+                    <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: transparant;" text="Back" HBox.hgrow="ALWAYS">
+                        <graphic>
+                            <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@../images/back.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                        <tooltip>
+                            <Tooltip fx:id="tooltip1" text="Nhấn để trở lại." />
+                        </tooltip>
+                     <HBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="78.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="choose the wanted topic">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="326.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <GridPane alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                      <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="77.5" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                  <children>
-                      <Button fx:id="button2" mnemonicParsing="false" prefHeight="104.0" prefWidth="346.0" style="-fx-background-color: #c4d8e8;" text="2" GridPane.rowIndex="1" />
-                      <Button fx:id="button0" minWidth="0.0" mnemonicParsing="false" prefHeight="105.0" prefWidth="286.0" style="-fx-background-color: #c4d8e8;" text="0" />
-                      <Button fx:id="button1" minWidth="0.0" mnemonicParsing="false" prefHeight="105.0" prefWidth="413.0" style="-fx-background-color: #c4d8e8;" text="1" GridPane.columnIndex="1" />
-                      <Button fx:id="button3" minWidth="0.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="276.0" style="-fx-background-color: #c4d8e8;" text="3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  </children>
-              </GridPane>
-            <Button fx:id="btVoice" layoutX="80.0" layoutY="105.0" mnemonicParsing="false" text="Speak" />
-              <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" layoutX="314.0" layoutY="364.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="57.0" style="-fx-background-color: #c4d8e8;" text="check">
-                  <tooltip>
-                      <Tooltip fx:id="tooltip2" text="nhấn để kiểm tra." />
-                  </tooltip>
-               <graphic>
-                      <ImageView fitHeight="51.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                          <image>
-                              <Image url="@../images/check.png" />
-                          </image>
-                      </ImageView>
-               </graphic>
-              </Button>
-            <Label fx:id="subject" alignment="CENTER" layoutX="144.0" layoutY="-9.0" prefHeight="34.0" prefWidth="406.0" style="-fx-background-color: #c4d8e8;" text="Subject">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Button fx:id="backSubject" contentDisplay="GRAPHIC_ONLY" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: transparent;" text="Back">
-               <graphic>
-                  <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/back.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <tooltip>
-                  <Tooltip fx:id="tooltip11" text="Nhấn để trở lại." />
-               </tooltip>
-            </Button>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <HBox.margin>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <Button fx:id="bt3" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="bodyPart" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt5" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="environment" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt8" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="sport" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt4" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="culture" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt9" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="technology" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt10" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="travel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt7" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="school" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt6" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="food" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt2" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="career" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt1" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="family" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                     </children>
+                  </GridPane>
+               </children>
+            </HBox>
          </children>
-      </AnchorPane>
+      </VBox>
     </children>
 </AnchorPane>

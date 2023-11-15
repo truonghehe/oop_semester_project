@@ -61,6 +61,8 @@ public class startingController {
         Stage stage = (Stage) thisPane.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/Views/learnView.fxml"));
         stage.setTitle("Learning");
+        stage.setHeight(500);
+        stage.setWidth(800);
         stage.setScene(new Scene(root));
     }
 }
