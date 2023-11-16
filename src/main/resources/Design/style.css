@@ -1,0 +1,27 @@
+.white-bg{
+    -fx-background-color: #fff;
+}
+.btn{
+    -fx-background-color: linear-gradient(to bottom right, #7ACCB9 , #5fc3ab );
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: Arial;
+}
+.btn:hover{
+    -fx-background-color: linear-gradient(to bottom right, #451ECC , #57032A);
+}
+.textField{
+    -fx-border-color: #000;
+    -fx-border-width: .5px;
+}
+.textField:focused{
+    -fx-border-color: linear-gradient(to bottom right, #16a47c , #7ACCB9);
+    -fx-border-width: .8px;
+}
+.lab{
+    -fx-text-fill : #5fc3ab;
+    -fx-font-size: 14px ;
+    -fx-font-family: Arial;
+}
+

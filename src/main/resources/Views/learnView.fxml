@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="754.0" maxWidth="1066.0" prefHeight="754.0" prefWidth="1066.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.learnController">
+<AnchorPane fx:id="thisPane" maxHeight="754.0" maxWidth="1066.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.learnController">
    <children>
       <ImageView fitHeight="82.0" fitWidth="140.0" layoutX="115.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
