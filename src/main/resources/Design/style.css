@@ -10,6 +10,7 @@
 }
 .btn:hover{
     -fx-background-color: linear-gradient(to bottom right, #451ECC , #57032A);
+
 }
 .textField{
     -fx-border-color: #000;
@@ -24,4 +25,3 @@
     -fx-font-size: 14px ;
     -fx-font-family: Arial;
 }
-

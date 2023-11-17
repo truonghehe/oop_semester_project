@@ -19,7 +19,7 @@
          <children>
             <AnchorPane fx:id="login_form" minWidth="-Infinity" onKeyPressed="#login_enter" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" stylesheets="@../Design/style.css">
                <children>
-                  <Button fx:id="login_login" layoutX="98.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" styleClass="btn" text="Login" />
+                  <Button fx:id="login_login" layoutX="98.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" style="-fx-border-radius: 2000;" styleClass="btn" text="Login" />
                   <TextField fx:id="login_username" layoutX="50.0" layoutY="134.0" promptText="Username" styleClass="textField" />
                   <PasswordField fx:id="login_password" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" />
                   <TextField fx:id="login_showpass" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" visible="false" />
@@ -89,6 +89,13 @@
       </AnchorPane>
    </right>
    <center>
-      <AnchorPane prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: #0498ff;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="400.0" prefWidth="350.0" styleClass="white-bg" stylesheets="@../Design/style.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="376.0" fitWidth="312.0" layoutX="19.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/loginBg.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
    </center>
 </BorderPane>
