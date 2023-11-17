@@ -1,6 +1,9 @@
 .white-bg{
     -fx-background-color: #fff;
 }
+.green-bg{
+    -fx-background-color: #7ACCB9 ;
+}
 .btn{
     -fx-background-color: linear-gradient(to bottom right, #7ACCB9 , #5fc3ab );
     -fx-cursor: hand;
