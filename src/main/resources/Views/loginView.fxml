@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="white-bg" stylesheets="@../Design/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.loginController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.loginController">
    <right>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" stylesheets="@../Design/style.css" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane fx:id="login_form" minWidth="-Infinity" onKeyPressed="#login_enter" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" stylesheets="@../Design/style.css">
                <children>
-                  <Button fx:id="login_login" layoutX="98.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" style="-fx-border-radius: 2000;" styleClass="btn" text="Login" />
+                  <Button fx:id="login_login" layoutX="98.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" styleClass="btn" text="Login" />
                   <TextField fx:id="login_username" layoutX="50.0" layoutY="134.0" promptText="Username" styleClass="textField" />
                   <PasswordField fx:id="login_password" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" />
                   <TextField fx:id="login_showpass" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" visible="false" />

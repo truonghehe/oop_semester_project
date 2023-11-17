@@ -159,6 +159,7 @@ public class DictionaryManagement extends Dictionary {
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split(SPLITTING_CHARACTERS);
+            System.out.println(line);
             String word = parts[0];
             String definition = SPLITTING_CHARACTERS + parts[1];
             Word wordObj = new Word(word, definition);
