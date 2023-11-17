@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.speech.AudioException;
 import javax.speech.EngineException;
@@ -41,7 +42,7 @@ public class myApplication extends Application {
         launch();
     }
     public static void importAccount() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/textFiles/Account"));
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/textFiles/Account.txt"));
         String line;
         while ((line = reader.readLine()) != null) {
             String[] a = line.split("\\|");

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="794.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.vocabularyController">
+<AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.vocabularyController">
     <children>
         <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="359.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -62,11 +62,11 @@
             <Image url="@../images/cloud.png" />
          </image>
       </ImageView>
-      <VBox layoutX="406.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="subjectPane" layoutX="406.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="BASELINE_LEFT" prefHeight="78.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                    <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: transparant;" text="Back" HBox.hgrow="ALWAYS">
+                    <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" text="Back" HBox.hgrow="ALWAYS">
                         <graphic>
                             <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
@@ -126,11 +126,11 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" disable="true" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="pane" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" prefHeight="3.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="back1" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: transparant;" text="Back" HBox.hgrow="ALWAYS">
+                  <Button fx:id="backSubject" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" text="Back" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -139,7 +139,7 @@
                         </ImageView>
                      </graphic>
                      <tooltip>
-                        <Tooltip fx:id="tooltip11" text="Nhấn để trở lại." />
+                        <Tooltip fx:id="tooltip2" text="Nhấn để trở lại." />
                      </tooltip>
                      <HBox.margin>
                         <Insets right="40.0" />
@@ -153,7 +153,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="524.0" progress="0.0" HBox.hgrow="ALWAYS">
+                  <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="456.0" progress="0.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
@@ -189,10 +189,10 @@
                         <Insets bottom="50.0" top="50.0" />
                      </HBox.margin>
                      <children>
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" />
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" />
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.rowIndex="1" />
+                        <Button fx:id="button0" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" />
+                        <Button fx:id="button1" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" />
+                        <Button fx:id="button3" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="button2" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>

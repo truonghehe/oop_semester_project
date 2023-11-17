@@ -52,7 +52,7 @@ public class listeningController extends gameUtils implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            loadPairsList("src/main/resources/textFiles/listening");
+            loadPairsList("src/main/resources/textFiles/listening.txt");
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);

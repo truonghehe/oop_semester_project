@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="754.0" maxWidth="1066.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.learnController">
+<AnchorPane fx:id="thisPane" maxHeight="754.0" maxWidth="1066.0" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.learnController">
    <children>
       <ImageView fitHeight="82.0" fitWidth="140.0" layoutX="115.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -46,12 +46,7 @@
             <Image url="@../images/bird.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="101.0" layoutX="820.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/cloud.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="118.0" fitWidth="155.0" layoutX="930.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="118.0" fitWidth="155.0" layoutX="650.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/sun.png" />
          </image>
@@ -61,27 +56,27 @@
             <Image url="@../images/duck.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="840.0" layoutY="530.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="300.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/duck.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="220.0" layoutY="650.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="319.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/duck.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="1000.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="42.0" layoutX="673.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/duck.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="120.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="120.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="820.0" layoutY="610.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="683.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dog.png" />
          </image>
@@ -91,17 +86,12 @@
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="980.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/dog.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="200.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" layoutX="312.0" layoutY="150.0" prefHeight="200.0" prefWidth="898.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="312.0" layoutY="150.0" prefHeight="200.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="0.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>

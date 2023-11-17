@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.speech.AudioException;
+import javax.speech.EngineException;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+
+import static com.mycompany.app.myApplication.textToSpeech;
 
 abstract public class gameUtils {
 
@@ -115,6 +119,11 @@ abstract public class gameUtils {
             progress += 1;
             progressBar.setProgress(progress/10.0);
             percentage.setText( (progress) * 10 + "%");
+            try {
+                textToSpeech.speak("Correct");
+            } catch (EngineException | AudioException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             if (progress == 10) {
                 Alert continueConfirmation = alerts.alertConfirmation("Chúc mừng!", "Bạn đã hoàn thành bài tập hôm nay" +
                         "\n bạn có muốn tiếp tục không?");
@@ -124,7 +133,13 @@ abstract public class gameUtils {
                 nextQuestion();
                 reset();
             }
+
         } else {
+            try {
+                textToSpeech.speak("Incorrect");
+            } catch (EngineException | AudioException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             alerts.showAlertInfo("Đáp án sai!", "Bạn đã làm sai rồi.");
             reset();
         }

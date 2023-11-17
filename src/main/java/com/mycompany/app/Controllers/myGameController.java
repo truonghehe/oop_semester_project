@@ -52,7 +52,7 @@ public class myGameController extends gameUtils implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             loadRandomWords();
-            loadPairsList("src/main/resources/textFiles/pairs");
+            loadPairsList("src/main/resources/textFiles/pairs.txt");
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -160,7 +160,7 @@ public class myGameController extends gameUtils implements Initializable {
     }
 
     private void loadRandomWords() throws IOException {
-        FileReader fr = new FileReader("src/main/resources/textFiles/randomWords");
+        FileReader fr = new FileReader("src/main/resources/textFiles/randomWords.txt");
         BufferedReader bf = new BufferedReader(fr);
         String line;
         while((line = bf.readLine()) != null) {

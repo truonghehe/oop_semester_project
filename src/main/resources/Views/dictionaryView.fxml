@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="thisPane" dividerPositions="0.15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.dictionaryController">
+<SplitPane fx:id="thisPane" dividerPositions="0.15" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.dictionaryController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #F0F8FF;" SplitPane.resizableWithParent="false">
          <children>
@@ -109,7 +109,7 @@
                </children>
             </VBox>
          </children></AnchorPane>
-    <AnchorPane fx:id="container" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #F0F8FF;">
+    <AnchorPane fx:id="container" prefHeight="498.0" prefWidth="675.0" style="-fx-background-color: #F0F8FF;">
          <children>
             <ImageView fitHeight="71.0" fitWidth="105.0" layoutX="49.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="49.0" AnchorPane.topAnchor="64.0">
                <image>

@@ -65,5 +65,4 @@ public class startingController {
         stage.setWidth(800);
         stage.setScene(new Scene(root));
     }
-    //dsdsd
 }

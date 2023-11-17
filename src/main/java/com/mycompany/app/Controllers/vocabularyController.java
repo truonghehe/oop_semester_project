@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -52,15 +53,13 @@ public class vocabularyController extends gameUtils implements Initializable {
     private Tooltip tooltip2;
 
     @FXML
-    private AnchorPane subjectPane;
+    private VBox subjectPane;
     @FXML
-    private AnchorPane pane;
+    private VBox pane;
     @FXML
     private Button backSubject;
     @FXML
-    private Button btVoice;
-    @FXML
-    private Label subject;
+    private Button speak;
     private int indexSubject ;
 
     public void mySubject() {
@@ -68,12 +67,11 @@ public class vocabularyController extends gameUtils implements Initializable {
         pane.setVisible(true);
         pairsList.clear();
         try {
-            loadPairsList("src/main/resources/textFiles/Vocabulary/" + bts[indexSubject].getText());
+            loadPairsList("src/main/resources/textFiles/Vocabulary/" + bts[indexSubject].getText() + ".txt");
             getProgressBarInfo();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        subject.setText("Chủ đề: " + bts[indexSubject].getText());
         buttons[0] = button0;
         buttons[1] = button1;
         buttons[2] = button2;
@@ -112,7 +110,7 @@ public class vocabularyController extends gameUtils implements Initializable {
                 checkAnswer();
             }
         });
-        btVoice.setOnAction(new EventHandler<ActionEvent>() {
+        speak.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
