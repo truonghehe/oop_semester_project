@@ -1,0 +1,32 @@
+.background {
+    -fx-background-color: #E0F4FF;
+}
+.smallButton {
+    -fx-background-color: linear-gradient(to bottom right, #87C4FF , #61B8FF );
+    -fx-cursor: hand;
+    -fx-background-radius: 7px;
+}
+.smallButton:hover {
+    -fx-background-color: #bad7f2;
+}
+.label {
+    -fx-background-color: #9dc6fb;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: Helvetica;
+    -fx-font-size: 32px;
+}
+.bigButton{
+    -fx-background-color: linear-gradient(to bottom right, #87C4FF , #39A7FF );
+    -fx-cursor: hand;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 32px;
+    -fx-font-family: Arial;
+    -fx-border-color: #65aeea;
+    -fx-border-width: 6px;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+.bigButton:hover{
+    -fx-background-color: #bad7f2;
+}

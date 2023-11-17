@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="708.0" maxWidth="1141.0" prefHeight="708.0" prefWidth="1141.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.myGameController">
+<AnchorPane fx:id="thisPane" maxHeight="708.0" maxWidth="1141.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/myGame.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.myGameController">
    <children>
       <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="441.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -57,11 +57,6 @@
             <Image url="@../images/dog.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="1000.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/cloud.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="950.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cloud.png" />
@@ -81,7 +76,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="76.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: #c4d8e8;" text="Back" HBox.hgrow="ALWAYS">
+                  <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" text="Back" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -93,27 +88,27 @@
                         <Tooltip fx:id="tooltip2" text="Nhấn để trở lại." />
                      </tooltip>
                      <HBox.margin>
-                        <Insets right="50.0" />
+                        <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="percentage" contentDisplay="CENTER" prefHeight="20.0" prefWidth="43.0" HBox.hgrow="ALWAYS">
+                  <Label fx:id="percentage" alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="66.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="30.0" />
+                        <Insets left="20.0" right="30.0" />
                      </HBox.margin>
                   </Label>
-                  <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="518.0" progress="0.0" HBox.hgrow="ALWAYS">
+                  <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="518.0" progress="0.51" styleClass="progressBar" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets right="80.0" />
+                        <Insets right="50.0" />
                      </HBox.margin>
                   </ProgressBar>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="85.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="question" alignment="CENTER" prefHeight="36.0" prefWidth="638.0" style="-fx-background-color: #c4d8e8;" text="english" HBox.hgrow="ALWAYS">
+                  <Label fx:id="question" alignment="CENTER" prefHeight="36.0" prefWidth="638.0" text="english" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="23.0" />
                      </font>
@@ -121,7 +116,7 @@
                         <Insets right="60.0" />
                      </HBox.margin>
                   </Label>
-                  <Button fx:id="reset" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: #c4d8e8;" text="reset" HBox.hgrow="ALWAYS">
+                  <Button fx:id="reset" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" text="reset" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="51.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -137,7 +132,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="98.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="answer" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="783.0" style="-fx-background-color: #c4d8e8;" text="vietnamese" HBox.hgrow="ALWAYS">
+                  <Label fx:id="answer" alignment="CENTER" contentDisplay="CENTER" prefHeight="37.0" prefWidth="783.0" text="vietnamese" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="23.0" />
                      </font>
@@ -162,22 +157,22 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="button8" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="8" GridPane.rowIndex="1" />
-                        <Button fx:id="button0" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="0" />
-                        <Button fx:id="button1" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="1" GridPane.columnIndex="1" />
-                        <Button fx:id="button2" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="2" GridPane.columnIndex="2" />
-                        <Button fx:id="button3" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="3" GridPane.columnIndex="3" />
-                        <Button fx:id="button4" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="4" GridPane.columnIndex="4" />
-                        <Button fx:id="button5" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="5" GridPane.columnIndex="5" />
-                        <Button fx:id="button6" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="6" GridPane.columnIndex="6" />
-                        <Button fx:id="button7" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="7" GridPane.columnIndex="7" />
-                        <Button fx:id="button11" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="11" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Button fx:id="button10" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="10" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Button fx:id="button9" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="9" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="button14" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="14" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                        <Button fx:id="button13" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="13" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                        <Button fx:id="button12" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="12" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <Button fx:id="button15" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" style="-fx-background-color: #c4d8e8;" text="15" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                        <Button fx:id="button8" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="8" GridPane.rowIndex="1" />
+                        <Button fx:id="button0" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="0" />
+                        <Button fx:id="button1" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="1" GridPane.columnIndex="1" />
+                        <Button fx:id="button2" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="2" GridPane.columnIndex="2" />
+                        <Button fx:id="button3" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="3" GridPane.columnIndex="3" />
+                        <Button fx:id="button4" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="4" GridPane.columnIndex="4" />
+                        <Button fx:id="button5" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="5" GridPane.columnIndex="5" />
+                        <Button fx:id="button6" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="6" GridPane.columnIndex="6" />
+                        <Button fx:id="button7" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="7" GridPane.columnIndex="7" />
+                        <Button fx:id="button11" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="11" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button fx:id="button10" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="10" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="button9" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="9" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="button14" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="14" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                        <Button fx:id="button13" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="13" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <Button fx:id="button12" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="12" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <Button fx:id="button15" minWidth="0.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" text="15" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                      </children>
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
@@ -187,7 +182,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="88.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="50.0" prefWidth="57.0" style="-fx-background-color: #c4d8e8;" text="check" HBox.hgrow="ALWAYS">
+                  <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="50.0" prefWidth="57.0" text="check" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="51.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                            <image>

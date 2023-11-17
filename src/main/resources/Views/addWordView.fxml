@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="498.0" prefWidth="675.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.addWordController">
+<AnchorPane prefHeight="498.0" prefWidth="675.0" styleClass="background" stylesheets="@../Design/addWordStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.addWordController">
    <children>
       <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="22.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -86,35 +86,41 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="380.0" prefWidth="255.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="New English word" VBox.vgrow="ALWAYS">
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="174.0" styleClass="addWordLabel" text="New English word" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="19.0" />
                            </font>
                            <VBox.margin>
-                              <Insets top="45.0" />
+                              <Insets bottom="5.0" top="55.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="englishWord" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" VBox.vgrow="ALWAYS">
-                           <VBox.margin>
-                              <Insets bottom="30.0" left="65.0" right="65.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label text="Phiên âm" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="spelling" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" VBox.vgrow="ALWAYS">
+                        <TextField fx:id="englishWord" prefHeight="43.0" prefWidth="200.0" styleClass="textField" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="30.0" left="65.0" right="65.0" />
                            </VBox.margin>
                         </TextField>
-                        <Label text="Từ loại" VBox.vgrow="ALWAYS">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="181.0" styleClass="addWordLabel" text="Phiên âm" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="19.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
                         </Label>
-                        <TextField fx:id="wordType" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" VBox.vgrow="ALWAYS">
+                        <TextField fx:id="spelling" prefHeight="43.0" prefWidth="200.0" styleClass="textField" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="30.0" left="65.0" right="65.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="185.0" styleClass="addWordLabel" text="Từ loại" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="wordType" prefHeight="43.0" prefWidth="200.0" styleClass="textField" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets left="65.0" right="65.0" />
                            </VBox.margin>
@@ -123,15 +129,15 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="380.0" prefWidth="233.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label text="New definition" VBox.vgrow="ALWAYS">
+                        <Label alignment="CENTER" prefHeight="24.0" prefWidth="201.0" styleClass="addWordLabel" text="New definition" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="19.0" />
                            </font>
                            <VBox.margin>
-                              <Insets top="100.0" />
+                              <Insets bottom="5.0" top="100.0" />
                            </VBox.margin>
                         </Label>
-                        <TextArea fx:id="vietnameseWord" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c4d8e8;" VBox.vgrow="ALWAYS">
+                        <TextArea fx:id="vietnameseWord" prefHeight="200.0" prefWidth="200.0" styleClass="textArea" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets bottom="50.0" left="30.0" right="30.0" />
                            </VBox.margin>
@@ -142,7 +148,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#add" prefHeight="57.0" prefWidth="68.0" style="-fx-background-color: #F0F8FF;" text="ADD" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#add" prefHeight="57.0" prefWidth="68.0" stylesheets="@../Design/addWordStyle.css" text="ADD" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>

@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="800.0" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.startingController">
+<AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="800.0" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/startingStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.startingController">
    <children>
       <VBox layoutX="232.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="800.0" styleClass="background" VBox.vgrow="ALWAYS">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="70.0" prefWidth="33.0" styleClass="smallButton" stylesheets="@../Design/style.css" HBox.hgrow="ALWAYS">
+                  <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="70.0" prefWidth="33.0" styleClass="smallButton" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
@@ -55,7 +55,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="407.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button contentDisplay="TOP" graphicTextGap="45.0" mnemonicParsing="false" onMouseClicked="#goToDictionary" prefHeight="415.0" prefWidth="409.0" styleClass="btn" stylesheets="@../Design/style.css" text="Dictionary" HBox.hgrow="ALWAYS">
+                  <Button contentDisplay="TOP" graphicTextGap="45.0" mnemonicParsing="false" onMouseClicked="#goToDictionary" prefHeight="415.0" prefWidth="409.0" styleClass="bigButton" text="Dictionary" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="142.0" fitWidth="199.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -73,7 +73,7 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#goToGame" prefHeight="423.0" prefWidth="417.0" styleClass="btn" stylesheets="@../Design/style.css" text="Game" HBox.hgrow="ALWAYS">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#goToGame" prefHeight="423.0" prefWidth="417.0" styleClass="bigButton" text="Game" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Apple SD Gothic Neo Regular" size="20.0" />
                      </font>
