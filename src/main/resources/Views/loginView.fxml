@@ -65,7 +65,7 @@
                   <TextField fx:id="forgot_username" layoutX="58.0" layoutY="151.0" promptText="Username" styleClass="textField" />
                   <ImageView fitHeight="101.0" fitWidth="94.0" layoutX="86.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/forget.png" />
+                        <Image url="@../images/forgotPass.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="80.0" layoutY="104.0" styleClass="lab" text="Forget Password" />
@@ -80,7 +80,7 @@
                   <Label layoutX="72.0" layoutY="108.0" styleClass="lab" text="Forget Password" />
                   <ImageView fitHeight="91.0" fitWidth="87.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/unlock.png" />
+                        <Image url="@../images/unlockPass.png" />
                      </image>
                   </ImageView>
                </children>
