@@ -31,7 +31,7 @@ public class myApplication extends Application {
             try {
                 textToSpeech.terminate();
                 exportAccount();
-                DictionaryManagement.dictionaryExportToFile("src/main/resources/textFiles/E_V.txt");
+               // DictionaryManagement.dictionaryExportToFile("src/main/resources/textFiles/E_V.txt");
             } catch (EngineException | IOException e) {
                 throw new RuntimeException(e);
             }

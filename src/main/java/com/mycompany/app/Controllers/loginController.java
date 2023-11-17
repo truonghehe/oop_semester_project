@@ -256,6 +256,12 @@ public class loginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         questions();
+        login_password.textProperty().addListener((observable, oldValue, newValue) -> {
+            login_showpass.setText(newValue);
+        });
+        login_showpass.textProperty().addListener((observable, oldValue, newValue) -> {
+            login_password.setText(newValue);
+        });
     }
     private int checkUserExists(String userName) {
         for (int i = 0; i < personList.size(); i++) {
