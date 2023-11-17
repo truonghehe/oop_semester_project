@@ -150,7 +150,6 @@ public class searchController implements Initializable {
         secondaryStage.setOnCloseRequest(windowEvent -> {
             webView.getEngine().loadContent(DictionaryManagement.data.get(selectedItem).getWord_explain());
         });
-        System.out.println();
         secondaryStage.show();
     }
     private void addToObservableList() {

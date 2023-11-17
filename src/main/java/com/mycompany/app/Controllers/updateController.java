@@ -19,6 +19,9 @@ import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import static com.mycompany.app.Controllers.searchController.selectedItem;
+
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class updateController implements Initializable {
 
     @FXML
@@ -28,7 +31,7 @@ public class updateController implements Initializable {
     private Alerts alerts = new Alerts();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String INITIAL_TEXT = DictionaryManagement.data.get(searchController.selectedItem).getWord_explain();
+        String INITIAL_TEXT = DictionaryManagement.data.get(selectedItem).getWord_explain();
         htmlEditor.setHtmlText(INITIAL_TEXT);
         btSave.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -42,12 +45,13 @@ public class updateController implements Initializable {
     }
     @FXML
     public void SaveOnClick() {
-        Word selected = DictionaryManagement.data.get(searchController.selectedItem);
+        Word selected = DictionaryManagement.data.get(selectedItem);
         DictionaryManagement.dictionary.remove(selected);
-        DictionaryManagement.data.remove(searchController.selectedItem);
-        selected.setWord_explain(htmlEditor.getHtmlText());
+        DictionaryManagement.data.remove(selectedItem);
+        String newWord_Explain = htmlEditor.getHtmlText() ;
+        selected.setWord_explain(newWord_Explain.replace("<html dir=\"ltr\">" , "<html>"));
         DictionaryManagement.dictionary.add(selected);
-        DictionaryManagement.data.put(searchController.selectedItem, selected);
+        DictionaryManagement.data.put(selectedItem, selected);
     }
     @FXML
     public void htmlEditorMouseClick(MouseEvent event){

@@ -42,7 +42,7 @@ public class dictionaryController implements Initializable {
 
     @FXML
     void exit(MouseEvent event) {
-        //DictionaryManagement.dictionaryExportToFile("src/main/resources/textFiles/E_V.txt");
+        DictionaryManagement.dictionaryExportToFile("src/main/resources/textFiles/E_V.txt");
         try {
             textToSpeech.terminate();
         } catch (EngineException e) {
