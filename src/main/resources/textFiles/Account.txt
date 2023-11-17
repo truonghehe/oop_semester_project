@@ -1,2 +1,2 @@
-admin|1|Where are you from?|vietnam|43 2|13 3|57 0|8 2|64 1|43 3|7 6|0 0|27 0|25 0|24 0|70 0
+admin|1|Where are you from?|vietnam|43 2|13 6|57 0|8 2|64 1|43 5|69 0|0 0|27 0|25 4|24 0|70 1
 tung|12345678|Where are you from?|vietnam|0 0|0 0|79 0|17 4|0 0|0 0|0 0|0 0|0 0|0 0|0 0|0 0

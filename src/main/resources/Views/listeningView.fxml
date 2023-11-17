@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="685.0" maxWidth="1036.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1036.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.listeningController">
+<AnchorPane fx:id="thisPane" maxHeight="685.0" maxWidth="1036.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/listeningStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.listeningController">
     <children>
         <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="560.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -76,9 +76,9 @@
          <children>
             <HBox alignment="CENTER" prefHeight="89.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                    <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="47.0" prefWidth="56.0" style="-fx-background-color: #c4d8e8;" text="Back" HBox.hgrow="ALWAYS">
+                    <Button fx:id="back" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="67.0" prefWidth="75.0" text="Back" HBox.hgrow="ALWAYS">
                         <graphic>
-                            <ImageView fitHeight="49.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fitHeight="68.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../images/back.png" />
                                 </image>
@@ -88,10 +88,10 @@
                             <Tooltip fx:id="tooltip1" text="Nhấn để trở lại." />
                         </tooltip>
                      <HBox.margin>
-                        <Insets right="120.0" />
+                        <Insets left="20.0" right="65.0" />
                      </HBox.margin>
                   </Button>
-                    <Label fx:id="percentage" contentDisplay="CENTER" prefHeight="27.0" prefWidth="56.0">
+                    <Label fx:id="percentage" alignment="CENTER" contentDisplay="CENTER" prefHeight="33.0" prefWidth="62.0" styleClass="percentage">
                         <font>
                             <Font size="16.0" />
                         </font>
@@ -99,18 +99,18 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                     </Label>
-                    <ProgressBar fx:id="progressBar" prefHeight="25.0" prefWidth="600.0" progress="0.0">
+                    <ProgressBar fx:id="progressBar" prefHeight="25.0" prefWidth="503.0" progress="0.0" styleClass="progressBar">
                      <HBox.margin>
-                        <Insets right="100.0" />
+                        <Insets right="20.0" />
                      </HBox.margin>
                   </ProgressBar>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="106.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="btVoice" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="74.0" prefWidth="82.0" style="-fx-background-color: #c4d8e8;" text="Speak" HBox.hgrow="ALWAYS">
+                  <Button fx:id="btVoice" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="67.0" prefWidth="93.0" text="Speak" HBox.hgrow="ALWAYS">
                      <graphic>
-                        <ImageView fitHeight="65.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="75.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/speaker.png" />
                            </image>
@@ -121,7 +121,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="207.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                    <GridPane alignment="CENTER" prefHeight="203.0" prefWidth="630.0">
+                    <GridPane alignment="CENTER" hgap="10.0" prefHeight="253.0" prefWidth="1159.0" vgap="10.0">
                         <columnConstraints>
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -131,33 +131,36 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
-                            <Button fx:id="button2" mnemonicParsing="false" prefHeight="101.0" prefWidth="402.0" style="-fx-background-color: #c4d8e8;" text="2" GridPane.rowIndex="1">
+                            <Button fx:id="button2" mnemonicParsing="false" prefHeight="130.0" prefWidth="520.0" styleClass="bigButton" text="2" GridPane.rowIndex="1">
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+                              <Insets />
                            </GridPane.margin>
                         </Button>
-                            <Button fx:id="button0" minWidth="0.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="542.0" style="-fx-background-color: #c4d8e8;" text="0">
+                            <Button fx:id="button0" minWidth="0.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="520.0" styleClass="bigButton" text="0">
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+                              <Insets />
                            </GridPane.margin>
                         </Button>
-                            <Button fx:id="button1" minWidth="0.0" mnemonicParsing="false" prefHeight="132.0" prefWidth="257.0" style="-fx-background-color: #c4d8e8;" text="1" GridPane.columnIndex="1">
+                            <Button fx:id="button1" minWidth="0.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="520.0" styleClass="bigButton" text="1" GridPane.columnIndex="1">
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+                              <Insets />
                            </GridPane.margin>
                         </Button>
-                            <Button fx:id="button3" alignment="CENTER" contentDisplay="CENTER" minWidth="0.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="500.0" style="-fx-background-color: #c4d8e8;" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Button fx:id="button3" alignment="CENTER" contentDisplay="CENTER" minWidth="0.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="520.0" styleClass="bigButton" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+                              <Insets />
                            </GridPane.margin>
                         </Button>
                         </children>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
                     </GridPane>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                    <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: #c4d8e8;" text="check" HBox.hgrow="ALWAYS">
+                    <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="69.0" prefWidth="75.0" text="check" HBox.hgrow="ALWAYS">
                         <tooltip>
                             <Tooltip fx:id="tooltip2" text="nhấn để kiểm tra." />
                         </tooltip>

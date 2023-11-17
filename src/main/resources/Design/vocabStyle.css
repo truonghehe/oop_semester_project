@@ -1,0 +1,54 @@
+.background {
+    -fx-background-color: #E0F4FF;
+}
+.label {
+    -fx-background-color: #9dc6fb;
+        -fx-background-radius: 5px;
+        -fx-text-fill: #ffffff;
+        -fx-font-family: Helvetica;
+        -fx-font-size: 30px;
+}
+.button {
+    -fx-background-color: linear-gradient(to bottom right, #87C4FF , #61B8FF );
+    -fx-cursor: hand;
+    -fx-background-radius: 7px;
+}
+.button:hover {
+    -fx-background-color: #bad7f2;
+}
+.bigButton{
+    -fx-background-color: linear-gradient(to bottom right, #87C4FF , #61B8FF );
+    -fx-cursor: hand;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 18px;
+    -fx-font-family: Arial;
+    -fx-border-color: #65aeea;
+    -fx-border-width: 3px;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-alignment: center;
+}
+.bigButton:hover{
+    -fx-background-color: #bad7f2;
+}
+.progressBar .bar {
+    -fx-background-color: #61B8FF
+}
+.percentage {
+-fx-background-color: #9dc6fb;
+        -fx-background-radius: 5px;
+        -fx-text-fill: #ffffff;
+        -fx-font-family: Helvetica;
+        -fx-font-size: 14px;
+}
+.choosingButton {
+    -fx-background-color: #4297FF;
+        -fx-text-fill: #ffffff;
+        -fx-font-size: 18px;
+        -fx-font-family: Arial;
+        -fx-border-color: #65aeea;
+        -fx-border-width: 3px;
+        -fx-background-radius: 15px;
+        -fx-border-radius: 15px;
+        -fx-alignment: center;
+}

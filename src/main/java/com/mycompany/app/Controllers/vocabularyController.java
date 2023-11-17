@@ -83,16 +83,17 @@ public class vocabularyController extends gameUtils implements Initializable {
         percentage.setText((progress) * 10 + "%");
 
         nextQuestion();
-        for (int i = 0; i < 4; i++) {
-            int tmp = i;
-            buttons[i].setOnAction(new EventHandler<ActionEvent>() {
+        for (Button button : buttons) {
+            button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    for (int j = 0; j < 4; j++) {
-                        buttons[j].setStyle("-fx-background-color: #c4d8e8;");
+                    for (Button value : buttons) {
+                        value.getStyleClass().clear();
+                        value.getStyleClass().add("bigButton");
                     }
-                    buttons[tmp].setStyle("-fx-background-color: #931DA3;");
-                    answer.setText(buttons[tmp].getText());
+                    button.getStyleClass().clear();
+                    button.getStyleClass().add("choosingButton");
+                    answer.setText(button.getText());
                 }
             });
         }
@@ -184,11 +185,13 @@ public class vocabularyController extends gameUtils implements Initializable {
             buttons[i].setText(tmp[1].trim());
         }
         randomize(buttons);
+        reset();
     }
     @Override
     protected void reset() {
-        for (int i = 0; i < 4; i++) {
-            buttons[i].setStyle("-fx-background-color: #c4d8e8;");
+        for (Button button : buttons) {
+            button.getStyleClass().clear();
+            button.getStyleClass().add("bigButton");
         }
     }
 }
