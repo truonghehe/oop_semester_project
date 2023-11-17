@@ -52,8 +52,8 @@ abstract public class gameUtils {
     abstract protected void getProgressBarInfo();
 
     protected void randomize(Button[] buttons) {
-        for (int i = 0; i < 4; i++) {
-            int rand = random.nextInt(buttons.length)%4 ;
+        for (int i = 0; i < buttons.length; i++) {
+            int rand = random.nextInt(buttons.length);
             swap(buttons, i, rand);
         }
     }

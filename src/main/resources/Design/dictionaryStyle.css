@@ -1,0 +1,11 @@
+.background {
+    -fx-background-color: #E0F4FF;
+}
+.button {
+    -fx-background-color: linear-gradient(to bottom right, #87C4FF , #61B8FF );
+    -fx-cursor: hand;
+    -fx-background-radius: 7px;
+}
+.button:hover {
+    -fx-background-color: #bad7f2;
+}

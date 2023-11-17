@@ -165,7 +165,7 @@ public class searchController implements Initializable {
         int ans = search(lo , hi , word);
         filteredList.clear();
         if (ans == -1){
-            webView.getEngine().loadContent("<html><body><h1>Word is not exist!</h1></body></html>");
+            alerts.showAlertWarning("Warning!", "Word doesn't exist!");
         }
         else {
             filteredList.add(observableList.get(ans));

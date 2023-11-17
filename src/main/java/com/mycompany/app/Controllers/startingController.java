@@ -50,7 +50,7 @@ public class startingController {
     void goToDictionary(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/dictionaryView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(fxmlLoader. load());
         stage.setTitle("Dictionary");
         stage.setScene(scene);
         stage.show();
