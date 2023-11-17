@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.loginController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="white-bg" stylesheets="@../Design/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.loginController">
    <right>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" stylesheets="@../Design/style.css" BorderPane.alignment="CENTER">
          <children>
@@ -89,6 +89,6 @@
       </AnchorPane>
    </right>
    <center>
-      <AnchorPane prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: #0498ff;" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="400.0" prefWidth="350.0" style="-fx-background-radius: 100;" styleClass="green-bg" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
