@@ -26,6 +26,7 @@ public class myApplication extends Application {
         stage.setScene(scene);
         textToSpeech.initialize("kevin16");
         importAccount();
+        DictionaryManagement.dictionaryImportFromFile("src/main/resources/textFiles/E_V.txt");
         stage.setOnCloseRequest(windowEvent -> {
             try {
                 textToSpeech.terminate();
@@ -56,7 +57,7 @@ public class myApplication extends Application {
     }
 
     public static void exportAccount() throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/textFiles/Account"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/textFiles/Account.txt"));
         for (Person person : personList) {
             StringBuilder personData = new StringBuilder(person.getUsername() + "|" + person.getPassword() + "|"
                     + person.getQuestion() + "|" + person.getAnswer() + "|" + person.getMyGame() + "|" +
