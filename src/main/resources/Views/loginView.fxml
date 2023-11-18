@@ -21,7 +21,7 @@
                <children>
                   <ImageView fitHeight="315.0" fitWidth="302.0" layoutX="20.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../signin-bg.png" />
+                        <Image url="@../images/signin-bg.png" />
                      </image>
                   </ImageView>
                </children></AnchorPane>
