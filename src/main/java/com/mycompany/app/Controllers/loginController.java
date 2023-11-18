@@ -28,7 +28,7 @@ import static com.mycompany.app.myApplication.*;
 
 public class loginController implements Initializable {
     @FXML
-    private BorderPane borderPane;
+    private AnchorPane thisPane;
     @FXML
     private PasswordField forgot_answer;
 
@@ -220,7 +220,7 @@ public class loginController implements Initializable {
             if (index >= 0) {
                 if (checkPass.equals(personList.get(index).getPassword())) {
                     personIndex = index;
-                    Stage stage = (Stage) borderPane.getScene().getWindow();
+                    Stage stage = (Stage) thisPane.getScene().getWindow();
                     FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     stage.setTitle("Welcome to our application!");
