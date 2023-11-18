@@ -70,6 +70,7 @@ public class searchController implements Initializable {
 
     @FXML
     private Tooltip tooltip3;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addToObservableList();
@@ -77,7 +78,7 @@ public class searchController implements Initializable {
         listView.setItems(observableList);
         listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                selectedItem = newValue ;
+                selectedItem = newValue;
                 String word_explainExplain = DictionaryManagement.data.get(newValue).getWord_explain();
                 webView.getEngine().loadContent(word_explainExplain, "text/html");
             }
@@ -113,10 +114,12 @@ public class searchController implements Initializable {
         btVoice.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                try {
-                    textToSpeech.speak(selectedItem);
-                } catch (AudioException | EngineException | InterruptedException e) {
-                    throw new RuntimeException(e);
+                if (selectedItem != null) {
+                    try {
+                        textToSpeech.speak(selectedItem);
+                    } catch (AudioException | EngineException | InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });
@@ -127,60 +130,67 @@ public class searchController implements Initializable {
             }
         });
     }
+
     public void deleteWord() {
-        selectedItem = listView.getSelectionModel().getSelectedItem();
-        Alert alertWarning = alerts.alertWarning("Delete", "Bạn chắc chắn muốn xoá từ này?");
-        alertWarning.getButtonTypes().add(ButtonType.CANCEL);
-        Optional<ButtonType> optional = alertWarning.showAndWait();
-        if (optional.get() == ButtonType.OK) {
-            observableList.remove(selectedItem);
-            filteredList.remove(selectedItem);
-            Word selectedWord = DictionaryManagement.data.get(selectedItem);
-            DictionaryManagement.dictionary.remove(selectedWord);
-            alerts.showAlertInfo("Information" , "Xoá thành công");
+        if (selectedItem != null) {
+            selectedItem = listView.getSelectionModel().getSelectedItem();
+            Alert alertWarning = alerts.alertWarning("Delete", "Bạn chắc chắn muốn xoá từ này?");
+            alertWarning.getButtonTypes().add(ButtonType.CANCEL);
+            Optional<ButtonType> optional = alertWarning.showAndWait();
+            if (optional.get() == ButtonType.OK) {
+                observableList.remove(selectedItem);
+                filteredList.remove(selectedItem);
+                Word selectedWord = DictionaryManagement.data.get(selectedItem);
+                DictionaryManagement.dictionary.remove(selectedWord);
+                alerts.showAlertInfo("Information", "Xoá thành công");
+            } else alerts.showAlertInfo("Information", "Xoá thất bại");
         }
-        else alerts.showAlertInfo("Information" , "Xoá thất bại");
     }
+
     public void update() throws IOException {
-        Stage secondaryStage = new Stage();
-        FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("/Views/updateWord.fxml"));
-        Scene secondaryScene = new Scene(secondaryLoader.load());
-        secondaryStage.setScene(secondaryScene);
-        secondaryStage.setTitle("Update " + selectedItem);
-        secondaryStage.setOnCloseRequest(windowEvent -> {
-            webView.getEngine().loadContent(DictionaryManagement.data.get(selectedItem).getWord_explain());
-        });
-        secondaryStage.show();
+        if (selectedItem == null) {
+            Stage secondaryStage = new Stage();
+            FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("/Views/updateWord.fxml"));
+            Scene secondaryScene = new Scene(secondaryLoader.load());
+            secondaryStage.setScene(secondaryScene);
+            secondaryStage.setTitle("Update " + selectedItem);
+            secondaryStage.setOnCloseRequest(windowEvent -> {
+                webView.getEngine().loadContent(DictionaryManagement.data.get(selectedItem).getWord_explain());
+            });
+            secondaryStage.show();
+        }
     }
+
     private void addToObservableList() {
         observableList.clear();
         for (int i = 0; i < DictionaryManagement.dictionary.size(); i++) {
             observableList.add(DictionaryManagement.dictionary.get(i).getWord_target());
         }
     }
+
     private void searchWord() {
-        String word = searchField.getText() ;
-        int lo = 0 , hi = observableList.size() ;
-        int ans = search(lo , hi , word);
+        String word = searchField.getText();
+        int lo = 0, hi = observableList.size();
+        int ans = search(lo, hi, word);
         filteredList.clear();
-        if (ans == -1){
+        if (ans == -1) {
             alerts.showAlertWarning("Warning!", "Word doesn't exist!");
-        }
-        else {
+        } else {
             filteredList.add(observableList.get(ans));
             String word_explainExplain = DictionaryManagement.data.get(word).getWord_explain();
-            selectedItem = word ;
+            selectedItem = word;
             webView.getEngine().loadContent(word_explainExplain, "text/html");
         }
     }
-    private int search(int lo , int hi , String word){
-        int mid = (lo + hi) /2 ;
-        while (lo <= hi){
-            int cmp = observableList.get(mid).compareTo(word)  ;
-            if ( cmp > 0 ) return search(lo , mid - 1 , word);
-            else if ( cmp < 0) return search(mid + 1 , hi , word);
-            else return mid ;
+
+    private int search(int lo, int hi, String word) {
+        int mid = (lo + hi) / 2;
+        while (lo <= hi) {
+            int cmp = observableList.get(mid).compareTo(word);
+            if (cmp > 0) return search(lo, mid - 1, word);
+            else if (cmp < 0) return search(mid + 1, hi, word);
+            else return mid;
         }
-        return -1 ;
+        return -1;
     }
 }
