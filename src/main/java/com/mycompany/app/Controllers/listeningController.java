@@ -73,9 +73,11 @@ public class listeningController extends gameUtils implements Initializable {
                 @Override
                 public void handle(ActionEvent event) {
                     for (Button value : buttons) {
-                        value.setStyle("-fx-background-color: #c4d8e8;");
+                        value.getStyleClass().clear();
+                        value.getStyleClass().add("bigButton");
                     }
-                    button.setStyle("-fx-background-color: #931DA3;");
+                    button.getStyleClass().clear();
+                    button.getStyleClass().add("choosingButton");
                     answer.setText(button.getText());
                 }
 
@@ -139,7 +141,8 @@ public class listeningController extends gameUtils implements Initializable {
     @Override
     protected void reset() {
         for (Button button : buttons) {
-            button.setStyle("-fx-background-color: #c4d8e8;");
+            button.getStyleClass().clear();
+            button.getStyleClass().add("bigButton");
         }
     }
 }

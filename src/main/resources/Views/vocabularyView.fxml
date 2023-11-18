@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.vocabularyController">
+<AnchorPane fx:id="thisPane" maxHeight="500.0" maxWidth="800.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/vocabStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.vocabularyController">
     <children>
         <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="359.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -85,7 +85,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="78.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label text="choose the wanted topic">
+                  <Label alignment="CENTER" prefHeight="54.0" prefWidth="499.0" text="CHOOSE THE WANTED TOPIC">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -94,7 +94,7 @@
             </HBox>
             <HBox prefHeight="326.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <GridPane alignment="CENTER" HBox.hgrow="ALWAYS">
+                  <GridPane alignment="CENTER" hgap="10.0" prefHeight="232.0" prefWidth="729.0" HBox.hgrow="ALWAYS">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -107,19 +107,19 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <HBox.margin>
-                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                      <children>
-                        <Button fx:id="bt3" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="bodyPart" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt5" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="environment" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt8" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="sport" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt4" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="culture" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt9" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="technology" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt10" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="travel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt7" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="school" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt6" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="food" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt2" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="career" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <Button fx:id="bt1" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: #c4d8e8;" text="family" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt3" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="bodyPart" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt5" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="environment" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt8" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="sport" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt4" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="culture" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt9" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="technology" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt10" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="travel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt7" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="school" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt6" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="food" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt2" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="career" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="bt1" alignment="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="150.0" styleClass="bigButton" text="family" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                      </children>
                   </GridPane>
                </children>
@@ -145,7 +145,7 @@
                         <Insets right="40.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="percentage" alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="59.0" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                  <Label fx:id="percentage" alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="59.0" styleClass="percentage" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="40.0" />
                      </HBox.margin>
@@ -153,7 +153,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="456.0" progress="0.0" HBox.hgrow="ALWAYS">
+                  <ProgressBar fx:id="progressBar" prefHeight="20.0" prefWidth="456.0" progress="0.0" styleClass="progressBar" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
@@ -162,10 +162,17 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="speak" mnemonicParsing="false" text="Button" HBox.hgrow="ALWAYS">
+                  <Button fx:id="speak" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" text="Button" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets right="50.0" />
+                        <Insets right="20.0" />
                      </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/speaker.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                   <Label fx:id="question" alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="560.0" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS">
                      <font>
@@ -176,7 +183,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="222.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <GridPane hgap="10.0" prefHeight="251.0" prefWidth="350.0" vgap="10.0">
+                  <GridPane hgap="10.0" prefHeight="182.0" prefWidth="750.0" vgap="10.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -186,20 +193,30 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <HBox.margin>
-                        <Insets bottom="50.0" top="50.0" />
+                        <Insets bottom="20.0" top="20.0" />
                      </HBox.margin>
                      <children>
-                        <Button fx:id="button0" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" />
-                        <Button fx:id="button1" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" />
-                        <Button fx:id="button3" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="button2" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Button" GridPane.rowIndex="1" />
+                        <Button fx:id="button0" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="440.0" styleClass="bigButton" text="Button" />
+                        <Button fx:id="button1" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="377.0" styleClass="bigButton" text="Button" GridPane.columnIndex="1" />
+                        <Button fx:id="button3" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="425.0" styleClass="bigButton" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="button2" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="533.0" styleClass="bigButton" text="Button" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="55.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="check" mnemonicParsing="false" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="check" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="46.0" prefWidth="80.0" text="Button" HBox.hgrow="ALWAYS">
+                     <graphic>
+                        <ImageView fitHeight="66.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/check.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets bottom="5.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </children>
