@@ -11,92 +11,98 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="thisPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E0F4FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.loginController">
    <children>
-      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: #87C4FF; -fx-background-radius: 100;">
+            <VBox alignment="CENTER" prefHeight="400.0" prefWidth="367.0" style="-fx-background-radius: 100; -fx-background-color: #87C4FF;" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="315.0" fitWidth="302.0" layoutX="20.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="315.0" fitWidth="302.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                      <image>
                         <Image url="@../images/signin-bg.png" />
                      </image>
                   </ImageView>
-               </children></AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" stylesheets="@../Design/dictionaryStyle.css">
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <AnchorPane fx:id="login_form" minWidth="-Infinity" onKeyPressed="#login_enter" prefHeight="400.0" prefWidth="250.0" styleClass="background" stylesheets="@../Design/dictionaryStyle.css">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" stylesheets="@../Design/dictionaryStyle.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="login_login" layoutX="98.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" styleClass="smallButton" text="Login" />
-                        <TextField fx:id="login_username" layoutX="50.0" layoutY="134.0" promptText="Username" styleClass="textField" />
-                        <PasswordField fx:id="login_password" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" />
-                        <TextField fx:id="login_showpass" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" visible="false" />
-                        <CheckBox fx:id="login_showPassword" layoutX="26.0" layoutY="206.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
-                        <Hyperlink fx:id="login_forgotPassword" layoutX="139.0" layoutY="203.0" onAction="#switchForm" text="Forgot password" />
-                        <Button fx:id="login_signUp" layoutX="75.0" layoutY="357.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Creat Account " />
-                        <Label layoutX="80.0" layoutY="326.0" text="Register Account" />
-                        <Label layoutX="77.0" layoutY="90.0" text="Sign In Account">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="83.0" fitWidth="86.0" layoutX="83.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/signIn.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="signUp_form" prefHeight="400.0" prefWidth="250.0" styleClass="background" visible="false">
-                     <children>
-                        <TextField fx:id="signUp_username" layoutX="56.0" layoutY="122.0" promptText="Username" styleClass="textField" />
-                        <PasswordField fx:id="signUp_password" layoutX="56.0" layoutY="157.0" promptText="Password" styleClass="textField" />
-                        <Button fx:id="signUp_login" layoutX="108.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Login" />
-                        <Button fx:id="signup_bt" layoutX="102.0" layoutY="299.0" mnemonicParsing="false" onAction="#register" styleClass="smallButton" text="Sign Up" />
-                        <PasswordField fx:id="signUp_CPassword" layoutX="56.0" layoutY="191.0" promptText="ComfirmPassword" styleClass="textField" />
-                        <ComboBox fx:id="signUp_selectQuestion" layoutX="56.0" layoutY="227.0" prefWidth="150.0" promptText="Question" />
-                        <PasswordField fx:id="signUp_answer" layoutX="56.0" layoutY="261.0" promptText="Answer" styleClass="textField" />
-                        <Label layoutX="80.0" layoutY="91.0" styleClass="lab" text="Sign Up Account" />
-                        <ImageView fitHeight="84.0" fitWidth="90.0" layoutX="88.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/signUp.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="forgot_form" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" visible="false">
-                     <children>
-                        <Button fx:id="forgot_proceed" layoutX="95.0" layoutY="259.0" mnemonicParsing="false" onAction="#forgotProceed" styleClass="smallButton" text="Proceed" />
-                        <Button fx:id="forgot_back" layoutX="104.0" layoutY="347.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Back" />
-                        <ComboBox fx:id="forgot_selectQuestion" layoutX="51.0" layoutY="188.0" prefWidth="150.0" promptText="Question" />
-                        <PasswordField fx:id="forgot_answer" layoutX="51.0" layoutY="222.0" promptText="Anwer" styleClass="textField" />
-                        <TextField fx:id="forgot_username" layoutX="51.0" layoutY="151.0" promptText="Username" styleClass="textField" />
-                        <ImageView fitHeight="101.0" fitWidth="94.0" layoutX="78.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/forgotPass.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="83.0" layoutY="108.0" text="Forget Password" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="pass_form" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" visible="false">
-                     <children>
-                        <PasswordField fx:id="pass_password" layoutX="50.0" layoutY="165.0" promptText="Password" styleClass="textField" />
-                        <Button fx:id="pass_proceed" layoutX="96.0" layoutY="239.0" mnemonicParsing="false" onAction="#passProceed" styleClass="smallButton" text="Proceed" />
-                        <Button fx:id="pass_back" layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Back" />
-                        <PasswordField fx:id="pass_CPassword" layoutX="50.0" layoutY="200.0" promptText="ConfirmPassword" styleClass="textField" />
-                        <Label layoutX="82.0" layoutY="109.0" styleClass="lab" text="Forget Password" />
-                        <ImageView fitHeight="91.0" fitWidth="87.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/unlockPass.png" />
-                           </image>
-                        </ImageView>
+                        <AnchorPane fx:id="login_form" minWidth="-Infinity" onKeyPressed="#login_enter" prefHeight="400.0" prefWidth="250.0" styleClass="background" stylesheets="@../Design/dictionaryStyle.css">
+                           <children>
+                              <Button fx:id="login_login" layoutX="98.0" layoutY="242.0" mnemonicParsing="false" onAction="#login" styleClass="smallButton" text="Login" />
+                              <TextField fx:id="login_username" layoutX="50.0" layoutY="134.0" promptText="Username" styleClass="textField" />
+                              <PasswordField fx:id="login_password" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" />
+                              <TextField fx:id="login_showpass" layoutX="50.0" layoutY="170.0" promptText="Password" styleClass="textField" visible="false" />
+                              <CheckBox fx:id="login_showPassword" layoutX="26.0" layoutY="206.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
+                              <Hyperlink fx:id="login_forgotPassword" layoutX="139.0" layoutY="203.0" onAction="#switchForm" text="Forgot password" />
+                              <Button fx:id="login_signUp" layoutX="75.0" layoutY="357.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Create Account" />
+                              <Label layoutX="80.0" layoutY="326.0" text="Register Account" />
+                              <Label layoutX="77.0" layoutY="90.0" text="Sign In Account">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="83.0" fitWidth="86.0" layoutX="83.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/signin.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="signUp_form" prefHeight="400.0" prefWidth="250.0" styleClass="background" visible="false">
+                           <children>
+                              <TextField fx:id="signUp_username" layoutX="56.0" layoutY="122.0" promptText="Username" styleClass="textField" />
+                              <PasswordField fx:id="signUp_password" layoutX="56.0" layoutY="157.0" promptText="Password" styleClass="textField" />
+                              <Button fx:id="signUp_login" layoutX="108.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Login" />
+                              <Button fx:id="signup_bt" layoutX="102.0" layoutY="299.0" mnemonicParsing="false" onAction="#register" styleClass="smallButton" text="Sign Up" />
+                              <PasswordField fx:id="signUp_CPassword" layoutX="56.0" layoutY="191.0" promptText="ComfirmPassword" styleClass="textField" />
+                              <ComboBox fx:id="signUp_selectQuestion" layoutX="56.0" layoutY="227.0" prefWidth="150.0" promptText="Question" />
+                              <PasswordField fx:id="signUp_answer" layoutX="56.0" layoutY="261.0" promptText="Answer" styleClass="textField" />
+                              <Label layoutX="80.0" layoutY="91.0" styleClass="lab" text="Sign Up Account" />
+                              <ImageView fitHeight="84.0" fitWidth="90.0" layoutX="88.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/signup.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="forgot_form" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" visible="false">
+                           <children>
+                              <Button fx:id="forgot_proceed" layoutX="95.0" layoutY="259.0" mnemonicParsing="false" onAction="#forgotProceed" styleClass="smallButton" text="Proceed" />
+                              <Button fx:id="forgot_back" layoutX="104.0" layoutY="347.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Back" />
+                              <ComboBox fx:id="forgot_selectQuestion" layoutX="51.0" layoutY="188.0" prefWidth="150.0" promptText="Question" />
+                              <PasswordField fx:id="forgot_answer" layoutX="51.0" layoutY="222.0" promptText="Anwer" styleClass="textField" />
+                              <TextField fx:id="forgot_username" layoutX="51.0" layoutY="151.0" promptText="Username" styleClass="textField" />
+                              <ImageView fitHeight="101.0" fitWidth="94.0" layoutX="78.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/forgotPass.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="83.0" layoutY="108.0" text="Forget Password" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="pass_form" prefHeight="400.0" prefWidth="250.0" styleClass="white-bg" visible="false">
+                           <children>
+                              <PasswordField fx:id="pass_password" layoutX="50.0" layoutY="165.0" promptText="Password" styleClass="textField" />
+                              <Button fx:id="pass_proceed" layoutX="96.0" layoutY="239.0" mnemonicParsing="false" onAction="#passProceed" styleClass="smallButton" text="Proceed" />
+                              <Button fx:id="pass_back" layoutX="106.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchForm" styleClass="smallButton" text="Back" />
+                              <PasswordField fx:id="pass_CPassword" layoutX="50.0" layoutY="200.0" promptText="ConfirmPassword" styleClass="textField" />
+                              <Label layoutX="82.0" layoutY="109.0" styleClass="lab" text="Forget Password" />
+                              <ImageView fitHeight="91.0" fitWidth="87.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/unlockPass.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>
-            </AnchorPane>
+            </VBox>
          </children>
       </HBox>
    </children>
