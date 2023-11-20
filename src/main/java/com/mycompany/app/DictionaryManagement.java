@@ -1,14 +1,20 @@
 package com.mycompany.app;
+
 import java.io.*;
 import java.util.*;
 
-
+/**
+ * The DictionaryManagement class provides management functions for a dictionary, including adding, deleting, updating,
+ * and exporting words, as well as importing words from a file.
+ */
 public class DictionaryManagement extends Dictionary {
+
     private static final Scanner sc = new Scanner(System.in);
     private static final String SPLITTING_CHARACTERS = "<html>";
-    public static Map<String,Word> data = new HashMap<>();
+    public static Map<String, Word> data = new HashMap<>();
+
     /**
-     * this is for the basic dictionary.
+     * Inserts words from the command line into the dictionary.
      */
     public static void insertFromCommandline() {
         int wordAmount = Integer.parseInt(sc.nextLine());
@@ -18,30 +24,35 @@ public class DictionaryManagement extends Dictionary {
             dictionary.add(new Word(english_word, vietnamese_word));
         }
     }
-    public static void setMap(){
-        for ( int i = 0 ; i < dictionary.size() ; i++){
+
+    /**
+     * Sets up a map with English words as keys and corresponding Word objects as values.
+     */
+    public static void setMap() {
+        for (int i = 0; i < dictionary.size(); i++) {
             String englishWord = dictionary.get(i).getWord_target();
-            data.put(englishWord,dictionary.get(i));
+            data.put(englishWord, dictionary.get(i));
         }
     }
+
     /**
-     * function 1: add new word to dictionary.
+     * Adds a new word to the dictionary.
      */
     public static void add_word() {
-        System.out.println("Enter the english word: ");
+        System.out.println("Enter the English word: ");
         String english_word = sc.nextLine().toLowerCase();
-        System.out.println("Enter the word translated to vietnamese: ");
+        System.out.println("Enter the word translated to Vietnamese: ");
         String vietnamese_word = sc.nextLine().toLowerCase();
         dictionary.add(new Word(english_word, vietnamese_word));
     }
 
     /**
-     * function 2: delete word from dictionary.
+     * Deletes a word from the dictionary.
      */
     public static void delete_word() {
-        System.out.println("Enter the english word: ");
+        System.out.println("Enter the English word: ");
         String word = sc.nextLine().toLowerCase();
-        if (english_word_exist(word) || vietnamese_word_exist(word) ) {
+        if (english_word_exist(word) || vietnamese_word_exist(word)) {
             for (int i = 0; i < dictionary.size(); i++) {
                 if (word.equals(dictionary.get(i).getWord_target())) {
                     dictionary.remove(i);
@@ -49,20 +60,20 @@ public class DictionaryManagement extends Dictionary {
                 }
             }
             System.out.println(word + " has been removed!");
-        } else System.out.println("word doesn't exist");
+        } else System.out.println("Word doesn't exist");
     }
 
     /**
-     * function 3: update meaning of word.
+     * Updates the meaning of a word in the dictionary.
      */
     public static void update_word() {
-        System.out.println("you want to change the vietnamese meaning or english meaning? \n (V/E) : ");
+        System.out.println("Do you want to change the Vietnamese meaning or English meaning? (V/E): ");
         String respond = sc.nextLine().toUpperCase();
         if (respond.equals("V")) {
-            System.out.println("Enter the english word: ");
+            System.out.println("Enter the English word: ");
             String word = sc.nextLine().toLowerCase();
-            if ( !english_word_exist(word) ) {
-                System.out.println("the word " + word + " doesn't exist in the dictionary");
+            if (!english_word_exist(word)) {
+                System.out.println("The word " + word + " doesn't exist in the dictionary");
                 return;
             }
             System.out.println("Enter the updated word: ");
@@ -70,29 +81,27 @@ public class DictionaryManagement extends Dictionary {
             for (Word value : dictionary) {
                 if (word.equals(value.getWord_target())) {
                     value.setWord_explain(update);
-                    System.out.println("the meaning of " + word + " has been updated to " + update);
+                    System.out.println("The meaning of " + word + " has been updated to " + update);
                 }
             }
-        }
-        else if (respond.equals("E")) {
-            System.out.println("Enter the vietnamese word: ");
+        } else if (respond.equals("E")) {
+            System.out.println("Enter the Vietnamese word: ");
             String word = sc.nextLine().toLowerCase();
-            if ( !vietnamese_word_exist(word) ) {
-                System.out.println("the word " + word + " doesn't exist in the dictionary");
+            if (!vietnamese_word_exist(word)) {
+                System.out.println("The word " + word + " doesn't exist in the dictionary");
                 return;
             }
             System.out.println("Enter the updated word: ");
             String update = sc.nextLine().toLowerCase();
             for (Word value : dictionary) {
                 if (word.equals(value.getWord_explain())) value.setWord_target(update);
-                System.out.println("the meaning of " + word + " has been updated to " + update);
+                System.out.println("The meaning of " + word + " has been updated to " + update);
             }
-        }
-        else System.out.println("Unknown command");
+        } else System.out.println("Unknown command");
     }
 
     /**
-     * function 4: show the whole dictionary in table form.
+     * Displays the whole dictionary in table form.
      */
     public static void showAllWords() {
         System.out.println("No | English    | Vietnamese");
@@ -107,10 +116,10 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 5: look up for the whole word.
+     * Looks up a word in the dictionary and displays its English and Vietnamese meanings.
      */
-    public static void dictionaryLookup () {
-        System.out.println("enter the word you are looking for: ");
+    public static void dictionaryLookup() {
+        System.out.println("Enter the word you are looking for: ");
         String word = sc.nextLine().toLowerCase();
         if (english_word_exist(word)) {
             for (Word value : dictionary) {
@@ -119,28 +128,27 @@ public class DictionaryManagement extends Dictionary {
                     break;
                 }
             }
-            for (Word value : dictionary ) {
+            for (Word value : dictionary) {
                 if (value.getWord_explain().equals(word)) {
                     System.out.println(value.getWord_target() + "\t" + value.getWord_explain());
                     break;
                 }
             }
-        }
-        else {
-            System.out.println("Word not exist");
+        } else {
+            System.out.println("Word does not exist");
         }
     }
 
     /**
-     * function 6: search for word.
+     * Searches for words in the dictionary based on user input.
      */
     public static void search() {
-        System.out.println("what word are you searching: ");
+        System.out.println("What word are you searching for: ");
         while (true) {
             String word = sc.next();
             for (int i = 0; i < dictionary.size(); i++) {
                 if (dictionary.get(i).getWord_target().equals(word)) {
-                    System.out.println("word meaning: " + dictionary.get(i).getWord_explain());
+                    System.out.println("Word meaning: " + dictionary.get(i).getWord_explain());
                     return;
                 }
                 if (dictionary.get(i).getWord_target().contains(word)) {
@@ -151,9 +159,12 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * function 8: insert words from file "word_list.tt" to word array.
+     * Imports words from a file into the dictionary.
+     *
+     * @param path the path to the file containing words
+     * @throws IOException if an I/O error occurs
      */
-    public static void dictionaryImportFromFile (String path) throws IOException {
+    public static void dictionaryImportFromFile(String path) throws IOException {
         FileReader fis = new FileReader(path);
         BufferedReader br = new BufferedReader(fis);
         String line;
@@ -165,15 +176,25 @@ public class DictionaryManagement extends Dictionary {
             dictionary.add(wordObj);
         }
     }
-    public static void dictionaryImportFromFile () throws IOException {
-        Scanner input = new Scanner(System.in) ;
-        String path = input.nextLine() ;
+
+    /**
+     * Imports words from a file into the dictionary, prompting the user for the file path.
+     *
+     * @throws IOException if an I/O error occurs
+     */
+    public static void dictionaryImportFromFile() throws IOException {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the path to the file: ");
+        String path = input.nextLine();
         dictionaryImportFromFile(path);
     }
+
     /**
-     * function 9: export Word array to "word_list.txt" file.
+     * Exports words from the dictionary to a file.
+     *
+     * @param path the path to the file to export words to
      */
-    public static void dictionaryExportToFile (String path) {
+    public static void dictionaryExportToFile(String path) {
         try (FileWriter writer = new FileWriter(path);
              BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             for (Word value : dictionary) {
@@ -186,20 +207,28 @@ public class DictionaryManagement extends Dictionary {
     }
 
     /**
-     * assisting functions: checking if the english/vietnamese word exist in the word array.
+     * Checks if an English word exists in the dictionary.
+     *
      * @param word_checking the word being checked
-     * @return true if the word exist,  false otherwise
-     */private static boolean english_word_exist (String word_checking ){
+     * @return true if the word exists, false otherwise
+     */
+    private static boolean english_word_exist(String word_checking) {
         for (Word word : dictionary) {
             if (word_checking.equals(word.getWord_target())) return true;
         }
         return false;
     }
-    private static boolean vietnamese_word_exist (String word_checking ){
+
+    /**
+     * Checks if a Vietnamese word exists in the dictionary.
+     *
+     * @param word_checking the word being checked
+     * @return true if the word exists, false otherwise
+     */
+    private static boolean vietnamese_word_exist(String word_checking) {
         for (Word word : dictionary) {
             if (word_checking.equals(word.getWord_explain())) return true;
         }
         return false;
     }
-
 }
