@@ -4,33 +4,31 @@ import com.mycompany.app.Alert.Alerts;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import javax.speech.AudioException;
-import javax.speech.EngineException;
-import java.io.*;
-import java.net.URL;
-import java.util.*;
-import java.util.List;
 
 import static com.mycompany.app.myApplication.*;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+/**
+ * The vocabularyController class manages the actions and updates in the vocabulary view of the application.
+ */
 public class vocabularyController extends gameUtils implements Initializable {
+
     @FXML
     private Button[] buttons = new Button[4];
+
     @FXML
-    private Button[] bts = new Button[10] ;
+    private Button[] bts = new Button[10];
+
     @FXML
     private Button button0, button1, button2, button3;
 
@@ -47,21 +45,24 @@ public class vocabularyController extends gameUtils implements Initializable {
     private Label percentage;
 
     @FXML
-    private Tooltip tooltip1;
-
-    @FXML
-    private Tooltip tooltip2;
-
-    @FXML
     private VBox subjectPane;
+
     @FXML
     private VBox pane;
+
     @FXML
     private Button backSubject;
+
     @FXML
     private Button speak;
-    private int indexSubject ;
 
+    private int indexSubject;
+
+    private Alerts alerts = new Alerts();
+
+    /**
+     * Opens the subject vocabulary pane.
+     */
     public void mySubject() {
         subjectPane.setVisible(false);
         pane.setVisible(true);
@@ -72,17 +73,16 @@ public class vocabularyController extends gameUtils implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         buttons[0] = button0;
         buttons[1] = button1;
         buttons[2] = button2;
         buttons[3] = button3;
 
-        tooltip1.setShowDelay(Duration.seconds(0.5));
-        tooltip2.setShowDelay(Duration.seconds(0.5));
-
         percentage.setText((progress) * 10 + "%");
 
         nextQuestion();
+
         for (Button button : buttons) {
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
@@ -97,6 +97,7 @@ public class vocabularyController extends gameUtils implements Initializable {
                 }
             });
         }
+
         backSubject.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -105,29 +106,35 @@ public class vocabularyController extends gameUtils implements Initializable {
                 subjectPane.setVisible(true);
             }
         });
+
         check.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent actionEvent) {
+            public void handle(ActionEvent event) {
                 checkAnswer();
             }
         });
+
         speak.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
                     String[] arr = question.getText().split("\\[");
                     textToSpeech.speak(arr[0].trim());
-                } catch (EngineException | AudioException | InterruptedException e) {
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }
         });
     }
 
+    /**
+     * Initializes the vocabulary view.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pane.setVisible(false);
         subjectPane.setVisible(true);
+
         bts[0] = bt1;
         bts[1] = bt2;
         bts[2] = bt3;
@@ -138,35 +145,41 @@ public class vocabularyController extends gameUtils implements Initializable {
         bts[7] = bt8;
         bts[8] = bt9;
         bts[9] = bt10;
+
         for (int i = 0; i < 10; i++) {
             int tmp = i;
             bts[i].setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     indexSubject = tmp;
-                    System.out.println(indexSubject);
                     mySubject();
                 }
             });
         }
+
         back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent actionEvent) {
+            public void handle(ActionEvent event) {
                 backToLearn();
             }
         });
     }
 
+    /**
+     * Saves the progress in the vocabulary game.
+     */
     @Override
     protected void saveProgress() {
         String line = index + " " + progress;
         personList.get(personIndex).getVocab().set(indexSubject, line);
     }
 
+    /**
+     * Gets information about the progress bar in the vocabulary game.
+     */
     @Override
     protected void getProgressBarInfo() {
-        String line = "";
-        line = personList.get(personIndex).getVocab().get(indexSubject);
+        String line = personList.get(personIndex).getVocab().get(indexSubject);
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
         while (index == 0) {
@@ -176,10 +189,13 @@ public class vocabularyController extends gameUtils implements Initializable {
         progressBar.setProgress(progress / 10.0);
     }
 
+    /**
+     * Sets the next vocabulary question.
+     */
     @Override
     protected void setNextQuestion() {
         buttons[0].setText(correctAnswer);
-        for (int i = 1; i < 4 ; i++) {
+        for (int i = 1; i < 4; i++) {
             int newIndex = (index + progress + 2 * i) % pairsList.size();
             String[] tmp = pairsList.get(newIndex).split("\\|");
             buttons[i].setText(tmp[1].trim());
@@ -187,6 +203,10 @@ public class vocabularyController extends gameUtils implements Initializable {
         randomize(buttons);
         reset();
     }
+
+    /**
+     * Resets the styling of the buttons in the vocabulary game.
+     */
     @Override
     protected void reset() {
         for (Button button : buttons) {

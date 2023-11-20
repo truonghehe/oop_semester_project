@@ -1,26 +1,22 @@
 package com.mycompany.app.Controllers;
 
-
 import com.mycompany.app.myApplication;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
 import javafx.stage.Stage;
-
 
 import java.io.IOException;
 
-
 import static com.mycompany.app.myApplication.exportAccount;
 
-
+/**
+ * The startingController class manages the actions and transitions in the starting view of the application.
+ */
 public class startingController {
 
     @FXML
@@ -35,6 +31,12 @@ public class startingController {
     @FXML
     private Tooltip tooltip3;
 
+    /**
+     * Logs out the user and navigates to the login view.
+     *
+     * @param event The mouse event triggering the action.
+     * @throws IOException If an error occurs while loading the login view.
+     */
     @FXML
     void logOut(MouseEvent event) throws IOException {
         exportAccount();
@@ -48,16 +50,28 @@ public class startingController {
         stage.show();
     }
 
+    /**
+     * Navigates to the dictionary view.
+     *
+     * @param event The mouse event triggering the action.
+     * @throws IOException If an error occurs while loading the dictionary view.
+     */
     @FXML
     void goToDictionary(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/dictionaryView.fxml"));
-        Scene scene = new Scene(fxmlLoader. load());
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Dictionary");
         stage.setScene(scene);
         stage.show();
     }
 
+    /**
+     * Navigates to the game/learning view.
+     *
+     * @param event The mouse event triggering the action.
+     * @throws IOException If an error occurs while loading the game/learning view.
+     */
     @FXML
     void goToGame(MouseEvent event) throws IOException {
         Stage stage = (Stage) thisPane.getScene().getWindow();
@@ -66,5 +80,6 @@ public class startingController {
         stage.setHeight(500);
         stage.setWidth(800);
         stage.setScene(new Scene(root));
+        stage.show();
     }
 }
