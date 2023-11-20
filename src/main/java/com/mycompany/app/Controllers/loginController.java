@@ -15,10 +15,9 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +25,11 @@ import java.util.ResourceBundle;
 
 import static com.mycompany.app.myApplication.*;
 
+/**
+ * The loginController class manages user authentication and registration within the application.
+ */
 public class loginController implements Initializable {
+    
     @FXML
     private AnchorPane thisPane;
     @FXML
@@ -109,9 +112,13 @@ public class loginController implements Initializable {
 
     @FXML
     private Button signup_bt;
+    
     private Alerts alerts = new Alerts();
     private final String[] questionList = {"What is your favourite food?", "Where are you from?", "What subject do you like?"};
 
+    /**
+     * Clears the registration form fields.
+     */
     public void registerClear() {
         signUp_username.clear();
         signUp_password.clear();
@@ -120,28 +127,31 @@ public class loginController implements Initializable {
         signUp_answer.clear();
     }
 
+    /**
+     * Handles user registration.
+     */
     public void register() {
         if (signUp_username.getText().isEmpty() || signUp_password.getText().isEmpty() || signUp_CPassword.getText().isEmpty()
                 || signUp_selectQuestion.getSelectionModel().getSelectedItem() == null ||
                 signUp_answer.getText().isEmpty()) {
-            alerts.showAlertWarning("Error message" , "All fields are necessary to be filled");
+            alerts.showAlertWarning("Error message", "All fields are necessary to be filled");
         } else if (!signUp_password.getText().equals(signUp_CPassword.getText())) {
-            alerts.showAlertWarning("Error message" , "Passwords do not match");
+            alerts.showAlertWarning("Error message", "Passwords do not match");
         } else if (signUp_password.getText().length() < 8) {
-            alerts.showAlertWarning("Error message" , "Password must be at least 8 characters");
+            alerts.showAlertWarning("Error message", "Password must be at least 8 characters");
         } else {
             String checkUser = signUp_username.getText();
             int index = checkUserExists(checkUser);
             if (index >= 0) {
-                alerts.showAlertWarning("Error message","User already exists");
+                alerts.showAlertWarning("Error message", "User already exists");
             } else {
-                List<String> tmp = new ArrayList<>() ;
-                for ( int i = 0 ; i < 10 ; i++){
+                List<String> tmp = new ArrayList<>();
+                for (int i = 0; i < 10; i++) {
                     tmp.add("0 0");
                 }
                 personList.add(new Person(signUp_username.getText(), signUp_password.getText(),
-                        signUp_selectQuestion.getSelectionModel().getSelectedItem(), signUp_answer.getText() ,"0 0" , "0 0",tmp));
-                alerts.showAlertInfo("Information message","Registration successful");
+                        signUp_selectQuestion.getSelectionModel().getSelectedItem(), signUp_answer.getText(), "0 0", "0 0", tmp));
+                alerts.showAlertInfo("Information message", "Registration successful");
                 registerClear();
                 signUp_form.setVisible(false);
                 login_form.setVisible(true);
@@ -149,6 +159,9 @@ public class loginController implements Initializable {
         }
     }
 
+    /**
+     * Switches between login, registration, and password recovery forms.
+     */
     public void switchForm(ActionEvent event) {
         if (event.getSource() == signUp_login || event.getSource() == forgot_back) {
             switchForms(false, true, false, false);
@@ -159,6 +172,9 @@ public class loginController implements Initializable {
         }
     }
 
+    /**
+     * Handles the password recovery process.
+     */
     public void forgotProceed() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Message");
@@ -182,6 +198,9 @@ public class loginController implements Initializable {
         }
     }
 
+    /**
+     * Handles the password recovery process.
+     */
     public void passProceed() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Message");
@@ -206,6 +225,9 @@ public class loginController implements Initializable {
         }
     }
 
+    /**
+     * Handles the user login process.
+     */
     public void login() throws IOException {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Message");
@@ -237,6 +259,9 @@ public class loginController implements Initializable {
         }
     }
 
+    /**
+     * Toggles the visibility of the password in the login form.
+     */
     public void showPassword() {
         if (login_showPassword.isSelected()) {
             login_showpass.setText(login_password.getText());
@@ -247,12 +272,21 @@ public class loginController implements Initializable {
         }
     }
 
+    /**
+     * Initializes the question dropdown lists.
+     */
     public void questions() {
         ObservableList<String> observableList = FXCollections.observableArrayList(questionList);
         signUp_selectQuestion.setItems(observableList);
         forgot_selectQuestion.setItems(observableList);
     }
 
+    /**
+     * Initializes the controller.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         questions();
@@ -263,6 +297,20 @@ public class loginController implements Initializable {
             login_password.setText(newValue);
         });
     }
+
+    /**
+     * Handles the "Enter" key press in the login form.
+     *
+     * @param event The key event.
+     * @throws IOException If an error occurs while handling the login process.
+     */
+    @FXML
+    private void login_enter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            login();
+        }
+    }
+
     private int checkUserExists(String userName) {
         for (int i = 0; i < personList.size(); i++) {
             if (userName.equals(personList.get(i).getUsername())) {
@@ -271,12 +319,7 @@ public class loginController implements Initializable {
         }
         return -1;
     }
-    @FXML
-    private void login_enter(KeyEvent event) throws IOException {
-        if (event.getCode() == KeyCode.ENTER) {
-            login();
-        }
-    }
+
     private void switchForms(boolean signUpForm, boolean loginForm, boolean forgotForm, boolean passForm) {
         signUp_form.setVisible(signUpForm);
         login_form.setVisible(loginForm);

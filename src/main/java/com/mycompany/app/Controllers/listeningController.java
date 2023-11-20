@@ -6,28 +6,23 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
+import javafx.scene.control.Tooltip;
 import javafx.util.Duration;
 
 import javax.speech.AudioException;
 import javax.speech.EngineException;
-import java.awt.*;
-import java.beans.Expression;
-import java.io.*;
+import java.io.IOException;
 import java.net.URL;
-import java.util.*;
-import java.util.List;
+import java.util.ResourceBundle;
 
 import static com.mycompany.app.myApplication.*;
 
+/**
+ * The listeningController class manages the listening game within the application.
+ */
 public class listeningController extends gameUtils implements Initializable {
+
     @FXML
     private Button[] buttons = new Button[4];
 
@@ -49,6 +44,12 @@ public class listeningController extends gameUtils implements Initializable {
     @FXML
     private Button btVoice;
 
+    /**
+     * Initializes the listeningController, setting up the game interface and handling button actions.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -107,37 +108,56 @@ public class listeningController extends gameUtils implements Initializable {
         });
     }
 
+    /**
+     * Saves the current progress of the listening game.
+     */
     @Override
     protected void saveProgress() {
         personList.get(personIndex).setListen(index + " " + progress);
     }
+
+    /**
+     * Sets up the next question in the listening game.
+     */
     @Override
     protected void setNextQuestion() {
         buttons[0].setText(correctAnswer);
-        for (int i = 1 ; i < buttons.length ; i++ ){
-            int newIndex = (index + progress + 2 * i) % pairsList.size() ;
-            String tmp = pairsList.get(newIndex) ;
+        for (int i = 1; i < buttons.length; i++) {
+            int newIndex = (index + progress + 2 * i) % pairsList.size();
+            String tmp = pairsList.get(newIndex);
             buttons[i].setText(tmp.trim());
         }
         randomize(buttons);
         reset();
     }
+
+    /**
+     * Gets the next question in the listening game.
+     */
     @Override
     protected void getNextQuestion() {
         String temp = pairsList.get(index + progress - 1);
         correctAnswer = temp.trim();
     }
+
+    /**
+     * Retrieves information about the progress bar from the user's data.
+     */
     @Override
-    protected void getProgressBarInfo(){
+    protected void getProgressBarInfo() {
         String line = personList.get(personIndex).getListen();
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
-        while (index == 0){
+        while (index == 0) {
             index = random.nextInt(pairsList.size());
         }
         progress = Integer.parseInt(a[1]);
-        progressBar.setProgress(progress/10.0);
+        progressBar.setProgress(progress / 10.0);
     }
+
+    /**
+     * Resets the button styles in the listening game.
+     */
     @Override
     protected void reset() {
         for (Button button : buttons) {

@@ -12,19 +12,23 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.util.Pair;
 
 import java.io.*;
 import java.net.URL;
 import java.util.*;
 
 import static com.mycompany.app.myApplication.*;
+
+/**
+ * The myGameController class manages the gameplay in the "My Game" section of the application.
+ */
 public class myGameController extends gameUtils implements Initializable {
+    
     @FXML
     private Button[] buttons = new Button[16];
 
     @FXML
-    private Button button0, button1,  button2,  button3,  button4,  button5,  button6,  button7,  button8,  button9,  button10,  button11,  button12,  button13,  button14, button15 ;
+    private Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15;
 
     @FXML
     private Button back;
@@ -46,8 +50,15 @@ public class myGameController extends gameUtils implements Initializable {
 
     @FXML
     private Tooltip tooltip3;
+    
     private List<String> randomWords = new ArrayList<>();
 
+    /**
+     * Initializes the controller.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -82,7 +93,7 @@ public class myGameController extends gameUtils implements Initializable {
 
         nextQuestion();
 
-        for  (Button element : buttons) {
+        for (Button element : buttons) {
             element.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -119,28 +130,41 @@ public class myGameController extends gameUtils implements Initializable {
         });
     }
 
+    /**
+     * Retrieves the progress information for the "My Game" section from the user data.
+     */
     @Override
-    protected void getProgressBarInfo(){
+    protected void getProgressBarInfo() {
         String line = personList.get(personIndex).getMyGame();
         String[] a = line.split(" ");
         index = Integer.parseInt(a[0]);
-        while (index == 0){
+        while (index == 0) {
             index = random.nextInt(pairsList.size());
         }
         progress = Integer.parseInt(a[1]);
-        progressBar.setProgress(progress/10.0);
+        progressBar.setProgress(progress / 10.0);
     }
+
+    /**
+     * Saves the progress information for the "My Game" section to the user data.
+     */
     @Override
     protected void saveProgress() {
         personList.get(personIndex).setMyGame(index + " " + progress);
     }
+
+    /**
+     * Handles the response after checking an answer.
+     *
+     * @param respond The user's response.
+     */
     protected void respond(Optional<ButtonType> respond) {
         progress = 0;
-        int newIndex = random.nextInt(pairsList.size()) ;
-        while (Math.abs(index - newIndex) <= 10){
+        int newIndex = random.nextInt(pairsList.size());
+        while (Math.abs(index - newIndex) <= 10) {
             newIndex = random.nextInt(pairsList.size());
         }
-        index = newIndex ;
+        index = newIndex;
         if (respond.get() == ButtonType.CANCEL || respond.isEmpty()) {
             Stage stage = (Stage) thisPane.getScene().getWindow();
             Parent root = null;
@@ -151,32 +175,42 @@ public class myGameController extends gameUtils implements Initializable {
             }
             stage.setTitle("Learn");
             stage.setScene(new Scene(root));
-        }
-        else if (respond.get() == ButtonType.OK) {
-            progressBar.setProgress(progress/10.0);
+        } else if (respond.get() == ButtonType.OK) {
+            progressBar.setProgress(progress / 10.0);
             percentage.setText((progress) * 10 + "%");
             nextQuestion();
         }
     }
 
+    /**
+     * Loads a list of random words from a file.
+     *
+     * @throws IOException If an error occurs while reading the file.
+     */
     private void loadRandomWords() throws IOException {
         FileReader fr = new FileReader("src/main/resources/textFiles/randomWords.txt");
         BufferedReader bf = new BufferedReader(fr);
         String line;
-        while((line = bf.readLine()) != null) {
+        while ((line = bf.readLine()) != null) {
             randomWords.add(line);
         }
     }
 
+    /**
+     * Resets the buttons and answer field for the next question.
+     */
     @Override
     protected void reset() {
-        for  (Button element : buttons) {
+        for (Button element : buttons) {
             element.setVisible(true);
             element.setDisable(false);
         }
         answer.setText("");
     }
 
+    /**
+     * Sets the next question by filling the buttons with words.
+     */
     @Override
     protected void setNextQuestion() {
         String[] words = correctAnswer.split(" ");
