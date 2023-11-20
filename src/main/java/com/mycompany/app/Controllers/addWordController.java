@@ -18,6 +18,9 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * The addWordController class handles the logic for adding new words in the application.
+ */
 public class addWordController implements Initializable {
 
     private static final String SEPARATOR = "<html>";
@@ -39,10 +42,15 @@ public class addWordController implements Initializable {
 
     private final Alerts alerts = new Alerts();
 
+    /**
+     * Handles the "Add" button click event.
+     *
+     * @param event The mouse click event.
+     */
     @FXML
     void add(MouseEvent event) {
         if (fieldsAreEmpty()) {
-            showAlert("Error!", "Không thể để trống \"New English word\" hoặc \"New Vietnamese word\"");
+            showAlert("Error!", "Cannot leave 'New English word' or 'New Vietnamese word' empty.");
         } else if (wordExists()) {
             handleExistingWord();
         } else {
@@ -59,8 +67,8 @@ public class addWordController implements Initializable {
     }
 
     private void handleExistingWord() {
-        Alert alertConfirmation = alerts.alertConfirmation("Confirmation!", "Từ \"" + englishWord.getText() + "\" đã tồn tại, " +
-                "bạn có muốn thay đổi nghĩa của nó không?");
+        Alert alertConfirmation = alerts.alertConfirmation("Confirmation!",
+                "The word \"" + englishWord.getText() + "\" already exists. Do you want to change its meaning?");
         Optional<ButtonType> result = alertConfirmation.showAndWait();
         if (result.isEmpty() || result.get() == ButtonType.CANCEL) {
             return;
@@ -72,8 +80,8 @@ public class addWordController implements Initializable {
     }
 
     private void handleNewWord() {
-        Alert alertConfirmation = alerts.alertConfirmation("Confirmation!",
-                "Bạn có muốn thêm từ \"" + englishWord.getText() + "\" với nghĩa \"" + vietnameseWord.getText() + "\" hay không?");
+        Alert alertConfirmation = alerts.alertConfirmation("Confirmation",
+                "Do you want to add the word \"" + englishWord.getText() + "\" with meaning \"" + vietnameseWord.getText() + "\"?");
         Optional<ButtonType> result = alertConfirmation.showAndWait();
         if (result.isEmpty() || result.get() == ButtonType.CANCEL) {
             return;
@@ -102,6 +110,12 @@ public class addWordController implements Initializable {
         alertWarning.showAndWait();
     }
 
+    /**
+     * Initializes the controller.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources specific to the locale.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tooltip1.setShowDelay(Duration.seconds(0.5));

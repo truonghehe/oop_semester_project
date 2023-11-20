@@ -21,6 +21,9 @@ import java.util.ResourceBundle;
 
 import static com.mycompany.app.myApplication.textToSpeech;
 
+/**
+ * The dictionaryController class manages the functionality of the main dictionary view.
+ */
 public class dictionaryController implements Initializable {
     @FXML
     private AnchorPane container;
@@ -40,6 +43,11 @@ public class dictionaryController implements Initializable {
     @FXML
     private Tooltip tooltip5;
 
+    /**
+     * Exits the application, exports the dictionary, and terminates text-to-speech.
+     *
+     * @param event The mouse click event.
+     */
     @FXML
     void exit(MouseEvent event) {
         DictionaryManagement.dictionaryExportToFile("src/main/resources/textFiles/E_V.txt");
@@ -51,21 +59,42 @@ public class dictionaryController implements Initializable {
         Platform.exit();
     }
 
+    /**
+     * Navigates to the API view.
+     *
+     * @param event The mouse click event.
+     */
     @FXML
     void goToAPI(MouseEvent event) {
         showComponent("/Views/APIView.fxml");
     }
 
+    /**
+     * Navigates to the add word view.
+     *
+     * @param event The mouse click event.
+     */
     @FXML
     void goToAdd(MouseEvent event) {
         showComponent("/Views/addWordView.fxml");
     }
 
+    /**
+     * Navigates to the search view.
+     *
+     * @param event The mouse click event.
+     */
     @FXML
     void goToSearch(MouseEvent event) {
         showComponent("/Views/searchView.fxml");
     }
 
+    /**
+     * Navigates back to the starting view.
+     *
+     * @param event The mouse click event.
+     * @throws IOException If an error occurs during navigation.
+     */
     @FXML
     void back(MouseEvent event) throws IOException {
         Stage stage = (Stage) container.getScene().getWindow();
@@ -81,6 +110,11 @@ public class dictionaryController implements Initializable {
         container.getChildren().add(node);
     }
 
+    /**
+     * Shows the specified FXML component in the container.
+     *
+     * @param path The path to the FXML component.
+     */
     @FXML
     private void showComponent(String path) {
         try {
@@ -91,6 +125,12 @@ public class dictionaryController implements Initializable {
         }
     }
 
+    /**
+     * Initializes the controller, sets tooltips, sets up the dictionary data, and displays the search view.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources specific to the locale.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tooltip1.setShowDelay(Duration.seconds(0.5));
