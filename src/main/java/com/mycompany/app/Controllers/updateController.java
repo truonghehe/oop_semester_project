@@ -1,23 +1,21 @@
 package com.mycompany.app.Controllers;
 
-import com.mycompany.app.Alert.Alerts;
-import com.mycompany.app.DictionaryManagement;
-import com.mycompany.app.Word;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.web.HTMLEditor;
-import javafx.stage.Stage;
+import static com.mycompany.app.Controllers.searchController.selectedItem;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.mycompany.app.Controllers.searchController.selectedItem;
+import com.mycompany.app.DictionaryManagement;
+import com.mycompany.app.Word;
+import com.mycompany.app.Alert.Alerts;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.web.HTMLEditor;
 
 /**
  * The updateController class manages the actions and updates in the update word view of the application.

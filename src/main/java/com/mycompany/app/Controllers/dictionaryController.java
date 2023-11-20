@@ -1,7 +1,16 @@
 package com.mycompany.app.Controllers;
 
+import static com.mycompany.app.myApplication.textToSpeech;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javax.speech.EngineException;
+
 import com.mycompany.app.DictionaryManagement;
 import com.mycompany.app.myApplication;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,13 +22,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import javax.speech.EngineException;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import static com.mycompany.app.myApplication.textToSpeech;
 
 /**
  * The dictionaryController class manages the functionality of the main dictionary view.

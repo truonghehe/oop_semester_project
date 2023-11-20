@@ -1,7 +1,7 @@
 package com.mycompany.app;
 import java.io.IOException;
+
 import com.mycompany.app.TranslateApi.TranslateApi;
-import javafx.scene.transform.Translate;
 
 public class App
 {

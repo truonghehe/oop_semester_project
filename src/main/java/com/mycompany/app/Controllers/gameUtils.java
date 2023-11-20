@@ -1,21 +1,7 @@
 package com.mycompany.app.Controllers;
 
-import com.mycompany.app.Alert.Alerts;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import static com.mycompany.app.myApplication.textToSpeech;
 
-import javax.speech.AudioException;
-import javax.speech.EngineException;
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,7 +10,22 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-import static com.mycompany.app.myApplication.textToSpeech;
+import javax.speech.AudioException;
+import javax.speech.EngineException;
+
+import com.mycompany.app.Alert.Alerts;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 abstract public class gameUtils {
 

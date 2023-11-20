@@ -1,6 +1,11 @@
 package com.mycompany.app.Controllers;
 
+import static com.mycompany.app.myApplication.exportAccount;
+
+import java.io.IOException;
+
 import com.mycompany.app.myApplication;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,10 +14,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-
-import static com.mycompany.app.myApplication.exportAccount;
 
 /**
  * The startingController class manages the actions and transitions in the starting view of the application.

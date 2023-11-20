@@ -1,22 +1,23 @@
 package com.mycompany.app.Controllers;
 
-import com.mycompany.app.Alert.Alerts;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tooltip;
-import javafx.util.Duration;
+import static com.mycompany.app.myApplication.personIndex;
+import static com.mycompany.app.myApplication.personList;
+import static com.mycompany.app.myApplication.textToSpeech;
 
-import javax.speech.AudioException;
-import javax.speech.EngineException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.mycompany.app.myApplication.*;
+import javax.speech.AudioException;
+import javax.speech.EngineException;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.util.Duration;
 
 /**
  * The listeningController class manages the listening game within the application.

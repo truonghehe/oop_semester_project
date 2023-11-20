@@ -1,6 +1,18 @@
 package com.mycompany.app.Controllers;
 
-import com.mycompany.app.Alert.Alerts;
+import static com.mycompany.app.myApplication.personIndex;
+import static com.mycompany.app.myApplication.personList;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -8,16 +20,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.io.*;
-import java.net.URL;
-import java.util.*;
-
-import static com.mycompany.app.myApplication.*;
 
 /**
  * The myGameController class manages the gameplay in the "My Game" section of the application.

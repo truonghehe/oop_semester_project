@@ -2,6 +2,7 @@ package com.mycompany.app.TranslateApi;
 
 import java.beans.PropertyVetoException;
 import java.util.Locale;
+
 import javax.speech.AudioException;
 import javax.speech.Central;
 import javax.speech.EngineException;

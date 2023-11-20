@@ -1,7 +1,13 @@
 package com.mycompany.app;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * The DictionaryManagement class provides management functions for a dictionary, including adding, deleting, updating,

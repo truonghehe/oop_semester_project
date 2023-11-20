@@ -1,18 +1,23 @@
 package com.mycompany.app;
 
+import java.beans.PropertyVetoException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.speech.AudioException;
+import javax.speech.EngineException;
+
 import com.mycompany.app.TranslateApi.TextToSpeech;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
-import javax.speech.AudioException;
-import javax.speech.EngineException;
-import java.beans.PropertyVetoException;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The myApplication class represents the main application entry point and manages the application lifecycle.

@@ -1,22 +1,22 @@
 package com.mycompany.app.Controllers;
 
+import static com.mycompany.app.myApplication.personIndex;
+import static com.mycompany.app.myApplication.personList;
+import static com.mycompany.app.myApplication.textToSpeech;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.mycompany.app.Alert.Alerts;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
-
-import static com.mycompany.app.myApplication.*;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * The vocabularyController class manages the actions and updates in the vocabulary view of the application.
