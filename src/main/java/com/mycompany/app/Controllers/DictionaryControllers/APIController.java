@@ -1,4 +1,4 @@
-package com.mycompany.app.Controllers;
+package com.mycompany.app.Controllers.DictionaryControllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,19 +55,6 @@ public class APIController implements Initializable {
         langTo = To.getText();
 
         setLabel();
-        firstLang.setOnKeyTyped(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (firstLang.getText() == null) {
-                    translate.setDisable(true);
-                    translate.setVisible(false);
-                }
-                else {
-                    translate.setDisable(false);
-                    translate.setVisible(true);
-                }
-            }
-        });
         translate.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -87,8 +74,6 @@ public class APIController implements Initializable {
                 setLabel();
             }
         });
-        translate.setDisable(true);
-        translate.setVisible(false);
 
         tooltip1.setShowDelay(Duration.seconds(0.5));
         tooltip2.setShowDelay(Duration.seconds(0.5));

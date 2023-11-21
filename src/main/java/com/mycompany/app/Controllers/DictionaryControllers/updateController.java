@@ -1,6 +1,6 @@
-package com.mycompany.app.Controllers;
+package com.mycompany.app.Controllers.DictionaryControllers;
 
-import static com.mycompany.app.Controllers.searchController.selectedItem;
+import static com.mycompany.app.Controllers.DictionaryControllers.searchController.selectedItem;
 
 import java.net.URL;
 import java.util.ResourceBundle;

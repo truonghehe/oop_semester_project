@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="498.0" prefWidth="675.0" styleClass="background" stylesheets="@../Design/addWordStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.addWordController">
+<AnchorPane prefHeight="498.0" prefWidth="675.0" styleClass="background" stylesheets="@../Design/addWordStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.DictionaryControllers.addWordController">
    <children>
       <ImageView fitHeight="57.0" fitWidth="122.0" layoutX="22.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>

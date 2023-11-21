@@ -1,4 +1,4 @@
-package com.mycompany.app.Controllers;
+package com.mycompany.app.Controllers.DictionaryControllers;
 
 import static com.mycompany.app.myApplication.textToSpeech;
 
@@ -148,7 +148,7 @@ public class searchController implements Initializable {
     }
 
     public void update() throws IOException {
-        if (selectedItem == null) {
+        if (selectedItem != null) {
             Stage secondaryStage = new Stage();
             FXMLLoader secondaryLoader = new FXMLLoader(getClass().getResource("/Views/updateWord.fxml"));
             Scene secondaryScene = new Scene(secondaryLoader.load());

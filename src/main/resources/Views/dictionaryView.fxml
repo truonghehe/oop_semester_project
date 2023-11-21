@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="thisPane" dividerPositions="0.15" prefHeight="500.0" prefWidth="800.0" stylesheets="@../Design/dictionaryStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.dictionaryController">
+<SplitPane fx:id="thisPane" dividerPositions="0.15" prefHeight="500.0" prefWidth="800.0" stylesheets="@../Design/dictionaryStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.DictionaryControllers.dictionaryController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background" SplitPane.resizableWithParent="false">
          <children>

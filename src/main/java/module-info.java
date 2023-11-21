@@ -11,4 +11,8 @@ module com.mycompany.app {
     exports com.mycompany.app;
     exports com.mycompany.app.Controllers;
     opens com.mycompany.app.Controllers to javafx.fxml;
+    exports com.mycompany.app.Controllers.DictionaryControllers;
+    opens com.mycompany.app.Controllers.DictionaryControllers to javafx.fxml;
+    exports com.mycompany.app.Controllers.GameControllers;
+    opens com.mycompany.app.Controllers.GameControllers to javafx.fxml;
 }

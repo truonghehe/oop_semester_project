@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="708.0" maxWidth="1141.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/myGame.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.myGameController">
+<AnchorPane fx:id="thisPane" maxHeight="708.0" maxWidth="1141.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/myGame.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.GameControllers.myGameController">
    <children>
       <ImageView fitHeight="38.0" fitWidth="62.0" layoutX="441.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
          <image>

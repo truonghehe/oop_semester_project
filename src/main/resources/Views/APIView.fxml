@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="498.0" prefWidth="675.0" styleClass="background" stylesheets="@../Design/APIStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.APIController">
+<AnchorPane prefHeight="498.0" prefWidth="675.0" styleClass="background" stylesheets="@../Design/APIStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.DictionaryControllers.APIController">
    <children>
       <Button fx:id="translate" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="309.0" layoutY="361.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="2.0" text="Translate" AnchorPane.bottomAnchor="77.0">
          <graphic>

@@ -1,4 +1,4 @@
-package com.mycompany.app.Controllers;
+package com.mycompany.app.Controllers.DictionaryControllers;
 
 import java.net.URL;
 import java.util.Optional;

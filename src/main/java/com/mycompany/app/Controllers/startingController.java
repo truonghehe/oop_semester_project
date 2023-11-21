@@ -63,6 +63,8 @@ public class startingController {
         FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/dictionaryView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Dictionary");
+        stage.setWidth(800);
+        stage.setHeight(500);
         stage.setScene(scene);
         stage.show();
     }

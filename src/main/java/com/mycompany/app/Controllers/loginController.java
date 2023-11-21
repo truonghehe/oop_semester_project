@@ -253,6 +253,8 @@ public class loginController implements Initializable {
                     FXMLLoader fxmlLoader = new FXMLLoader(myApplication.class.getResource("/Views/startingView.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     stage.setTitle("Welcome to our application!");
+                    stage.setWidth(800);
+                    stage.setHeight(500);
                     stage.setScene(scene);
                     stage.show();
                 } else {

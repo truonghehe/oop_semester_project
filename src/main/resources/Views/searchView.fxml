@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="498.0" prefWidth="675.0" styleClass="background" stylesheets="@../Design/searchStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.searchController">
+<AnchorPane prefHeight="498.0" prefWidth="675.0" styleClass="background" stylesheets="@../Design/searchStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.DictionaryControllers.searchController">
    <children>
       <ListView fx:id="listView" layoutX="57.0" layoutY="76.0" prefHeight="388.0" prefWidth="190.0" styleClass="listView" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="428.0" AnchorPane.topAnchor="76.0" />
       <TextField fx:id="searchField" layoutX="18.0" layoutY="28.0" prefHeight="25.0" prefWidth="342.0" styleClass="textField" stylesheets="@../Design/searchStyle.css" AnchorPane.bottomAnchor="444.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="315.0" AnchorPane.topAnchor="28.0">

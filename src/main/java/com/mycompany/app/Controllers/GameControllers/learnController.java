@@ -1,4 +1,4 @@
-package com.mycompany.app.Controllers;
+package com.mycompany.app.Controllers.GameControllers;
 
 import java.io.IOException;
 import java.util.Objects;

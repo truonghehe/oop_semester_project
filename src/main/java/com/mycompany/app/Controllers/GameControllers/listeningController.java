@@ -1,4 +1,4 @@
-package com.mycompany.app.Controllers;
+package com.mycompany.app.Controllers.GameControllers;
 
 import static com.mycompany.app.myApplication.personIndex;
 import static com.mycompany.app.myApplication.personList;
@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javax.speech.AudioException;
 import javax.speech.EngineException;
 
+import com.mycompany.app.Controllers.GameControllers.gameUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

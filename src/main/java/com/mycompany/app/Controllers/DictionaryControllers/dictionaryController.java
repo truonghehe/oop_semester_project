@@ -1,4 +1,4 @@
-package com.mycompany.app.Controllers;
+package com.mycompany.app.Controllers.DictionaryControllers;
 
 import static com.mycompany.app.myApplication.textToSpeech;
 

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="thisPane" maxHeight="754.0" maxWidth="1066.0" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/learnStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.learnController">
+<AnchorPane fx:id="thisPane" maxHeight="754.0" maxWidth="1066.0" prefHeight="500.0" prefWidth="800.0" styleClass="background" stylesheets="@../Design/learnStyle.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.app.Controllers.GameControllers.learnController">
    <children>
       <VBox alignment="CENTER" layoutX="312.0" layoutY="150.0" prefHeight="200.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -79,21 +79,6 @@
             <HBox alignment="CENTER" prefHeight="187.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
                <children>
                   <Button contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#goToListen" prefHeight="209.0" prefWidth="400.0" styleClass="bigButton" text="Listening" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="System Bold" size="20.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="82.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/headphone.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <HBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#goToListen" prefHeight="214.0" prefWidth="400.0" styleClass="bigButton" text="Listening">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
