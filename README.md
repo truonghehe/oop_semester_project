@@ -52,7 +52,7 @@ Bài tập lớn - Từ điển, ứng dụng học tiếng anh (2324I_INT2204_1
 Đã hoàn thành.
 
 ## Demo:
-![img.png](src/main/resources/images/demo.png)
+### [Demo video.](https://drive.google.com/drive/folders/1cPL5FwzmOHRd0EEoMNZe70qfa-qoJF-g?usp=sharing)
 
 ## Class diagram:
 ![img.png](src/main/resources/images/uml.png)
