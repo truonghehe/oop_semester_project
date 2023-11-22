@@ -20,7 +20,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -36,7 +35,7 @@ import javafx.stage.Stage;
  * The loginController class manages user authentication and registration within the application.
  */
 public class loginController implements Initializable {
-    
+
     @FXML
     private AnchorPane thisPane;
     @FXML
@@ -119,8 +118,8 @@ public class loginController implements Initializable {
 
     @FXML
     private Button signup_bt;
-    
-    private Alerts alerts = new Alerts();
+
+    private final Alerts alerts = new Alerts();
     private final String[] questionList = {"What is your favourite food?", "Where are you from?", "What subject do you like?"};
 
     /**
@@ -132,6 +131,23 @@ public class loginController implements Initializable {
         signUp_CPassword.clear();
         signUp_selectQuestion.getSelectionModel().clearSelection();
         signUp_answer.clear();
+    }
+
+    /**
+     * Clears the login form fields.
+     */
+    public void loginClear() {
+        login_username.clear();
+        login_password.clear();
+    }
+
+    /**
+     * Clears the forgot form fields.
+     */
+    public void forgotClear() {
+        forgot_username.clear();
+        forgot_selectQuestion.getSelectionModel().clearSelection();
+        forgot_answer.clear();
     }
 
     /**
@@ -172,10 +188,13 @@ public class loginController implements Initializable {
     public void switchForm(ActionEvent event) {
         if (event.getSource() == signUp_login || event.getSource() == forgot_back) {
             switchForms(false, true, false, false);
+            loginClear();
         } else if (event.getSource() == login_signUp) {
             switchForms(true, false, false, false);
+            registerClear();
         } else if (event.getSource() == login_forgotPassword || event.getSource() == pass_back) {
             switchForms(false, false, true, false);
+            forgotClear();
         }
     }
 
@@ -183,23 +202,17 @@ public class loginController implements Initializable {
      * Handles the password recovery process.
      */
     public void forgotProceed() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error Message");
-        alert.setHeaderText(null);
         if (forgotFieldsEmpty()) {
-            alert.setContentText("All fields are necessary to be filled");
-            alert.showAndWait();
+            alerts.showAlertWarning("Error Message", "All fields are necessary to be filled");
         } else {
             int index = checkUserExists(forgot_username.getText());
             if (index < 0) {
-                alert.setContentText("Incorrect userName");
-                alert.showAndWait();
+                alerts.showAlertWarning("Error Message", "Incorrect userName");
             } else {
                 if (forgotQuestionAndAnswerCorrect(index)) {
                     switchForms(false, false, false, true);
                 } else {
-                    alert.setContentText("Incorrect question or answer");
-                    alert.showAndWait();
+                    alerts.showAlertWarning("Error Message", "Incorrect question or answer");
                 }
             }
         }
@@ -209,20 +222,14 @@ public class loginController implements Initializable {
      * Handles the password recovery process.
      */
     public void passProceed() {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error Message");
-        alert.setHeaderText(null);
         if (passwordFieldsEmpty()) {
-            alert.setContentText("All fields are necessary to be filled");
-            alert.showAndWait();
+            alerts.showAlertWarning("Error Message", "All fields are necessary to be filled");
         } else {
             if (passPasswordLengthInvalid()) {
-                alert.setContentText("Password must be at least 8 characters");
-                alert.showAndWait();
+                alerts.showAlertWarning("Error Message", "Password must be at least 8 characters");
             } else {
                 if (!passPasswordsMatch()) {
-                    alert.setContentText("Passwords do not match");
-                    alert.showAndWait();
+                    alerts.showAlertWarning("Error Message", "Passwords do not match");
                 } else {
                     int index = checkUserExists(forgot_username.getText());
                     personList.get(index).setPassword(pass_password.getText());
@@ -236,12 +243,8 @@ public class loginController implements Initializable {
      * Handles the user login process.
      */
     public void login() throws IOException {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error Message");
-        alert.setHeaderText(null);
         if (loginFieldsEmpty()) {
-            alert.setContentText("All fields are necessary to be filled");
-            alert.showAndWait();
+            alerts.showAlertWarning("Error Message", "All fields are necessary to be filled");
         } else {
             String checkUser = login_username.getText();
             String checkPass = login_password.getText();
@@ -258,12 +261,10 @@ public class loginController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
                 } else {
-                    alert.setContentText("Incorrect password");
-                    alert.showAndWait();
+                    alerts.showAlertWarning("Error Message", "Incorrect password");
                 }
             } else {
-                alert.setContentText("User not exist");
-                alert.showAndWait();
+                alerts.showAlertWarning("Error Message", "User not exist");
             }
         }
     }
