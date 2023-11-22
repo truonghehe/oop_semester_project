@@ -10,7 +10,6 @@ import java.util.ResourceBundle;
 
 import com.mycompany.app.Alert.Alerts;
 
-import com.mycompany.app.Controllers.GameControllers.gameUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

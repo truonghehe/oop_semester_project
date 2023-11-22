@@ -20,7 +20,7 @@ import javafx.scene.web.HTMLEditor;
 /**
  * The updateController class manages the actions and updates in the update word view of the application.
  */
-@SuppressWarnings("ResultOfMethodCallIgnored")
+
 public class updateController implements Initializable {
 
     @FXML
