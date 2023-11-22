@@ -48,7 +48,7 @@
                               </Label>
                               <ImageView fitHeight="83.0" fitWidth="86.0" layoutX="83.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/signin.png" />
+                                    <Image url="@../images/signIn.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -65,7 +65,7 @@
                               <Label layoutX="80.0" layoutY="91.0" styleClass="lab" text="Sign Up Account" />
                               <ImageView fitHeight="84.0" fitWidth="90.0" layoutX="88.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../images/signup.png" />
+                                    <Image url="@../images/signUp.png" />
                                  </image>
                               </ImageView>
                            </children>
